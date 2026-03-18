@@ -136,23 +136,23 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01–08 | Phase 1 | Pending |
-| HERO-01–07 | Phase 2 | Pending |
-| NARR-01–03 | Phase 3 | Pending |
-| PHIL-01–03 | Phase 3 | Pending |
-| TRACK-01–08 | Phase 3 | Pending |
-| CASE-01–03 | Phase 3 | Pending |
-| TIME-01–05 | Phase 3 | Pending |
-| PERS-01–03 | Phase 3 | Pending |
-| FOOT-01–04 | Phase 3 | Pending |
-| MEDIA-01–06 | Phase 4 | Pending |
-| PERF-01–06 | Phase 5 | Pending |
+| FOUND-01–08 | Phase 1: Foundation | Pending |
+| HERO-01–07 | Phase 2: Hero Section | Pending |
+| NARR-01–03 | Phase 3: Core Sections | Pending |
+| PHIL-01–03 | Phase 3: Core Sections | Pending |
+| TRACK-01–08 | Phase 3: Core Sections | Pending |
+| CASE-01–03 | Phase 3: Core Sections | Pending |
+| TIME-01–05 | Phase 3: Core Sections | Pending |
+| PERS-01–03 | Phase 3: Core Sections | Pending |
+| FOOT-01–04 | Phase 3: Core Sections | Pending |
+| MEDIA-01–06 | Phase 4: Media Section | Pending |
+| PERF-01–06 | Phase 5: Performance and Deployment | Pending |
 
 **Coverage:**
-- v1 requirements: 53 total
-- Mapped to phases: 53
+- v1 requirements: 56 total (FOUND×8, HERO×7, NARR×3, PHIL×3, TRACK×8, CASE×3, MEDIA×6, TIME×5, PERS×3, FOOT×4, PERF×6)
+- Mapped to phases: 56
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-18*
-*Last updated: 2026-03-18 after initial definition*
+*Last updated: 2026-03-18 after roadmap creation (corrected count from 53 to 56)*
