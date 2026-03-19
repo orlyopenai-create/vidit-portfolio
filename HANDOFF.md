@@ -15,9 +15,9 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 3 — Core Sections (3/4 plans complete)
-**Last action:** Phase 3 Plan 03 complete. Kilrr Investment Story section built (bg-surface, 5-paragraph case study, we/the fund framing). Career Timeline section built (two-column responsive grid, 5 real entries, staggered whileInView). Timeline data fully populated with real PRD copy and corrected role titles. 8 CASE+TIME requirements marked complete.
-**Next step:** `/gsd:execute-phase 3` (continue with plan 04 — Beyond Work, Footer)
+**Phase:** Phase 3 — Core Sections (4/4 plans complete — PHASE COMPLETE)
+**Last action:** Phase 3 Plan 04 complete. BeyondWork section built (Story of My Life + middot interests, side-by-side desktop / stacked mobile). Footer built (mailto link, LinkedIn new tab, bg-surface, no contact form). All 8 sections wired into page.tsx in scroll order. Build passes. 7 PERS+FOOT requirements marked complete.
+**Next step:** `/gsd:execute-phase 4` (Phase 4 — Media Section: LinkedIn post cards + photo gallery)
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -30,7 +30,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 |---|-------|--------|--------------|
 | 1 | Foundation | ✓ Complete (2026-03-19) | FOUND-01–08: Next.js scaffold, fonts, MotionProvider, data files |
 | 2 | Hero Section | ✓ Complete (2026-03-19) | HERO-01–07: Full-viewport hero, circular photo, career pills, palette |
-| 3 | Core Sections | ⬜ Not started | NARR/PHIL/TRACK/CASE/TIME/PERS/FOOT (29 reqs): All narrative + credibility sections |
+| 3 | Core Sections | ✓ Complete (2026-03-20) | NARR/PHIL/TRACK/CASE/TIME/PERS/FOOT (29 reqs): All narrative + credibility sections |
 | 4 | Media Section | ⬜ Not started | MEDIA-01–06: LinkedIn post cards, photo gallery, lightbox |
 | 5 | Performance & Deploy | ⬜ Not started | PERF-01–06: Lighthouse 90+, responsive, TypeScript strict, production |
 
@@ -181,4 +181,16 @@ All in `.planning/`:
 
 ---
 
-*Last updated: 2026-03-19 — Phase 3 Plan 03 complete. Kilrr and Timeline sections built. 7/8 total plans complete (88%). Remaining: Beyond Work, Footer (plan 04), and Media section.*
+---
+
+## What Phase 3 Plan 04 Built
+
+**Plan 04 — Beyond Work + Footer + Full Page Wiring:**
+- `components/beyondwork/BeyondWorkAnimations.tsx` — `'use client'`, `grid-cols-1 md:grid-cols-2`, staggered whileInView for Story of My Life and Interests sub-sections
+- `components/sections/BeyondWorkSection.tsx` — server component, Story of My Life (5 editions, 32 speakers, 500+ attendees, ~600K YouTube views), interests as middot-separated inline text
+- `components/sections/FooterSection.tsx` — server component, `bg-surface`, mailto link, LinkedIn new tab (`rel="noopener noreferrer"`), closing line, copyright, no contact form
+- `app/page.tsx` — updated to import and render all 8 sections in scroll order (20 lines clean)
+
+---
+
+*Last updated: 2026-03-20 — Phase 3 COMPLETE. All 8 sections built and wired. Build passes. 8/8 plans complete (100%). Next: Phase 4 — Media Section (LinkedIn posts + photo gallery).*
