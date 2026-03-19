@@ -33,9 +33,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold Next.js 16 with Tailwind v4, fonts, dark background, design tokens
-- [ ] 01-02-PLAN.md — MotionProvider, TypeScript types, and content data files with placeholders
-- [ ] 01-03-PLAN.md — Vercel deployment and Cloudflare env var configuration
+- [x] 01-01-PLAN.md — Scaffold Next.js 16 with Tailwind v4, fonts, dark background, design tokens
+- [x] 01-02-PLAN.md — MotionProvider, TypeScript types, and content data files with placeholders
+- [x] 01-03-PLAN.md — Vercel deployment and Cloudflare env var configuration
 
 ### Phase 2: Hero Section
 **Goal**: The full-viewport hero section is live — name, identity descriptor, subline, headshot placeholder, and four animated stat count-up widgets that trigger on scroll entry
@@ -50,7 +50,7 @@ Plans:
 **Plans:** 1/1 plans complete
 
 Plans:
-- [ ] 02-01-PLAN.md — Build hero components (StatCountUp, HeroAnimations, HeroSection) and wire into page.tsx
+- [x] 02-01-PLAN.md — Build hero components (StatCountUp, HeroAnimations, HeroSection) and wire into page.tsx
 
 ### Phase 3: Core Sections
 **Goal**: Every narrative and credibility section is present and populated with placeholder-ready content — the site is fully shippable even before real photos or LinkedIn posts are supplied
@@ -63,7 +63,13 @@ Plans:
   4. The standout investments table shows 5 rows (Go Zero, Kilrr, Fishmongers, Anveshan, Mekr) with all columns populated
   5. The career timeline shows 5 entries in reverse chronological order and collapses to a single column on mobile
   6. The footer shows email as a mailto link, LinkedIn opening in a new tab, and the closing line — no contact form present
-**Plans**: TBD
+**Plans:** 4 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — About / The Story section + Investment Philosophy section with real copy
+- [ ] 03-02-PLAN.md — The Barbershop Fund section (stats, investment table, logo grid)
+- [ ] 03-03-PLAN.md — Kilrr Investment Story case study + Career Timeline section
+- [ ] 03-04-PLAN.md — Beyond Work + Footer sections + wire all 8 sections into page.tsx
 
 ### Phase 4: Media Section
 **Goal**: The Writing & Media section is live with LinkedIn post cards and a photo gallery with lightbox — built with placeholders so Vidit can swap in real content without touching component code
@@ -98,6 +104,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-03-19 |
 | 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
-| 3. Core Sections | 0/TBD | Not started | - |
+| 3. Core Sections | 0/4 | Planning complete | - |
 | 4. Media Section | 0/TBD | Not started | - |
 | 5. Performance and Deployment | 0/TBD | Not started | - |
