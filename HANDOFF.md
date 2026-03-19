@@ -15,9 +15,9 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 3 — Core Sections (2/4 plans complete)
-**Last action:** Phase 3 Plan 02 complete. Fund section built: FundAnimations, LogoGrid, FundSection. All 25 portfolio companies populated with real data. 8 TRACK requirements marked complete.
-**Next step:** `/gsd:execute-phase 3` (continue with plan 03 or 04)
+**Phase:** Phase 3 — Core Sections (3/4 plans complete)
+**Last action:** Phase 3 Plan 03 complete. Kilrr Investment Story section built (bg-surface, 5-paragraph case study, we/the fund framing). Career Timeline section built (two-column responsive grid, 5 real entries, staggered whileInView). Timeline data fully populated with real PRD copy and corrected role titles. 8 CASE+TIME requirements marked complete.
+**Next step:** `/gsd:execute-phase 3` (continue with plan 04 — Beyond Work, Footer)
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -154,6 +154,17 @@ All in `.planning/`:
 
 ---
 
+## What Phase 3 Plan 03 Built
+
+**Plan 03 — Kilrr Investment Story + Career Timeline:**
+- `lib/data/timeline.ts` — All 5 placeholder descriptions replaced with real PRD copy; role titles corrected (Head of Business, Chief of Staff & Head of Investments, Investment Banking Associate — EMEA M&A, Investment Banking Analyst — CEEMEA & Corporate DCM, BSc Economics)
+- `components/kilrr/KilrrAnimations.tsx` — `'use client'`, staggered paragraph fade-in via `m.p` with `delay: i * 0.06`
+- `components/sections/KilrrSection.tsx` — server component, `bg-surface` background, full 5-paragraph Kilrr case study, we/us/our framing throughout
+- `components/timeline/TimelineAnimations.tsx` — `'use client'`, `grid-cols-1 md:grid-cols-[160px_1fr]`, `whitespace-pre-line`, stagger `delay: i * 0.08`
+- `components/sections/TimelineSection.tsx` — server component, imports `timelineEntries`
+
+---
+
 ## What Phase 3 Plans 01-02 Built
 
 **Plan 01 — About + Philosophy sections:**
@@ -170,4 +181,4 @@ All in `.planning/`:
 
 ---
 
-*Last updated: 2026-03-19 — Phase 3 Plans 01-02 complete. About, Philosophy, and Fund sections built. 6/8 total plans complete (75%). Remaining: Kilrr case study, timeline, footer, and media sections.*
+*Last updated: 2026-03-19 — Phase 3 Plan 03 complete. Kilrr and Timeline sections built. 7/8 total plans complete (88%). Remaining: Beyond Work, Footer (plan 04), and Media section.*
