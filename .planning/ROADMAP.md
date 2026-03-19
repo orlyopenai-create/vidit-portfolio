@@ -104,6 +104,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-03-19 |
 | 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
-| 3. Core Sections | 4/4 | Complete   | 2026-03-19 |
+| 3. Core Sections | 4/4 | Complete    | 2026-03-19 |
 | 4. Media Section | 0/TBD | Not started | - |
 | 5. Performance and Deployment | 0/TBD | Not started | - |
