@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-18T14:34:22.931Z"
+stopped_at: Completed 01-foundation-01-PLAN.md
+last_updated: "2026-03-19T06:23:42.670Z"
 last_activity: 2026-03-18 — Roadmap created, ready to plan Phase 1
 progress:
   total_phases: 5
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 3
+  completed_plans: 1
   percent: 0
 ---
 
@@ -50,6 +50,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-foundation P01 | 7 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -61,6 +62,9 @@ Recent decisions affecting current work:
 - [Init]: Next.js 16 App Router + Tailwind v4 + Framer Motion 11 + Vercel deploy
 - [Init]: Single-page scroll architecture; static TypeScript data files; no CMS in v1
 - [Init]: Content assets (headshot, photos, LinkedIn posts) not yet available — build placeholder-first throughout
+- [Phase 01-foundation]: Playfair Display loaded with explicit weights ['400', '700'] — not a variable font; DM Sans and DM Mono loaded as variable fonts
+- [Phase 01-foundation]: Tailwind v4 @theme block for all design tokens; no tailwind.config.js
+- [Phase 01-foundation]: Dark background (#0D0D0D) set in globals.css on html,body — not via Tailwind class — to prevent white flash before CSS loads
 
 ### Pending Todos
 
@@ -75,6 +79,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T14:34:22.928Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-foundation/01-CONTEXT.md
+Last session: 2026-03-19T06:23:42.667Z
+Stopped at: Completed 01-foundation-01-PLAN.md
+Resume file: None
