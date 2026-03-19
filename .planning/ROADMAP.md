@@ -63,7 +63,7 @@ Plans:
   4. The standout investments table shows 5 rows (Go Zero, Kilrr, Fishmongers, Anveshan, Mekr) with all columns populated
   5. The career timeline shows 5 entries in reverse chronological order and collapses to a single column on mobile
   6. The footer shows email as a mailto link, LinkedIn opening in a new tab, and the closing line — no contact form present
-**Plans:** 2/4 plans executed
+**Plans:** 3/4 plans executed
 
 Plans:
 - [ ] 03-01-PLAN.md — About / The Story section + Investment Philosophy section with real copy
@@ -104,6 +104,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-03-19 |
 | 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
-| 3. Core Sections | 2/4 | In Progress|  |
+| 3. Core Sections | 3/4 | In Progress|  |
 | 4. Media Section | 0/TBD | Not started | - |
 | 5. Performance and Deployment | 0/TBD | Not started | - |

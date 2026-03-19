@@ -53,9 +53,9 @@
 
 ### Case Study (Kilrr)
 
-- [ ] **CASE-01**: Featured investment section clearly labelled `Investment Story` — Kilrr case study (~300 words) as specified in PRD
-- [ ] **CASE-02**: Section uses subtle background fill or left border accent to visually distinguish from surrounding sections
-- [ ] **CASE-03**: "We/the fund" framing throughout — never "I" for investment decisions
+- [x] **CASE-01**: Featured investment section clearly labelled `Investment Story` — Kilrr case study (~300 words) as specified in PRD
+- [x] **CASE-02**: Section uses subtle background fill or left border accent to visually distinguish from surrounding sections
+- [x] **CASE-03**: "We/the fund" framing throughout — never "I" for investment decisions
 
 ### Writing & Media
 
@@ -68,11 +68,11 @@
 
 ### Career Timeline
 
-- [ ] **TIME-01**: Vertical career timeline in reverse chronological order with right-aligned dates and left-aligned role/description
-- [ ] **TIME-02**: 5 entries as specified in PRD: Orly (Jul 2025–Present), BSC/Barbershop Fund (Nov 2023–Jul 2025), Nomura London (Jul 2021–Sep 2023), Nomura Mumbai (May 2019–Jun 2021), NMIMS (2016–2019)
-- [ ] **TIME-03**: Each entry includes full description copy from the PRD — not truncated
-- [ ] **TIME-04**: Timeline collapses to single column on mobile
-- [ ] **TIME-05**: Scroll-triggered reveal animation per timeline entry
+- [x] **TIME-01**: Vertical career timeline in reverse chronological order with right-aligned dates and left-aligned role/description
+- [x] **TIME-02**: 5 entries as specified in PRD: Orly (Jul 2025–Present), BSC/Barbershop Fund (Nov 2023–Jul 2025), Nomura London (Jul 2021–Sep 2023), Nomura Mumbai (May 2019–Jun 2021), NMIMS (2016–2019)
+- [x] **TIME-03**: Each entry includes full description copy from the PRD — not truncated
+- [x] **TIME-04**: Timeline collapses to single column on mobile
+- [x] **TIME-05**: Scroll-triggered reveal animation per timeline entry
 
 ### Beyond Work
 
