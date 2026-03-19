@@ -19,8 +19,7 @@ export function HeroAnimations({ identity, stats, headshot }: HeroAnimationsProp
         <div className="md:w-3/5 flex flex-col gap-4">
           <m.h1
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
             className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight"
           >
@@ -28,8 +27,7 @@ export function HeroAnimations({ identity, stats, headshot }: HeroAnimationsProp
           </m.h1>
           <m.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
             className="font-body text-xl md:text-2xl text-foreground"
           >
@@ -37,8 +35,7 @@ export function HeroAnimations({ identity, stats, headshot }: HeroAnimationsProp
           </m.p>
           <m.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
             className="font-body text-sm md:text-base text-muted"
           >
@@ -50,8 +47,7 @@ export function HeroAnimations({ identity, stats, headshot }: HeroAnimationsProp
         <div className="md:w-2/5 flex justify-center md:justify-end items-end">
           <m.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.45 }}
             className="hidden md:block"
           >
