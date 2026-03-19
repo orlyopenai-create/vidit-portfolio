@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-hero-section-01-PLAN.md
-last_updated: "2026-03-19T09:14:50.002Z"
+stopped_at: Completed 03-core-sections-01-PLAN.md
+last_updated: "2026-03-19T13:09:40.564Z"
 last_activity: 2026-03-18 — Roadmap created, ready to plan Phase 1
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 8
+  completed_plans: 5
   percent: 0
 ---
 
@@ -55,6 +55,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-foundation P03 | 15 | 1 tasks | 3 files |
 | Phase 01-foundation P03 | 20 | 2 tasks | 3 files |
 | Phase 02-hero-section P01 | 8 | 2 tasks | 4 files |
+| Phase 03-core-sections P01 | 3 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,9 @@ Recent decisions affecting current work:
 - [Phase 02-hero-section]: Used m.* (not motion.*) throughout HeroAnimations — LazyMotion at root requires m.* not motion.*
 - [Phase 02-hero-section]: StatCountUp gated on if (\!isInView) return — count-up fires only on viewport entry, not page load
 - [Phase 02-hero-section]: HeroSection kept as server component (no 'use client') — data imports from static lib/data/hero.ts per PERF-03
+- [Phase 03-core-sections]: AboutAnimations splits prose via .split('\n\n') and renders each paragraph as m.p with staggered delay
+- [Phase 03-core-sections]: Philosophy body uses whitespace-pre-line so \n\n in data file renders as paragraph spacing without extra JSX elements
+- [Phase 03-core-sections]: Pull quote styled as m.blockquote with border-l-2 border-accent and font-display text-2xl md:text-3xl italic per NARR-02
 
 ### Pending Todos
 
@@ -93,6 +97,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-19T09:14:49.995Z
-Stopped at: Completed 02-hero-section-01-PLAN.md
+Last session: 2026-03-19T13:09:40.561Z
+Stopped at: Completed 03-core-sections-01-PLAN.md
 Resume file: None

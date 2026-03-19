@@ -30,15 +30,15 @@
 
 ### Narrative (About / The Story)
 
-- [ ] **NARR-01**: "About / The Story" section with the full ~250-word narrative prose as specified in the PRD (investment banking → BSC/Barbershop Fund → Orly arc)
-- [ ] **NARR-02**: Pull quote displayed prominently: *"Running a company taught me things no pitch deck ever could."* — styled in Playfair Display at large size
-- [ ] **NARR-03**: Section fade-in on scroll entry
+- [x] **NARR-01**: "About / The Story" section with the full ~250-word narrative prose as specified in the PRD (investment banking → BSC/Barbershop Fund → Orly arc)
+- [x] **NARR-02**: Pull quote displayed prominently: *"Running a company taught me things no pitch deck ever could."* — styled in Playfair Display at large size
+- [x] **NARR-03**: Section fade-in on scroll entry
 
 ### Philosophy
 
-- [ ] **PHIL-01**: Investment Philosophy section with 3 numbered pillars: `01 — Founder First, Always`, `02 — Tailwinds Are Table Stakes; Retention Is the Edge`, `03 — Operator Alpha Is Real`
-- [ ] **PHIL-02**: Each pillar displays the full paragraph copy from the PRD — no truncation, no icons
-- [ ] **PHIL-03**: Clean numbered layout — not a bullet list, not cards; editorial editorial typographic treatment
+- [x] **PHIL-01**: Investment Philosophy section with 3 numbered pillars: `01 — Founder First, Always`, `02 — Tailwinds Are Table Stakes; Retention Is the Edge`, `03 — Operator Alpha Is Real`
+- [x] **PHIL-02**: Each pillar displays the full paragraph copy from the PRD — no truncation, no icons
+- [x] **PHIL-03**: Clean numbered layout — not a bullet list, not cards; editorial editorial typographic treatment
 
 ### Track Record (Barbershop Fund)
 
