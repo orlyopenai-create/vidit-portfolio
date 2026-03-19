@@ -18,19 +18,18 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 pb-16 pt-20 text-center">
 
-      {/* Circle headshot — wrapper handles the crop */}
+      {/* Circle headshot — fill inside relative wrapper for reliable crop */}
       <m.div
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="mb-8 w-40 h-40 rounded-full overflow-hidden border border-accent/25 flex-shrink-0"
+        className="mb-8 relative w-40 h-40 rounded-full overflow-hidden border border-accent/25 flex-shrink-0"
       >
         <Image
           src={headshot}
           alt="Vidit Dugar"
-          width={160}
-          height={213}
-          className="w-full h-full object-cover object-top"
+          fill
+          className="object-cover object-[50%_12%]"
           priority
         />
       </m.div>
