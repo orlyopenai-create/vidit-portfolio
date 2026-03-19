@@ -15,9 +15,30 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 1 planned — ready to execute
-**Last action:** Phase 1 plans created and verified (3 plans, 2 waves, all 8 requirements covered)
-**Next step:** `/gsd:execute-phase 1`
+**Phase:** Phase 1 — executing (paused at Vercel auth checkpoint)
+**Last action:** Executed 01-01, 01-02 (full scaffold + data architecture), 01-03 local env var setup. Paused at Vercel deployment checkpoint.
+**Next step:** User must authenticate Vercel, create GitHub repo, push, and deploy. Then type "approved" to resume.
+
+### Checkpoint: Vercel Deployment Required (01-03 Task 2)
+
+**What's complete:**
+- `.env.example` committed with `NEXT_PUBLIC_CLOUDFLARE_URL` documented
+- `.env.local` created locally (gitignored)
+- `.gitignore` updated to allow `.env.example` to be tracked
+
+**What user must do:**
+1. Create GitHub repo: go to github.com/new, name it `vidit-portfolio`, then:
+   ```
+   git remote add origin https://github.com/YOUR_USERNAME/vidit-portfolio.git
+   git push -u origin master
+   ```
+2. Authenticate Vercel: `npx vercel login`
+3. Link and deploy: `npx vercel --yes` then `npx vercel --prod --yes`
+4. Set env var: `npx vercel env add NEXT_PUBLIC_CLOUDFLARE_URL production preview development`
+   (enter `https://placeholder.example.com` when prompted)
+5. Visit the Vercel URL and verify the dark foundation page loads correctly
+
+**After verifying:** Type "approved" to confirm and continue to Phase 2.
 
 ---
 
@@ -128,4 +149,4 @@ All in `.planning/`:
 
 ---
 
-*Last updated: 2026-03-19 — Phase 1 planned and verified (3 plans, 2 waves), ready to execute*
+*Last updated: 2026-03-19 — Phase 1 executing: 01-01 + 01-02 complete, 01-03 paused at Vercel auth checkpoint*
