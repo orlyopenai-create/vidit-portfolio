@@ -12,7 +12,7 @@ provides:
   - .env.example documenting NEXT_PUBLIC_CLOUDFLARE_URL for Cloudflare CDN
   - .gitignore updated to allow .env.example to be tracked
   - .env.local with placeholder Cloudflare URL for local dev
-  - Pending: Vercel project linked with auto-deploy on main (awaiting user auth)
+  - Vercel project linked with auto-deploy on main (confirmed live)
 affects: [04-media, all phases using NEXT_PUBLIC_CLOUDFLARE_URL]
 
 # Tech tracking
@@ -30,7 +30,7 @@ key-files:
 key-decisions:
   - ".gitignore updated with !.env.example negation so the example file can be tracked while all other .env* files remain ignored"
   - "NEXT_PUBLIC_CLOUDFLARE_URL uses placeholder value until Vidit provides real Cloudflare subdomain URL"
-  - "Vercel deployment requires user authentication — gh CLI not available on this machine"
+  - "Vercel deployment required user authentication — user authenticated Vercel CLI, created GitHub repo, and deployed manually"
 
 patterns-established:
   - "Pattern 1: .env.example committed to git as documentation; .env.local created locally but gitignored"
@@ -39,33 +39,35 @@ patterns-established:
 requirements-completed: [FOUND-06, FOUND-07]
 
 # Metrics
-duration: ~15min
+duration: ~20min
 completed: 2026-03-19
 ---
 
 # Phase 1 Plan 03: Vercel Deployment + Env Vars Summary
 
-**Environment variable infrastructure established with .env.example committed; Vercel deployment awaiting user authentication and GitHub repo creation**
+**Vercel CI/CD pipeline live at https://vidit-portfolio-vert.vercel.app with auto-deploy on push to main and NEXT_PUBLIC_CLOUDFLARE_URL env var configured**
 
 ## Performance
 
-- **Duration:** ~15 min
+- **Duration:** ~20 min
 - **Started:** 2026-03-19T00:00:00Z
-- **Completed:** 2026-03-19 (paused at checkpoint — Vercel auth required)
-- **Tasks:** 1 of 2 (local setup complete; Vercel deploy pending user action)
+- **Completed:** 2026-03-19T06:50:00Z
+- **Tasks:** 2 of 2 (env var setup + Vercel deployment verified)
 - **Files modified:** 3
 
 ## Accomplishments
 - Created `.env.example` documenting `NEXT_PUBLIC_CLOUDFLARE_URL` with placeholder value
 - Created `.env.local` with placeholder Cloudflare URL for local development (gitignored)
 - Updated `.gitignore` to allow `.env.example` to be tracked while keeping all other `.env*` files ignored
-- Verified `.env.local` is not tracked by git (`git ls-files .env.local` returns empty)
+- Vercel deployment confirmed live at https://vidit-portfolio-vert.vercel.app showing dark background and correct fonts
+- Auto-deploy on push to main confirmed working
 
 ## Task Commits
 
 Each task was committed atomically:
 
-1. **Task 1: Configure environment variables (local setup)** - `0101fe5` (feat)
+1. **Task 1: Configure environment variables and deploy to Vercel** - `0101fe5` (feat)
+2. **Task 2: Verify Vercel deployment is live** - checkpoint approved by user (no code commit — human verification)
 
 **Plan metadata:** pending final docs commit
 
@@ -76,7 +78,7 @@ Each task was committed atomically:
 
 ## Decisions Made
 - The `.gitignore` had `.env*` which would have blocked `.env.example` from being committed. Added `!.env.example` negation rule — this is standard practice for documenting required env vars without exposing secrets.
-- Vercel deployment requires authenticated Vercel CLI session and a GitHub remote. The `gh` CLI is not available on this machine, so the user must create the GitHub repo and run the Vercel deploy manually.
+- Vercel deployment required authenticated Vercel CLI session and a GitHub remote. The `gh` CLI was not available on this machine, so the user created the GitHub repo and ran the Vercel deploy manually.
 
 ## Deviations from Plan
 
@@ -96,44 +98,19 @@ Each task was committed atomically:
 **Impact on plan:** Required fix for correctness. Without it, `.env.example` could not be committed.
 
 ## Issues Encountered
-- Vercel CLI not authenticated: `npx vercel whoami` prompted for login with device auth URL. This is an authentication gate — user must authenticate Vercel CLI and create GitHub remote before deployment can proceed.
-- `gh` (GitHub CLI) not available: Cannot auto-create GitHub repository. User must create it manually or via GitHub web UI.
+- Vercel CLI not authenticated on Claude's machine: authentication gate hit during Task 1. User was given exact steps to authenticate, create GitHub repo, and deploy. User completed all steps and confirmed deployment live.
+- `gh` (GitHub CLI) not available: Could not auto-create GitHub repository. User created it manually.
 
 ## User Setup Required
 
-The following steps require user action before Vercel deployment can complete:
-
-1. **Create GitHub repository** and push:
-   ```
-   # On GitHub.com, create a new repo named "vidit-portfolio" (public or private)
-   git remote add origin https://github.com/YOUR_USERNAME/vidit-portfolio.git
-   git push -u origin master
-   ```
-
-2. **Authenticate Vercel CLI:**
-   ```
-   npx vercel login
-   ```
-
-3. **Link and deploy to Vercel:**
-   ```
-   npx vercel --yes
-   npx vercel --prod --yes
-   ```
-
-4. **Set Cloudflare env var on Vercel:**
-   ```
-   npx vercel env add NEXT_PUBLIC_CLOUDFLARE_URL production preview development
-   # When prompted, enter: https://placeholder.example.com
-   ```
-
-5. **Verify deployment** by visiting the Vercel URL shown in step 3 output.
+All setup has been completed by the user. No further configuration required for this plan.
 
 ## Next Phase Readiness
-- Local env var infrastructure complete — `.env.example` committed, `.env.local` in place
-- Blocking on Vercel authentication + GitHub repo creation before deployment goes live
-- Once Vercel deployment confirmed, Phase 2 (Hero section) can proceed — it has no runtime dependency on Vercel being live
+- Vercel CI/CD pipeline fully operational — every push to main auto-deploys
+- `.env.example` committed as env var documentation for future contributors
+- `NEXT_PUBLIC_CLOUDFLARE_URL` placeholder configured in Vercel — update to real Cloudflare subdomain URL in Phase 4
+- Phase 2 (Hero section) is unblocked and can proceed
 
 ---
 *Phase: 01-foundation*
-*Completed: 2026-03-19 (partial — awaiting Vercel checkpoint)*
+*Completed: 2026-03-19*
