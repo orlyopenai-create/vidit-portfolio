@@ -42,14 +42,14 @@
 
 ### Track Record (Barbershop Fund)
 
-- [ ] **TRACK-01**: Section header `The Barbershop Fund` with subtitle `₹25Cr Category-I AIF · 80 LPs · 2023–2025`
-- [ ] **TRACK-02**: 4 fund summary animated stats: 1.8x (MOIC on ₹20Cr Deployed), 16 (Investments Made), 50%+ (Portfolio with Follow-on Rounds), 5 (Companies Featured on Shark Tank India)
-- [ ] **TRACK-03**: Standout investments table with 5 rows: Go Zero, Kilrr, Fishmongers, Anveshan, Mekr — columns: Company, Sector, Entry Valuation, Latest Valuation, Multiple, Notable Co-investors
-- [ ] **TRACK-04**: Full portfolio logo grid showing all 25 companies in 4–5 column grid
-- [ ] **TRACK-05**: All logos rendered in white/monochrome via CSS `filter: brightness(0) invert(1)` on dark background
-- [ ] **TRACK-06**: Hover on logo reveals original color logo as a delight interaction
-- [ ] **TRACK-07**: Logos sourced via Brandfetch CDN where available; fallback to local `/public/logos/` files for unavailable brands
-- [ ] **TRACK-08**: "We/the fund" framing used throughout — no first-person singular for investment decisions
+- [x] **TRACK-01**: Section header `The Barbershop Fund` with subtitle `₹25Cr Category-I AIF · 80 LPs · 2023–2025`
+- [x] **TRACK-02**: 4 fund summary animated stats: 1.8x (MOIC on ₹20Cr Deployed), 16 (Investments Made), 50%+ (Portfolio with Follow-on Rounds), 5 (Companies Featured on Shark Tank India)
+- [x] **TRACK-03**: Standout investments table with 5 rows: Go Zero, Kilrr, Fishmongers, Anveshan, Mekr — columns: Company, Sector, Entry Valuation, Latest Valuation, Multiple, Notable Co-investors
+- [x] **TRACK-04**: Full portfolio logo grid showing all 25 companies in 4–5 column grid
+- [x] **TRACK-05**: All logos rendered in white/monochrome via CSS `filter: brightness(0) invert(1)` on dark background
+- [x] **TRACK-06**: Hover on logo reveals original color logo as a delight interaction
+- [x] **TRACK-07**: Logos sourced via Brandfetch CDN where available; fallback to local `/public/logos/` files for unavailable brands
+- [x] **TRACK-08**: "We/the fund" framing used throughout — no first-person singular for investment decisions
 
 ### Case Study (Kilrr)
 
