@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0D0D0D;
-  --color-foreground: #F5F0E8;
-  --color-muted: #A39E93;
-  --color-accent: #C8922A;
-  --color-accent-hover: #D4A23E;
+  --color-background: #F5EFE6;
+  --color-surface:    #EDE4D8;
+  --color-foreground: #241E18;
+  --color-muted:      #8A7E74;
+  --color-accent:     #A6701A;
+  --color-accent-hover: #B8841E;
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
   --font-mono: "DM Mono", monospace;
@@ -13,10 +14,10 @@
 
 html,
 body {
-  background-color: #0D0D0D;
-  color: #F5F0E8;
+  background-color: #F5EFE6;
+  color: #241E18;
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }

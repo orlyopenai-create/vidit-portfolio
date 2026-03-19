@@ -23,7 +23,7 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="mb-8 relative w-40 h-40 rounded-full overflow-hidden border border-accent/25 flex-shrink-0"
+        className="mb-8 relative w-40 h-40 rounded-full overflow-hidden border-2 border-surface flex-shrink-0 shadow-sm"
       >
         <Image
           src={headshot}
