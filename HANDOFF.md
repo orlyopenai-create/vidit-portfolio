@@ -15,22 +15,12 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 1 — COMPLETE (all 3 plans done)
-**Last action:** Executed 01-01 (scaffold), 01-02 (MotionProvider + data files), 01-03 (Vercel deployment). All plans complete.
-**Next step:** Run `/gsd:execute-phase 2` to begin Phase 2 — Hero Section.
+**Phase:** Phase 2 — Hero Section (planned, ready to execute)
+**Last action:** `/gsd:plan-phase 2` complete. 1 plan (02-01-PLAN.md), 1 wave, all 7 HERO reqs covered. Research + VALIDATION.md committed.
+**Next step:** `/gsd:execute-phase 2`
 
-### Phase 1 Complete — Vercel Deployment Live
-
-**Live URL:** https://vidit-portfolio-vert.vercel.app
-
-**What was built:**
-- Next.js 16 App Router scaffold with Tailwind v4, Framer Motion 11
-- Font configuration: Playfair Display, DM Sans, DM Mono via `next/font/google`
-- Dark background `#0D0D0D` on `html, body` in `globals.css` — no white flash
-- LazyMotion + domAnimation at app root
-- All TypeScript data files scaffolded: `portfolioCompanies` (25 placeholders), `linkedInPosts` (empty), `photos` (empty), `hero`, `fund`, `philosophy`, `timeline`, `about`, `contact`
-- `.env.example` committed documenting `NEXT_PUBLIC_CLOUDFLARE_URL`
-- Vercel CI/CD: auto-deploys on push to main, confirmed working
+**Live URL:** `https://vidit-portfolio-vert.vercel.app`
+**GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
 
 ---
 
@@ -38,11 +28,30 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 | # | Phase | Status | Requirements |
 |---|-------|--------|--------------|
-| 1 | Foundation | Complete (3/3 plans) | FOUND-01–08: Next.js scaffold, fonts, dark bg, MotionProvider, data files |
-| 2 | Hero Section | ⬜ Not started | HERO-01–07: Full-viewport hero, animated stat count-ups |
+| 1 | Foundation | ✓ Complete (2026-03-19) | FOUND-01–08: Next.js scaffold, fonts, dark bg, MotionProvider, data files |
+| 2 | Hero Section | 🔵 Context ready | HERO-01–07: Full-viewport hero, animated stat count-ups |
 | 3 | Core Sections | ⬜ Not started | NARR/PHIL/TRACK/CASE/TIME/PERS/FOOT (29 reqs): All narrative + credibility sections |
 | 4 | Media Section | ⬜ Not started | MEDIA-01–06: LinkedIn post cards, photo gallery, lightbox |
 | 5 | Performance & Deploy | ⬜ Not started | PERF-01–06: Lighthouse 90+, responsive, TypeScript strict, production |
+
+---
+
+## What Phase 1 Built
+
+- Next.js 16.2.0 App Router + TypeScript strict + Tailwind CSS v4
+- Fonts via `next/font/google`: Playfair Display (headings), DM Sans (body), DM Mono (numbers) — exposed as CSS variables
+- Dark background `#0D0D0D` on `html, body` in `globals.css` — pre-JS, no white flash
+- `LazyMotion + domAnimation` provider at app root (`components/providers/MotionProvider.tsx`)
+- All 8 TypeScript interfaces in `lib/types.ts`
+- All 5 content data files scaffolded with real/placeholder content:
+  - `lib/data/hero.ts` — 4 stats + identity
+  - `lib/data/philosophy.ts` — 3 pillars
+  - `lib/data/fund.ts` — fund stats, 5 standout investments, 25 portfolio company scaffolds
+  - `lib/data/timeline.ts` — 5 career entries
+  - `lib/data/media.ts` — empty arrays (pending Vidit assets)
+- `public/logos/.gitkeep` — logos directory tracked
+- `.env.example` committed with `NEXT_PUBLIC_CLOUDFLARE_URL` placeholder
+- Vercel CI/CD: project linked, `NEXT_PUBLIC_CLOUDFLARE_URL` env var set
 
 ---
 
@@ -51,13 +60,13 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 | Decision | Details |
 |----------|---------|
 | Framework | Next.js 16 App Router + TypeScript + Tailwind CSS v4 + Framer Motion |
-| Tailwind | **v4** — completely different config: `@import "tailwindcss"` + `@theme {}` in CSS. No `tailwind.config.js`. |
-| Fonts | `next/font/google` only — never `<link>` tags (causes CLS). Playfair Display (headings), DM Sans (body), DM Mono (numbers) |
+| Tailwind | **v4** — `@import "tailwindcss"` + `@theme {}` in CSS. No `tailwind.config.js`. |
+| Fonts | `next/font/google` only — never `<link>` tags (causes CLS) |
 | Animations | `LazyMotion` + `domAnimation` at app root — never full Framer bundle. All animated components are `'use client'` leaf wrappers only. |
 | Dark theme | `background-color: #0D0D0D` on `html, body` in `globals.css` — must be pre-JS to prevent flash |
 | Logo images | Stored in `/public/logos/` as local files, rendered with plain `<img>` tags — no `next/image` for logos |
 | Media assets | Photos/videos hosted on Cloudflare, not `/public/`. Logo grid: local files. |
-| Deployment | Vercel (CI on main branch) |
+| Deployment | Vercel (CI on master branch) |
 | Content | All static in `lib/data/*.ts` — no CMS, no database |
 
 ---
@@ -68,7 +77,8 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 |-------|-------|
 | Background | `#0D0D0D` |
 | Accent (gold) | `#C8922A` |
-| Text | Warm off-white |
+| Text | Warm off-white `#F5F0E8` |
+| Muted text | `#A39E93` |
 | Heading font | Playfair Display |
 | Body font | DM Sans |
 | Numbers font | DM Mono |
@@ -95,7 +105,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 - **"We/the fund" framing** in all investment copy — never "I" for investment decisions (Shantanu Deshpande was final decision-maker at Barbershop Fund)
 - **No contact form** — email mailto link only
 - **No dark/light toggle** — committed dark theme
-- **Placeholder-first** — site must be fully buildable without real headshot, photos, LinkedIn posts, or logos
+- **Headshot available** — `public/vidit-headshot.jpg` (506×900px, downloaded from LinkedIn export 2026-03-19). `heroHeadshot` updated in `lib/data/hero.ts`.
 - **Lighthouse 90+** — architecture decisions (SSR, LazyMotion, next/font) all serve this goal
 - **Logo IP** — 25 portfolio logos displayed in monochrome white; hover reveals color. Confirm stealth companies with Vidit before live
 
@@ -103,7 +113,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Pending Content Assets (Vidit to Supply)
 
-- [ ] Headshot (800×800px min)
+- [x] Headshot — `public/vidit-headshot.jpg` (506×900px portrait, from LinkedIn export)
 - [ ] LinkedIn posts — 6–8 best (text + URL)
 - [ ] Photos: Barbershop podcast, Orly/exhibitions, Nomura London, Story of My Life
 - [ ] Fund deck PDF (`Barbershop_Fund_-_Investment_summary_Q3_FY26.pdf`) — for logo extraction
@@ -119,7 +129,12 @@ All in `.planning/`:
 - `config.json` — YOLO mode, standard granularity, parallel execution, balanced models
 - `REQUIREMENTS.md` — 56 v1 requirements with REQ-IDs
 - `ROADMAP.md` — 5-phase roadmap with success criteria
-- `STATE.md` — GSD project state
+- `STATE.md` — GSD project state (currently: phase 2, context captured, ready to plan)
+- `phases/01-foundation/` — 3 plans + 3 summaries + VERIFICATION.md (all complete)
+- `phases/02-hero-section/02-CONTEXT.md` — Hero design decisions captured
+- `phases/02-hero-section/02-RESEARCH.md` — Framer Motion 12, count-up, Next.js patterns researched
+- `phases/02-hero-section/02-01-PLAN.md` — Single plan: StatCountUp + HeroAnimations + HeroSection + page.tsx wiring
+- `phases/02-hero-section/02-VALIDATION.md` — Nyquist validation strategy
 - `research/` — STACK.md, FEATURES.md, ARCHITECTURE.md, PITFALLS.md, SUMMARY.md
 
 ---
@@ -127,18 +142,19 @@ All in `.planning/`:
 ## How to Resume
 
 ```
-# To execute Phase 1 (next step):
-/gsd:execute-phase 1
+# Phase 2 — Hero Section (planned, execute next):
+/gsd:execute-phase 2
 
-# To check status:
+# Check overall status:
 /gsd:progress
 
-# To review plans before executing:
-# cat .planning/phases/01-foundation/01-01-PLAN.md
-# cat .planning/phases/01-foundation/01-02-PLAN.md
-# cat .planning/phases/01-foundation/01-03-PLAN.md
+# Review Phase 2 context:
+# cat .planning/phases/02-hero-section/02-CONTEXT.md
+
+# View Phase 1 verification:
+# cat .planning/phases/01-foundation/01-VERIFICATION.md
 ```
 
 ---
 
-*Last updated: 2026-03-19 — Phase 1 complete (all 3 plans). Live at https://vidit-portfolio-vert.vercel.app. Ready for Phase 2.*
+*Last updated: 2026-03-19 — Phase 2 planned. 1 plan (02-01), 1 wave, all 7 HERO reqs covered. Verification passed. Ready for `/gsd:execute-phase 2`.*
