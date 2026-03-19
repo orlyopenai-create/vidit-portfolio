@@ -7,7 +7,7 @@ export const heroStats: Stat[] = [
   { value: 50, label: 'Portfolio with Follow-on Rounds', suffix: '%+', decimals: 0 },
 ]
 
-export const heroHeadshot: string | null = null // [Photo - Vidit to upload]
+export const heroHeadshot: string = '/vidit-headshot.jpg' // 506×900 portrait — from LinkedIn export 2026-03-19
 
 export const heroIdentity = {
   name: 'VIDIT DUGAR',
