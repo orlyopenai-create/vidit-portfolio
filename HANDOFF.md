@@ -15,9 +15,9 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 3 — Core Sections (not yet planned)
-**Last action:** Phase 2 fully shipped. Hero redesigned post-execution: circular photo, centered editorial layout, Warm Sand palette finalised, career chapter pills, content refined.
-**Next step:** `/gsd:plan-phase 3`
+**Phase:** Phase 3 — Core Sections (2/4 plans complete)
+**Last action:** Phase 3 Plan 02 complete. Fund section built: FundAnimations, LogoGrid, FundSection. All 25 portfolio companies populated with real data. 8 TRACK requirements marked complete.
+**Next step:** `/gsd:execute-phase 3` (continue with plan 03 or 04)
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -154,4 +154,20 @@ All in `.planning/`:
 
 ---
 
-*Last updated: 2026-03-19 — Phase 2 complete + hero fully refined. Warm Sand palette locked. Circular photo fixed. Career chapters (5 pills). Fund metrics moved to fund section. Ready for `/gsd:plan-phase 3`.*
+## What Phase 3 Plans 01-02 Built
+
+**Plan 01 — About + Philosophy sections:**
+- `components/sections/AboutSection.tsx` — server component
+- `components/about/AboutAnimations.tsx` — prose paragraphs staggered fade-in via `.split('\n\n')`
+- `components/sections/PhilosophySection.tsx` — server component
+- `components/philosophy/PhilosophyAnimations.tsx` — 3 numbered pillars with stagger, pull quote as `m.blockquote` with `border-l-2 border-accent`
+
+**Plan 02 — Barbershop Fund section:**
+- `lib/data/fund.ts` — 5 standout investments with real valuations (Go Zero ~12x, Kilrr ~5x, Fishmongers ~5x, Anveshan ~2.5x, Mekr ~2x), 25 named portfolio companies (16 Brandfetch CDN + 9 local SVG)
+- `components/fund/FundAnimations.tsx` — stats strip (reuses StatCountUp), investments table with overflow-x-auto
+- `components/fund/LogoGrid.tsx` — 3/4/5-col grid, grayscale-to-color hover, CDN fallback
+- `components/sections/FundSection.tsx` — server component
+
+---
+
+*Last updated: 2026-03-19 — Phase 3 Plans 01-02 complete. About, Philosophy, and Fund sections built. 6/8 total plans complete (75%). Remaining: Kilrr case study, timeline, footer, and media sections.*
