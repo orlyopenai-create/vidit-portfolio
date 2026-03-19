@@ -47,7 +47,10 @@ Plans:
   3. Stat numbers render in amber/gold (`#C8922A`); labels render in muted off-white
   4. A clearly labelled headshot placeholder appears in the hero and can be swapped by changing one value in the data file
   5. All hero text elements fade in on scroll entry with `viewport={{ once: true }}` — they do not re-animate on scroll back
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 02-01-PLAN.md — Build hero components (StatCountUp, HeroAnimations, HeroSection) and wire into page.tsx
 
 ### Phase 3: Core Sections
 **Goal**: Every narrative and credibility section is present and populated with placeholder-ready content — the site is fully shippable even before real photos or LinkedIn posts are supplied
@@ -94,7 +97,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-03-19 |
-| 2. Hero Section | 0/TBD | Not started | - |
+| 2. Hero Section | 0/1 | Not started | - |
 | 3. Core Sections | 0/TBD | Not started | - |
 | 4. Media Section | 0/TBD | Not started | - |
 | 5. Performance and Deployment | 0/TBD | Not started | - |
