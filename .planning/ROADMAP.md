@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Scaffold Next.js project with design tokens, fonts, dark background, MotionProvider, and static data files (completed 2026-03-19)
 - [x] **Phase 2: Hero Section** - Build the full-viewport hero with animated stat count-ups and scroll-triggered fade-ins (completed 2026-03-19)
-- [ ] **Phase 3: Core Sections** - Build all narrative and credibility sections (About, Philosophy, Fund, Kilrr, Timeline, Beyond Work, Footer)
+- [x] **Phase 3: Core Sections** - Build all narrative and credibility sections (About, Philosophy, Fund, Kilrr, Timeline, Beyond Work, Footer) (completed 2026-03-19)
 - [ ] **Phase 4: Media Section** - Build the Writing & Media section with LinkedIn post cards, photo gallery, and lightbox
 - [ ] **Phase 5: Performance and Deployment** - Validate Lighthouse 90+, confirm responsive layout, and cut over to production
 
@@ -63,7 +63,7 @@ Plans:
   4. The standout investments table shows 5 rows (Go Zero, Kilrr, Fishmongers, Anveshan, Mekr) with all columns populated
   5. The career timeline shows 5 entries in reverse chronological order and collapses to a single column on mobile
   6. The footer shows email as a mailto link, LinkedIn opening in a new tab, and the closing line — no contact form present
-**Plans:** 3/4 plans executed
+**Plans:** 4/4 plans complete
 
 Plans:
 - [ ] 03-01-PLAN.md — About / The Story section + Investment Philosophy section with real copy
@@ -104,6 +104,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-03-19 |
 | 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
-| 3. Core Sections | 3/4 | In Progress|  |
+| 3. Core Sections | 4/4 | Complete   | 2026-03-19 |
 | 4. Media Section | 0/TBD | Not started | - |
 | 5. Performance and Deployment | 0/TBD | Not started | - |

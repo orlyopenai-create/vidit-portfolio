@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-core-sections-03-PLAN.md
-last_updated: "2026-03-19T13:21:02.502Z"
+stopped_at: Completed 03-core-sections-04-PLAN.md
+last_updated: "2026-03-19T22:06:55.562Z"
 last_activity: 2026-03-18 — Roadmap created, ready to plan Phase 1
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 8
-  completed_plans: 7
+  completed_plans: 8
   percent: 0
 ---
 
@@ -58,6 +58,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-core-sections P01 | 3 | 2 tasks | 5 files |
 | Phase 03-core-sections P02 | 3 | 2 tasks | 4 files |
 | Phase 03-core-sections P03 | 3 | 2 tasks | 5 files |
+| Phase 03-core-sections P04 | 8 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,9 @@ Recent decisions affecting current work:
 - [Phase 03-core-sections]: grayscale opacity-60 / grayscale-0 opacity-100 hover for logos — correct for Warm Sand bg, not brightness/invert which is for dark bg
 - [Phase 03-core-sections]: Timeline descriptions use whitespace-pre-line to preserve paragraph breaks in BSC and Nomura London entries without extra JSX
 - [Phase 03-core-sections]: KilrrSection uses we/us/our framing throughout — no first-person singular for investment decisions
+- [Phase 03-core-sections]: BeyondWorkSection keeps copy inline (not in lib/data) — section is atomic and single-use
+- [Phase 03-core-sections]: FooterSection has no animations — pure server component, no use client needed
+- [Phase 03-core-sections]: Footer uses bg-surface (#EDE4D8) for differentiation — not dark background per original PRD
 
 ### Pending Todos
 
@@ -103,6 +107,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-19T13:21:02.499Z
-Stopped at: Completed 03-core-sections-03-PLAN.md
+Last session: 2026-03-19T22:06:55.555Z
+Stopped at: Completed 03-core-sections-04-PLAN.md
 Resume file: None

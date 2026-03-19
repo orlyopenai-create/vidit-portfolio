@@ -76,16 +76,16 @@
 
 ### Beyond Work
 
-- [ ] **PERS-01**: "Beyond Work" section with two sub-sections: Story of My Life narrative + Interests
-- [ ] **PERS-02**: Story of My Life: short paragraph about the live storytelling event (5 editions, 32 speakers, 500+ attendees, ~600K YouTube views)
-- [ ] **PERS-03**: Interests displayed as inline text (not bullet points): `Badminton · Vipassana Meditation · Formula 1 · Bachata · Techno & House Music · Travel (30+ countries) · Board Games`
+- [x] **PERS-01**: "Beyond Work" section with two sub-sections: Story of My Life narrative + Interests
+- [x] **PERS-02**: Story of My Life: short paragraph about the live storytelling event (5 editions, 32 speakers, 500+ attendees, ~600K YouTube views)
+- [x] **PERS-03**: Interests displayed as inline text (not bullet points): `Badminton · Vipassana Meditation · Formula 1 · Bachata · Techno & House Music · Travel (30+ countries) · Board Games`
 
 ### Contact / Footer
 
-- [ ] **FOOT-01**: Dark footer with centered content: name, email (mailto link), LinkedIn (opens new tab)
-- [ ] **FOOT-02**: One-line closing: `Open to conversations about early-stage consumer investing in India.`
-- [ ] **FOOT-03**: Copyright: `© 2026 Vidit Dugar`
-- [ ] **FOOT-04**: No contact form — email link only
+- [x] **FOOT-01**: Dark footer with centered content: name, email (mailto link), LinkedIn (opens new tab)
+- [x] **FOOT-02**: One-line closing: `Open to conversations about early-stage consumer investing in India.`
+- [x] **FOOT-03**: Copyright: `© 2026 Vidit Dugar`
+- [x] **FOOT-04**: No contact form — email link only
 
 ### Performance & Quality
 
