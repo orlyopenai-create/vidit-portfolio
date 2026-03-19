@@ -12,11 +12,11 @@
 - [x] **FOUND-01**: Next.js 16 App Router project scaffolded with TypeScript, Tailwind CSS v4, and Turbopack
 - [x] **FOUND-02**: `next/font/google` configured with Playfair Display (display/headings), DM Sans (body), and DM Mono (numbers/stats) as CSS variables — no external font requests at runtime
 - [x] **FOUND-03**: Global dark background (`#0D0D0D`) applied on `html, body` in `globals.css` before JavaScript hydration (prevents dark theme flash)
-- [ ] **FOUND-04**: Framer Motion `LazyMotion` + `domAnimation` provider configured at app root — no full Framer Motion bundle shipped
-- [ ] **FOUND-05**: All content stored in `lib/data/*.ts` static TypeScript files — no CMS, no database, no runtime fetches
+- [x] **FOUND-04**: Framer Motion `LazyMotion` + `domAnimation` provider configured at app root — no full Framer Motion bundle shipped
+- [x] **FOUND-05**: All content stored in `lib/data/*.ts` static TypeScript files — no CMS, no database, no runtime fetches
 - [ ] **FOUND-06**: Project deployed to Vercel with CI on main branch
 - [ ] **FOUND-07**: Cloudflare used for media asset hosting (photos, videos) — not stored in `/public/`
-- [ ] **FOUND-08**: Portfolio company logos stored in `/public/logos/` as local SVG/PNG files — no `next/image` remotePatterns for logo grid
+- [x] **FOUND-08**: Portfolio company logos stored in `/public/logos/` as local SVG/PNG files — no `next/image` remotePatterns for logo grid
 
 ### Hero
 
