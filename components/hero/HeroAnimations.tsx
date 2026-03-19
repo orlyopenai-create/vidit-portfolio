@@ -2,76 +2,104 @@
 
 import { m } from 'framer-motion'
 import Image from 'next/image'
-import { StatCountUp } from '@/components/hero/StatCountUp'
-import type { Stat } from '@/lib/types'
+
+interface Chapter {
+  label: string
+}
 
 interface HeroAnimationsProps {
   identity: { name: string; descriptor: string; subline: string }
-  stats: Stat[]
   headshot: string
+  chapters: Chapter[]
+  cities: string[]
 }
 
-export function HeroAnimations({ identity, stats, headshot }: HeroAnimationsProps) {
+export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAnimationsProps) {
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex-1 flex flex-col md:flex-row items-center md:items-end justify-center px-6 md:px-16 lg:px-24 pb-12 pt-24 gap-8 md:gap-12">
-        {/* Left text column */}
-        <div className="md:w-3/5 flex flex-col gap-4">
-          <m.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
-            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight"
-          >
-            {identity.name}
-          </m.h1>
-          <m.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-            className="font-body text-xl md:text-2xl text-foreground"
-          >
-            {identity.descriptor}
-          </m.p>
-          <m.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
-            className="font-body text-sm md:text-base text-muted"
-          >
-            {identity.subline}
-          </m.p>
-        </div>
+    <div className="flex flex-col items-center justify-center min-h-screen px-6 pb-16 pt-20 text-center">
 
-        {/* Right photo column */}
-        <div className="md:w-2/5 flex justify-center md:justify-end items-end">
-          <m.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.45 }}
-            className="hidden md:block"
+      {/* Circle headshot */}
+      <m.div
+        initial={{ opacity: 0, scale: 0.92 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="mb-8"
+      >
+        <Image
+          src={headshot}
+          alt="Vidit Dugar"
+          width={160}
+          height={160}
+          className="rounded-full object-cover object-top border border-accent/25"
+          style={{ width: '160px', height: '160px' }}
+          priority
+        />
+      </m.div>
+
+      {/* Name */}
+      <m.h1
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, ease: 'easeOut', delay: 0.1 }}
+        className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tight mb-5"
+      >
+        {identity.name}
+      </m.h1>
+
+      {/* Descriptor */}
+      <m.p
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: 'easeOut', delay: 0.22 }}
+        className="font-body text-base md:text-lg text-accent tracking-[0.18em] uppercase mb-3"
+      >
+        {identity.descriptor}
+      </m.p>
+
+      {/* Subline */}
+      <m.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.55, ease: 'easeOut', delay: 0.32 }}
+        className="font-body text-sm text-muted mb-10 max-w-sm"
+      >
+        {identity.subline}
+      </m.p>
+
+      {/* Accent hairline */}
+      <m.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.5, ease: 'easeOut', delay: 0.42 }}
+        style={{ originX: 0.5 }}
+        className="w-10 border-t border-accent/50 mb-10"
+      />
+
+      {/* Career chapter pills */}
+      <div className="flex flex-wrap justify-center gap-2 mb-6 max-w-lg">
+        {chapters.map((chapter, i) => (
+          <m.span
+            key={chapter.label}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.5 + i * 0.07 }}
+            className="font-body text-[10px] uppercase tracking-[0.2em] text-muted border border-muted/25 px-3 py-1.5"
           >
-            <Image
-              src={headshot}
-              alt="Vidit Dugar"
-              width={280}
-              height={420}
-              className="object-cover rounded-sm"
-              priority={false}
-            />
-          </m.div>
-        </div>
-      </div>
-
-      {/* Hairline separator */}
-      <div className="border-t border-muted/30" />
-
-      {/* Stat strip */}
-      <div className="flex justify-around items-start px-6 md:px-16 lg:px-24 py-8">
-        {stats.map((stat, i) => (
-          <StatCountUp key={i} stat={stat} />
+            {chapter.label}
+          </m.span>
         ))}
       </div>
+
+      {/* Cities */}
+      <m.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.98 }}
+        className="font-body text-[10px] text-muted/50 tracking-[0.3em] uppercase"
+      >
+        {cities.join(' · ')}
+      </m.p>
+
     </div>
   )
 }
