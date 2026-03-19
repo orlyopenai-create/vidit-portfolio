@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palette C — Warm Sand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── PALETTE C: Warm Sand (light with depth) ── */
+  :root {
+    --bg:        #F5EFE6;
+    --bg2:       #EDE4D8;
+    --text:      #241E18;
+    --muted:     #8A7E74;
+    --accent:    #A6701A;
+    --border:    rgba(138, 126, 116, 0.2);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+
+  .palette-label {
+    position: fixed;
+    top: 16px; left: 50%; transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+
+  .photo-ring {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--bg2);
+    box-shadow: 0 0 0 1px rgba(166, 112, 26, 0.2);
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+  }
+  .photo-ring img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 50% 12%;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .descriptor {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .subline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    max-width: 420px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .hairline {
+    width: 40px;
+    border: none;
+    border-top: 1px solid rgba(166, 112, 26, 0.4);
+    margin-bottom: 2.5rem;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 480px;
+    margin-bottom: 1.5rem;
+  }
+  .pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    padding: 6px 12px;
+    border-radius: 3px;
+  }
+
+  .cities {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(138, 126, 116, 0.5);
+  }
+
+  .swatch-row {
+    position: fixed;
+    bottom: 16px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .swatch { width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
+  .swatch-label { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+
+<div class="palette-label">Option C — Warm Sand</div>
+
+<div class="photo-ring">
+  <img src="/vidit-headshot.jpg" alt="Vidit Dugar">
+</div>
+
+<h1>Vidit Dugar</h1>
+<p class="descriptor">Investor · Operator · Builder</p>
+<p class="subline">Formerly Nomura · Bombay Shaving Company · The Barbershop Fund · The Barbershop with Shantanu · Orly</p>
+
+<hr class="hairline">
+
+<div class="pills">
+  <span class="pill">Investment Banking</span>
+  <span class="pill">Venture Capital</span>
+  <span class="pill">Operator</span>
+  <span class="pill">Content & Media</span>
+  <span class="pill">Chief of Staff</span>
+</div>
+
+<p class="cities">London · Kolkata · Delhi · Mumbai</p>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#F5EFE6"></div>
+  <div class="swatch" style="background:#241E18"></div>
+  <div class="swatch" style="background:#A6701A"></div>
+  <div class="swatch" style="background:#8A7E74"></div>
+  <span class="swatch-label">BG #F5EFE6 · TEXT #241E18 · GOLD #A6701A</span>
+</div>
+
+</body>
+</html>
