@@ -11,9 +11,9 @@ export const heroStats: Stat[] = [
 export const heroHeadshot: string = '/vidit-headshot.jpg' // 506×900 portrait — from LinkedIn export 2026-03-19
 
 export const heroIdentity = {
-  name: 'VIDIT DUGAR',
-  descriptor: 'Investor. Operator. Builder.',
-  subline: 'Formerly Nomura London \u00B7 Bombay Shaving Company \u00B7 The Barbershop Fund',
+  name: 'Vidit Dugar',
+  descriptor: 'Investor · Operator · Builder',
+  subline: 'Formerly Nomura \u00B7 Bombay Shaving Company \u00B7 The Barbershop Fund \u00B7 The Barbershop with Shantanu \u00B7 Orly',
 }
 
 export const heroChapters = [
@@ -22,7 +22,6 @@ export const heroChapters = [
   { label: 'Operator' },
   { label: 'Content & Media' },
   { label: 'Chief of Staff' },
-  { label: 'Founder' },
 ]
 
 export const heroCities = ['London', 'Kolkata', 'Delhi', 'Mumbai']

@@ -18,40 +18,39 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 pb-16 pt-20 text-center">
 
-      {/* Circle headshot */}
+      {/* Circle headshot — wrapper handles the crop */}
       <m.div
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="mb-8"
+        className="mb-8 w-40 h-40 rounded-full overflow-hidden border border-accent/25 flex-shrink-0"
       >
         <Image
           src={headshot}
           alt="Vidit Dugar"
           width={160}
-          height={160}
-          className="rounded-full object-cover object-top border border-accent/25"
-          style={{ width: '160px', height: '160px' }}
+          height={213}
+          className="w-full h-full object-cover object-top"
           priority
         />
       </m.div>
 
-      {/* Name */}
+      {/* Name — title case, more personal */}
       <m.h1
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, ease: 'easeOut', delay: 0.1 }}
-        className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tight mb-5"
+        className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tight mb-4"
       >
         {identity.name}
       </m.h1>
 
-      {/* Descriptor */}
+      {/* Descriptor — warm gold, no uppercase drill-sergeant vibe */}
       <m.p
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: 'easeOut', delay: 0.22 }}
-        className="font-body text-base md:text-lg text-accent tracking-[0.18em] uppercase mb-3"
+        className="font-body text-lg md:text-xl text-accent mb-3"
       >
         {identity.descriptor}
       </m.p>
@@ -61,7 +60,7 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.55, ease: 'easeOut', delay: 0.32 }}
-        className="font-body text-sm text-muted mb-10 max-w-sm"
+        className="font-body text-sm text-muted mb-10 max-w-md leading-relaxed"
       >
         {identity.subline}
       </m.p>
@@ -72,10 +71,10 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
         animate={{ scaleX: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.42 }}
         style={{ originX: 0.5 }}
-        className="w-10 border-t border-accent/50 mb-10"
+        className="w-10 border-t border-accent/40 mb-10"
       />
 
-      {/* Career chapter pills */}
+      {/* Career chapter pills — rounded, slightly warmer */}
       <div className="flex flex-wrap justify-center gap-2 mb-6 max-w-lg">
         {chapters.map((chapter, i) => (
           <m.span
@@ -83,7 +82,7 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.5 + i * 0.07 }}
-            className="font-body text-[10px] uppercase tracking-[0.2em] text-muted border border-muted/25 px-3 py-1.5"
+            className="font-body text-[11px] uppercase tracking-[0.15em] text-muted/70 border border-muted/20 px-3 py-1.5 rounded-sm"
           >
             {chapter.label}
           </m.span>
@@ -94,8 +93,8 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
       <m.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.98 }}
-        className="font-body text-[10px] text-muted/50 tracking-[0.3em] uppercase"
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.9 }}
+        className="font-body text-[11px] text-muted/45 tracking-[0.25em] uppercase"
       >
         {cities.join(' · ')}
       </m.p>
