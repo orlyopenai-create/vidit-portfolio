@@ -12,7 +12,7 @@ Build a single-page scrolling portfolio site that communicates Vidit's investmen
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Scaffold Next.js project with design tokens, fonts, dark background, MotionProvider, and static data files
+- [x] **Phase 1: Foundation** - Scaffold Next.js project with design tokens, fonts, dark background, MotionProvider, and static data files (completed 2026-03-19)
 - [ ] **Phase 2: Hero Section** - Build the full-viewport hero with animated stat count-ups and scroll-triggered fade-ins
 - [ ] **Phase 3: Core Sections** - Build all narrative and credibility sections (About, Philosophy, Fund, Kilrr, Timeline, Beyond Work, Footer)
 - [ ] **Phase 4: Media Section** - Build the Writing & Media section with LinkedIn post cards, photo gallery, and lightbox
@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Vercel preview deployment exists and updates automatically on push to main
   4. All `lib/data/*.ts` files exist with placeholder content and TypeScript compiles clean (`next build` passes)
   5. `LazyMotion` provider is configured at app root — a test `m.div` animates without importing the full Framer Motion bundle
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 01-01-PLAN.md — Scaffold Next.js 16 with Tailwind v4, fonts, dark background, design tokens
@@ -93,7 +93,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 2/3 | In Progress|  |
+| 1. Foundation | 3/3 | Complete   | 2026-03-19 |
 | 2. Hero Section | 0/TBD | Not started | - |
 | 3. Core Sections | 0/TBD | Not started | - |
 | 4. Media Section | 0/TBD | Not started | - |

@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-foundation-02-PLAN.md
-last_updated: "2026-03-19T06:29:20.224Z"
+stopped_at: "Checkpoint: Vercel authentication required for 01-03 deployment (Task 2: human-verify)"
+last_updated: "2026-03-19T06:35:21.813Z"
 last_activity: 2026-03-18 — Roadmap created, ready to plan Phase 1
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
+  completed_plans: 3
   percent: 0
 ---
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01-foundation P01 | 7 | 2 tasks | 8 files |
 | Phase 01-foundation P02 | 12 | 2 tasks | 9 files |
+| Phase 01-foundation P03 | 15 | 1 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: LazyMotion + domAnimation (not domMax) at app root — reduces client JS by ~30KB vs full Framer Motion bundle
 - [Phase 01-foundation]: All lib/data/*.ts files are pure TypeScript with no use client — server-compatible static data
 - [Phase 01-foundation]: portfolioCompanies scaffolded as 25 placeholders; linkedInPosts and photos empty arrays pending asset supply
+- [Phase 01-foundation]: .gitignore updated with !.env.example negation so example file can be tracked while .env* files remain ignored
+- [Phase 01-foundation]: NEXT_PUBLIC_CLOUDFLARE_URL uses placeholder value until Vidit provides real Cloudflare subdomain URL
 
 ### Pending Todos
 
@@ -83,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-19T06:29:20.219Z
-Stopped at: Completed 01-foundation-02-PLAN.md
+Last session: 2026-03-19T06:35:21.808Z
+Stopped at: Checkpoint: Vercel authentication required for 01-03 deployment (Task 2: human-verify)
 Resume file: None

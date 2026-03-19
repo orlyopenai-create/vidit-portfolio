@@ -14,8 +14,8 @@
 - [x] **FOUND-03**: Global dark background (`#0D0D0D`) applied on `html, body` in `globals.css` before JavaScript hydration (prevents dark theme flash)
 - [x] **FOUND-04**: Framer Motion `LazyMotion` + `domAnimation` provider configured at app root — no full Framer Motion bundle shipped
 - [x] **FOUND-05**: All content stored in `lib/data/*.ts` static TypeScript files — no CMS, no database, no runtime fetches
-- [ ] **FOUND-06**: Project deployed to Vercel with CI on main branch
-- [ ] **FOUND-07**: Cloudflare used for media asset hosting (photos, videos) — not stored in `/public/`
+- [x] **FOUND-06**: Project deployed to Vercel with CI on main branch
+- [x] **FOUND-07**: Cloudflare used for media asset hosting (photos, videos) — not stored in `/public/`
 - [x] **FOUND-08**: Portfolio company logos stored in `/public/logos/` as local SVG/PNG files — no `next/image` remotePatterns for logo grid
 
 ### Hero
