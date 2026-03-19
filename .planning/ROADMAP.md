@@ -30,7 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Vercel preview deployment exists and updates automatically on push to main
   4. All `lib/data/*.ts` files exist with placeholder content and TypeScript compiles clean (`next build` passes)
   5. `LazyMotion` provider is configured at app root — a test `m.div` animates without importing the full Framer Motion bundle
-**Plans**: TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold Next.js 16 with Tailwind v4, fonts, dark background, design tokens
+- [ ] 01-02-PLAN.md — MotionProvider, TypeScript types, and content data files with placeholders
+- [ ] 01-03-PLAN.md — Vercel deployment and Cloudflare env var configuration
 
 ### Phase 2: Hero Section
 **Goal**: The full-viewport hero section is live — name, identity descriptor, subline, headshot placeholder, and four animated stat count-up widgets that trigger on scroll entry
@@ -88,7 +93,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/3 | Not started | - |
 | 2. Hero Section | 0/TBD | Not started | - |
 | 3. Core Sections | 0/TBD | Not started | - |
 | 4. Media Section | 0/TBD | Not started | - |
