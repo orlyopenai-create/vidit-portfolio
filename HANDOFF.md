@@ -15,30 +15,22 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 1 — executing (paused at Vercel auth checkpoint)
-**Last action:** Executed 01-01, 01-02 (full scaffold + data architecture), 01-03 local env var setup. Paused at Vercel deployment checkpoint.
-**Next step:** User must authenticate Vercel, create GitHub repo, push, and deploy. Then type "approved" to resume.
+**Phase:** Phase 1 — COMPLETE (all 3 plans done)
+**Last action:** Executed 01-01 (scaffold), 01-02 (MotionProvider + data files), 01-03 (Vercel deployment). All plans complete.
+**Next step:** Run `/gsd:execute-phase 2` to begin Phase 2 — Hero Section.
 
-### Checkpoint: Vercel Deployment Required (01-03 Task 2)
+### Phase 1 Complete — Vercel Deployment Live
 
-**What's complete:**
-- `.env.example` committed with `NEXT_PUBLIC_CLOUDFLARE_URL` documented
-- `.env.local` created locally (gitignored)
-- `.gitignore` updated to allow `.env.example` to be tracked
+**Live URL:** https://vidit-portfolio-vert.vercel.app
 
-**What user must do:**
-1. Create GitHub repo: go to github.com/new, name it `vidit-portfolio`, then:
-   ```
-   git remote add origin https://github.com/YOUR_USERNAME/vidit-portfolio.git
-   git push -u origin master
-   ```
-2. Authenticate Vercel: `npx vercel login`
-3. Link and deploy: `npx vercel --yes` then `npx vercel --prod --yes`
-4. Set env var: `npx vercel env add NEXT_PUBLIC_CLOUDFLARE_URL production preview development`
-   (enter `https://placeholder.example.com` when prompted)
-5. Visit the Vercel URL and verify the dark foundation page loads correctly
-
-**After verifying:** Type "approved" to confirm and continue to Phase 2.
+**What was built:**
+- Next.js 16 App Router scaffold with Tailwind v4, Framer Motion 11
+- Font configuration: Playfair Display, DM Sans, DM Mono via `next/font/google`
+- Dark background `#0D0D0D` on `html, body` in `globals.css` — no white flash
+- LazyMotion + domAnimation at app root
+- All TypeScript data files scaffolded: `portfolioCompanies` (25 placeholders), `linkedInPosts` (empty), `photos` (empty), `hero`, `fund`, `philosophy`, `timeline`, `about`, `contact`
+- `.env.example` committed documenting `NEXT_PUBLIC_CLOUDFLARE_URL`
+- Vercel CI/CD: auto-deploys on push to main, confirmed working
 
 ---
 
@@ -46,7 +38,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 | # | Phase | Status | Requirements |
 |---|-------|--------|--------------|
-| 1 | Foundation | 📋 Planned (3 plans) | FOUND-01–08: Next.js scaffold, fonts, dark bg, MotionProvider, data files |
+| 1 | Foundation | Complete (3/3 plans) | FOUND-01–08: Next.js scaffold, fonts, dark bg, MotionProvider, data files |
 | 2 | Hero Section | ⬜ Not started | HERO-01–07: Full-viewport hero, animated stat count-ups |
 | 3 | Core Sections | ⬜ Not started | NARR/PHIL/TRACK/CASE/TIME/PERS/FOOT (29 reqs): All narrative + credibility sections |
 | 4 | Media Section | ⬜ Not started | MEDIA-01–06: LinkedIn post cards, photo gallery, lightbox |
@@ -149,4 +141,4 @@ All in `.planning/`:
 
 ---
 
-*Last updated: 2026-03-19 — Phase 1 executing: 01-01 + 01-02 complete, 01-03 paused at Vercel auth checkpoint*
+*Last updated: 2026-03-19 — Phase 1 complete (all 3 plans). Live at https://vidit-portfolio-vert.vercel.app. Ready for Phase 2.*
