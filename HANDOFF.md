@@ -15,9 +15,9 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 2 — Hero Section (planned, ready to execute)
-**Last action:** `/gsd:plan-phase 2` complete. 1 plan (02-01-PLAN.md), 1 wave, all 7 HERO reqs covered. Research + VALIDATION.md committed.
-**Next step:** `/gsd:execute-phase 2`
+**Phase:** Phase 3 — Core Sections (not yet planned)
+**Last action:** `/gsd:execute-phase 2` complete. Hero section built — StatCountUp, HeroAnimations, HeroSection, page.tsx wired. All 7 HERO reqs complete. Build passes clean.
+**Next step:** `/gsd:plan-phase 3`
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -29,7 +29,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 | # | Phase | Status | Requirements |
 |---|-------|--------|--------------|
 | 1 | Foundation | ✓ Complete (2026-03-19) | FOUND-01–08: Next.js scaffold, fonts, dark bg, MotionProvider, data files |
-| 2 | Hero Section | 🔵 Context ready | HERO-01–07: Full-viewport hero, animated stat count-ups |
+| 2 | Hero Section | ✓ Complete (2026-03-19) | HERO-01–07: Full-viewport hero, animated stat count-ups |
 | 3 | Core Sections | ⬜ Not started | NARR/PHIL/TRACK/CASE/TIME/PERS/FOOT (29 reqs): All narrative + credibility sections |
 | 4 | Media Section | ⬜ Not started | MEDIA-01–06: LinkedIn post cards, photo gallery, lightbox |
 | 5 | Performance & Deploy | ⬜ Not started | PERF-01–06: Lighthouse 90+, responsive, TypeScript strict, production |
@@ -139,22 +139,30 @@ All in `.planning/`:
 
 ---
 
+## What Phase 2 Built
+
+- `components/hero/StatCountUp.tsx` — Client component; useInView(once:true) RAF count-up with cubic ease-out; text-accent numbers, text-muted labels
+- `components/hero/HeroAnimations.tsx` — Client wrapper; staggered m.h1/m.p fade-ups (0/0.15/0.30s delays), portrait Image (hidden md:block), hairline separator, StatCountUp stat strip
+- `components/sections/HeroSection.tsx` — Server component; imports hero data, renders HeroAnimations
+- `app/page.tsx` — Entry point replaced with HeroSection import
+
+Key decision: Use `m.*` (not `motion.*`) throughout — LazyMotion at root requires `m.*`. All viewport animations use `once: true`.
+
+---
+
 ## How to Resume
 
 ```
-# Phase 2 — Hero Section (planned, execute next):
-/gsd:execute-phase 2
+# Phase 3 — Core Sections (plan next):
+/gsd:plan-phase 3
 
 # Check overall status:
 /gsd:progress
 
-# Review Phase 2 context:
-# cat .planning/phases/02-hero-section/02-CONTEXT.md
-
-# View Phase 1 verification:
-# cat .planning/phases/01-foundation/01-VERIFICATION.md
+# Review Phase 2 hero execution:
+# cat .planning/phases/02-hero-section/02-01-SUMMARY.md
 ```
 
 ---
 
-*Last updated: 2026-03-19 — Phase 2 planned. 1 plan (02-01), 1 wave, all 7 HERO reqs covered. Verification passed. Ready for `/gsd:execute-phase 2`.*
+*Last updated: 2026-03-19 — Phase 2 complete. Hero section built and wired. All 7 HERO reqs done. Build passes clean. Ready for `/gsd:plan-phase 3`.*
