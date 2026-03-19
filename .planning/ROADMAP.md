@@ -13,7 +13,7 @@ Build a single-page scrolling portfolio site that communicates Vidit's investmen
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Scaffold Next.js project with design tokens, fonts, dark background, MotionProvider, and static data files (completed 2026-03-19)
-- [ ] **Phase 2: Hero Section** - Build the full-viewport hero with animated stat count-ups and scroll-triggered fade-ins
+- [x] **Phase 2: Hero Section** - Build the full-viewport hero with animated stat count-ups and scroll-triggered fade-ins (completed 2026-03-19)
 - [ ] **Phase 3: Core Sections** - Build all narrative and credibility sections (About, Philosophy, Fund, Kilrr, Timeline, Beyond Work, Footer)
 - [ ] **Phase 4: Media Section** - Build the Writing & Media section with LinkedIn post cards, photo gallery, and lightbox
 - [ ] **Phase 5: Performance and Deployment** - Validate Lighthouse 90+, confirm responsive layout, and cut over to production
@@ -47,7 +47,7 @@ Plans:
   3. Stat numbers render in amber/gold (`#C8922A`); labels render in muted off-white
   4. A clearly labelled headshot placeholder appears in the hero and can be swapped by changing one value in the data file
   5. All hero text elements fade in on scroll entry with `viewport={{ once: true }}` — they do not re-animate on scroll back
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Build hero components (StatCountUp, HeroAnimations, HeroSection) and wire into page.tsx
@@ -97,7 +97,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-03-19 |
-| 2. Hero Section | 0/1 | Not started | - |
+| 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
 | 3. Core Sections | 0/TBD | Not started | - |
 | 4. Media Section | 0/TBD | Not started | - |
 | 5. Performance and Deployment | 0/TBD | Not started | - |

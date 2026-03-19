@@ -20,13 +20,13 @@
 
 ### Hero
 
-- [ ] **HERO-01**: Full-viewport-height hero section displaying `VIDIT DUGAR` in Playfair Display as dominant heading
-- [ ] **HERO-02**: Identity descriptor line: `Investor. Operator. Builder.`
-- [ ] **HERO-03**: Subline in muted text: `Formerly Nomura London · Bombay Shaving Company · The Barbershop Fund`
-- [ ] **HERO-04**: Headshot placeholder (circular/rectangular crop, labelled `[Photo — Vidit to upload]`) displayed in hero — easy asset swap via data file
-- [ ] **HERO-05**: 4 animated stat count-up widgets displayed in horizontal strip on scroll entry: 16 (Early-Stage Investments), 1.8x (Fund MOIC), ₹20Cr (Capital Deployed), 50%+ (Portfolio with Follow-on Rounds)
-- [ ] **HERO-06**: Stat numbers rendered in amber/gold accent (`#C8922A`); labels in muted off-white
-- [ ] **HERO-07**: Scroll-triggered fade-in animation on hero text elements (not on load — on scroll entry with `viewport={{ once: true }}`)
+- [x] **HERO-01**: Full-viewport-height hero section displaying `VIDIT DUGAR` in Playfair Display as dominant heading
+- [x] **HERO-02**: Identity descriptor line: `Investor. Operator. Builder.`
+- [x] **HERO-03**: Subline in muted text: `Formerly Nomura London · Bombay Shaving Company · The Barbershop Fund`
+- [x] **HERO-04**: Headshot placeholder (circular/rectangular crop, labelled `[Photo — Vidit to upload]`) displayed in hero — easy asset swap via data file
+- [x] **HERO-05**: 4 animated stat count-up widgets displayed in horizontal strip on scroll entry: 16 (Early-Stage Investments), 1.8x (Fund MOIC), ₹20Cr (Capital Deployed), 50%+ (Portfolio with Follow-on Rounds)
+- [x] **HERO-06**: Stat numbers rendered in amber/gold accent (`#C8922A`); labels in muted off-white
+- [x] **HERO-07**: Scroll-triggered fade-in animation on hero text elements (not on load — on scroll entry with `viewport={{ once: true }}`)
 
 ### Narrative (About / The Story)
 

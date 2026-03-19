@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 2 planned — ready to execute
-last_updated: "2026-03-19T00:00:00.000Z"
-last_activity: 2026-03-19 — Phase 2 planned: 1 plan, 1 wave, all 7 HERO reqs covered
+stopped_at: Completed 02-hero-section-01-PLAN.md
+last_updated: "2026-03-19T09:14:50.002Z"
+last_activity: 2026-03-18 — Roadmap created, ready to plan Phase 1
 progress:
   total_phases: 5
-  completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  completed_phases: 2
+  total_plans: 4
+  completed_plans: 4
   percent: 0
 ---
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-foundation P02 | 12 | 2 tasks | 9 files |
 | Phase 01-foundation P03 | 15 | 1 tasks | 3 files |
 | Phase 01-foundation P03 | 20 | 2 tasks | 3 files |
+| Phase 02-hero-section P01 | 8 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: NEXT_PUBLIC_CLOUDFLARE_URL uses placeholder value until Vidit provides real Cloudflare subdomain URL
 - [Phase 01-foundation]: Vercel deployment required user authentication — user authenticated Vercel CLI, created GitHub repo, and deployed manually
 - [Phase 01-foundation]: NEXT_PUBLIC_CLOUDFLARE_URL placeholder configured in Vercel — to be updated to real Cloudflare subdomain in Phase 4
+- [Phase 02-hero-section]: Used m.* (not motion.*) throughout HeroAnimations — LazyMotion at root requires m.* not motion.*
+- [Phase 02-hero-section]: StatCountUp gated on if (\!isInView) return — count-up fires only on viewport entry, not page load
+- [Phase 02-hero-section]: HeroSection kept as server component (no 'use client') — data imports from static lib/data/hero.ts per PERF-03
 
 ### Pending Todos
 
@@ -89,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-19T08:50:50.826Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-hero-section/02-CONTEXT.md
+Last session: 2026-03-19T09:14:49.995Z
+Stopped at: Completed 02-hero-section-01-PLAN.md
+Resume file: None
