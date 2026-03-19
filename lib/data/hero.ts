@@ -13,7 +13,7 @@ export const heroHeadshot: string = '/vidit-headshot.jpg' // 506×900 portrait �
 export const heroIdentity = {
   name: 'Vidit Dugar',
   descriptor: 'Investor · Operator · Builder',
-  subline: 'Formerly Nomura \u00B7 Bombay Shaving Company \u00B7 The Barbershop Fund \u00B7 The Barbershop with Shantanu \u00B7 Orly',
+  subline: 'Orly \u00B7 Nomura \u00B7 Bombay Shaving Company \u00B7 The Barbershop Fund \u00B7 The Barbershop with Shantanu',
 }
 
 export const heroChapters = [
