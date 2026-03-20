@@ -15,9 +15,9 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 5 — Performance & Deploy (not yet planned)
-**Last action:** Phase 4 fully shipped + media populated from LinkedIn export. 7 real LinkedIn post cards and 9 gallery photos live (LinkedIn CDN URLs). Fixed GalleryGrid to handle absolute URLs. Added media.licdn.com + dms.licdn.com to next/image remotePatterns. All changes pushed to master — Vercel auto-deployed.
-**Next step:** `/gsd:plan-phase 5`
+**Phase:** Phase 5 — Performance & Deploy (planned, ready to execute)
+**Last action:** Phase 5 planned. 2 plans in 2 waves. Wave 1 (auto): contrast fixes + SEO metadata. Wave 2 (human checkpoint): Lighthouse + responsive verification on production.
+**Next step:** `/gsd:execute-phase 5`
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -209,4 +209,4 @@ All in `.planning/`:
 - `components/media/Lightbox.tsx` — `'use client'`, createPortal on document.body, AnimatePresence fade, m.div nav arrows, keyboard nav (Escape/ArrowLeft/ArrowRight), body scroll lock, mounted guard for SSR safety
 - `components/sections/MediaSection.tsx` — updated to render both MediaAnimations and GalleryGrid
 
-*Last updated: 2026-03-20 — Phase 4 COMPLETE + media populated from LinkedIn Rich_Media export. 7 post cards + 9 gallery photos live. LinkedIn CDN URLs expire ~May 2026 — move to Cloudflare R2 for permanence. Next: `/gsd:plan-phase 5` — Performance & Deploy.*
+*Last updated: 2026-03-20 — Phase 5 PLANNED. 2 plans: (1) contrast fixes + SEO metadata, (2) Lighthouse + responsive verification. Next: `/gsd:execute-phase 5`.*
