@@ -10,7 +10,6 @@ export function FundSection() {
           name={fundData.name}
           subtitle={fundData.subtitle}
           stats={fundData.stats}
-          investments={fundData.standoutInvestments}
         />
         <LogoGrid companies={fundData.portfolioCompanies} />
       </div>

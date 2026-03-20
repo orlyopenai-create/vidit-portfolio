@@ -18,6 +18,10 @@ export interface Company {
   sector: string
   logoPath: string
   websiteUrl?: string
+  entryValuation?: string
+  latestValuation?: string
+  multiple?: string
+  coInvestors?: string
 }
 
 export interface Investment {

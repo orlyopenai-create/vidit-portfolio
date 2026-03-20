@@ -9,7 +9,7 @@ const WorldMap = dynamic(
 
 export function JourneySection() {
   return (
-    <section id="journey" className="py-24 px-6">
+    <section id="journey" className="pt-8 pb-24 px-6">
       <div className="max-w-4xl mx-auto">
         <m.div
           initial={{ opacity: 0, y: 16 }}
