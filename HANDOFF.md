@@ -15,9 +15,9 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 3 — Core Sections (4/4 plans complete — PHASE COMPLETE)
-**Last action:** Phase 3 Plan 04 complete. BeyondWork section built (Story of My Life + middot interests, side-by-side desktop / stacked mobile). Footer built (mailto link, LinkedIn new tab, bg-surface, no contact form). All 8 sections wired into page.tsx in scroll order. Build passes. 7 PERS+FOOT requirements marked complete.
-**Next step:** `/gsd:execute-phase 4` (Phase 4 — Media Section: LinkedIn post cards + photo gallery)
+**Phase:** Phase 4 — Media Section (2/2 plans complete — PHASE COMPLETE)
+**Last action:** Phase 4 Plan 02 complete. GalleryGrid built (hover overlays, placeholder fallback, URL construction via NEXT_PUBLIC_CLOUDFLARE_URL). Lightbox built (createPortal on document.body, AnimatePresence, keyboard nav Escape/ArrowLeft/ArrowRight, body scroll lock). Auto-fixed SSR crash: `mounted` useState guard added to prevent `createPortal` from calling `document.body` during server pre-render. MediaSection now renders both MediaAnimations and GalleryGrid. Build passes. MEDIA-03, MEDIA-04, MEDIA-05 requirements marked complete.
+**Next step:** `/gsd:execute-phase 5` (Phase 5 — Performance & Deploy: Lighthouse 90+, responsive, TypeScript strict, production)
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -31,7 +31,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 | 1 | Foundation | ✓ Complete (2026-03-19) | FOUND-01–08: Next.js scaffold, fonts, MotionProvider, data files |
 | 2 | Hero Section | ✓ Complete (2026-03-19) | HERO-01–07: Full-viewport hero, circular photo, career pills, palette |
 | 3 | Core Sections | ✓ Complete (2026-03-20) | NARR/PHIL/TRACK/CASE/TIME/PERS/FOOT (29 reqs): All narrative + credibility sections |
-| 4 | Media Section | ⬜ Not started | MEDIA-01–06: LinkedIn post cards, photo gallery, lightbox |
+| 4 | Media Section | ✓ Complete (2026-03-20) | MEDIA-01–06: LinkedIn post cards, photo gallery, lightbox |
 | 5 | Performance & Deploy | ⬜ Not started | PERF-01–06: Lighthouse 90+, responsive, TypeScript strict, production |
 
 ---
@@ -193,4 +193,18 @@ All in `.planning/`:
 
 ---
 
-*Last updated: 2026-03-20 — Phase 3 COMPLETE. All 8 sections built and wired. Build passes. 8/8 plans complete (100%). Next: Phase 4 — Media Section (LinkedIn posts + photo gallery).*
+---
+
+## What Phase 4 Built
+
+**Plan 01 — LinkedIn Post Cards:**
+- `components/media/LinkedInCard.tsx` — presentational card (excerpt + date + read more link), no use client
+- `components/media/MediaAnimations.tsx` — `'use client'`, staggered whileInView fade-in, 4 placeholder cards when posts array empty, section heading
+- `components/sections/MediaSection.tsx` — server component shell, imports linkedInPosts + photos, renders MediaAnimations
+
+**Plan 02 — Gallery Grid and Lightbox:**
+- `components/media/GalleryGrid.tsx` — `'use client'`, useState for activeIndex, CSS columns masonry, group-hover overlay, 6 placeholder items, sole owner of NEXT_PUBLIC_CLOUDFLARE_URL construction
+- `components/media/Lightbox.tsx` — `'use client'`, createPortal on document.body, AnimatePresence fade, m.div nav arrows, keyboard nav (Escape/ArrowLeft/ArrowRight), body scroll lock, mounted guard for SSR safety
+- `components/sections/MediaSection.tsx` — updated to render both MediaAnimations and GalleryGrid
+
+*Last updated: 2026-03-20 — Phase 4 COMPLETE. Gallery + lightbox + LinkedIn cards all built. Build passes. 10/10 plans complete (100%). Next: Phase 5 — Performance & Deploy.*
