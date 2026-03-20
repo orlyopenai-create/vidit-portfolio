@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 04-media-section-01-PLAN.md
-last_updated: "2026-03-20T06:20:46.097Z"
+stopped_at: Completed 04-media-section-02-PLAN.md
+last_updated: "2026-03-20T06:26:49.444Z"
 last_activity: 2026-03-18 — Roadmap created, ready to plan Phase 1
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 10
-  completed_plans: 9
+  completed_plans: 10
   percent: 0
 ---
 
@@ -60,6 +60,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-core-sections P03 | 3 | 2 tasks | 5 files |
 | Phase 03-core-sections P04 | 8 | 2 tasks | 4 files |
 | Phase 04-media-section P01 | 2 | 2 tasks | 5 files |
+| Phase 04-media-section P02 | 3 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -97,6 +98,8 @@ Recent decisions affecting current work:
 - [Phase 04-media-section]: Cloudflare remotePatterns configured with wildcard **.r2.dev and **.cloudflare.com — specific hostname unknown until Vidit supplies real Cloudflare URL
 - [Phase 04-media-section]: MediaSection renders two separate sub-sections (LinkedIn cards above, gallery below in Plan 02) — not an interleaved mixed grid — for simpler data management
 - [Phase 04-media-section]: 4 placeholder cards rendered when linkedInPosts is empty — enough to show layout intent without looking broken
+- [Phase 04-media-section]: Lightbox uses mounted useState guard (not typeof document check) to prevent createPortal SSR crash
+- [Phase 04-media-section]: GalleryGrid is sole owner of NEXT_PUBLIC_CLOUDFLARE_URL construction; Lightbox receives fully-qualified URLs
 
 ### Pending Todos
 
@@ -111,6 +114,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T06:20:46.088Z
-Stopped at: Completed 04-media-section-01-PLAN.md
+Last session: 2026-03-20T06:26:49.435Z
+Stopped at: Completed 04-media-section-02-PLAN.md
 Resume file: None

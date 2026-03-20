@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Scaffold Next.js project with design tokens, fonts, dark background, MotionProvider, and static data files (completed 2026-03-19)
 - [x] **Phase 2: Hero Section** - Build the full-viewport hero with animated stat count-ups and scroll-triggered fade-ins (completed 2026-03-19)
 - [x] **Phase 3: Core Sections** - Build all narrative and credibility sections (About, Philosophy, Fund, Kilrr, Timeline, Beyond Work, Footer) (completed 2026-03-19)
-- [ ] **Phase 4: Media Section** - Build the Writing & Media section with LinkedIn post cards, photo gallery, and lightbox
+- [x] **Phase 4: Media Section** - Build the Writing & Media section with LinkedIn post cards, photo gallery, and lightbox (completed 2026-03-20)
 - [ ] **Phase 5: Performance and Deployment** - Validate Lighthouse 90+, confirm responsive layout, and cut over to production
 
 ## Phase Details
@@ -81,7 +81,7 @@ Plans:
   3. Clicking a photo opens a full-screen lightbox; pressing Escape closes it and arrow keys navigate between photos
   4. Hovering a photo shows a dark overlay with a caption
   5. Off-screen gallery images are lazy-loaded — only images in or near the viewport trigger network requests
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 04-01-PLAN.md — Config, LinkedInCard, MediaAnimations, MediaSection shell, wire into page.tsx
@@ -109,5 +109,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation | 3/3 | Complete   | 2026-03-19 |
 | 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
 | 3. Core Sections | 4/4 | Complete    | 2026-03-19 |
-| 4. Media Section | 1/2 | In Progress|  |
+| 4. Media Section | 2/2 | Complete   | 2026-03-20 |
 | 5. Performance and Deployment | 0/TBD | Not started | - |
