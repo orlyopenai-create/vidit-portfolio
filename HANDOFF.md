@@ -14,26 +14,11 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Post-launch — v1 live, iterating on presentation
-**Last action:** Career Timeline replaced with interactive world map (`components/journey/WorldMap.tsx`). Four gold pins — Mumbai, Kolkata, Delhi, London — with click-to-reveal tooltip cards. Uses `react-simple-maps` + world-atlas topojson served locally from `public/world-110m.json`.
-**Next discussion:** Continue page-length/presentation rework — more sections may benefit from condensing.
+**Phase:** Post-launch — active iteration
+**Last action:** Major narrative rework + Barbershop theme applied. New sections: The Intersection (Venn diagram), The Bridge (podcast IP). Removed: Kilrr case study, standalone Philosophy section, BeyondWork section. Added: flight path animations on world map, heading underline animations, marquee strip, barber pole motif.
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
-
----
-
-## Roadmap (5 Phases — All Complete)
-
-| # | Phase | Status | Completed |
-|---|-------|--------|-----------|
-| 1 | Foundation | ✓ Complete | 2026-03-19 |
-| 2 | Hero Section | ✓ Complete | 2026-03-19 |
-| 3 | Core Sections | ✓ Complete | 2026-03-20 |
-| 4 | Media Section | ✓ Complete | 2026-03-20 |
-| 5 | Performance & Deploy | ✓ Complete | 2026-03-20 |
-
-Lighthouse 90+ verified on production (mobile). TypeScript strict. robots.txt + sitemap.xml live.
 
 ---
 
@@ -41,13 +26,13 @@ Lighthouse 90+ verified on production (mobile). TypeScript strict. robots.txt + 
 
 1. **Hero** — Circular headshot, name, descriptor, subline, career chapter pills, cities
 2. **About / The Story** — ~250-word narrative prose + pull quote
-3. **Investment Philosophy** — 3 numbered pillars
-4. **The Barbershop Fund** — Fund stats, standout investments table (5 co's), 25-company logo grid
-5. **Featured Investment: Kilrr** — ~300-word case study, "we/the fund" framing
-6. **Writing** — Horizontal snap slider, 7 post cards with photos, ← → nav
-7. **The Journey** — Interactive world map, 4 city pins (Mumbai/Kolkata/Delhi/London), click to reveal tooltip
-8. **Beyond Work** — Story of My Life + interests
-9. **Contact / Footer** — Email, LinkedIn, closing line, no contact form
+3. **The Journey** — Interactive world map, 4 city pins with animated flight paths (Mumbai→London→Delhi→Kolkata), click to reveal tooltip
+4. **The Intersection** — Venn diagram: Investing × Operating × Content → "Operator-Investor". Circles converge on scroll. Mobile: stacked cards.
+5. **The Bridge** — IP launched on The Barbershop with Shantanu. 3 episode cards with YouTube thumbnails + play hover. Diagonal stripe section background.
+6. **Marquee Strip** — Perpetual scrolling ticker: fund stats + "Operator-Investor" + identity text
+7. **The Barbershop Fund** — Stats strip + "What I Look For" (founder traits + company traits from BSC) + sectored logo grid (8 buckets, editorial layout). Barber pole accent on heading.
+8. **Writing** — Horizontal snap slider, 10 post cards with photos, ← → nav, right-edge fade
+9. **Footer** — Email, LinkedIn, closing line
 
 ---
 
@@ -64,6 +49,12 @@ Lighthouse 90+ verified on production (mobile). TypeScript strict. robots.txt + 
 | Numbers font | DM Mono |
 | Style | Warm editorial. NO dark bg, NO gradients, NO SaaS look |
 
+**Barbershop theme elements:**
+- Barber pole: diagonal gold/cream stripe, appears next to Fund heading (`components/ui/BarberPole.tsx`)
+- Marquee: perpetual ticker (`components/ui/MarqueeStrip.tsx`), CSS `marquee-scroll` keyframe in globals.css
+- Diagonal stripe: Bridge section background (CSS `repeating-linear-gradient`)
+- Razor underlines: all heading underlines animate at 0.18s with sharp cubic-bezier easing
+
 ---
 
 ## Critical Constraints
@@ -73,58 +64,82 @@ Lighthouse 90+ verified on production (mobile). TypeScript strict. robots.txt + 
 - **No dark/light toggle** — warm sand light theme only
 - **`m.*` not `motion.*`** — LazyMotion at root requires this everywhere
 - **Logo IP** — stealth portfolio companies not yet confirmed for public
+- **Operator-Investor positioning** — NOT "consumer VC" (too senior). Humble, pattern-recognition framing.
+- **Investment thesis** — uses "What I Look For" (learned at BSC) not a GP-style mandate
+
+---
+
+## The Intersection Section
+
+Three overlapping circles (desktop Venn / mobile cards):
+- **Investing**: 5 yrs IB, Barbershop Fund, 25 cos, 1.8x MOIC
+- **Operating**: Chief of Staff BSC, Head of Business Orly, Brands/Teams/P&L
+- **Content**: Built The Bridge IP, Barbershop w/ Shantanu, The Orly Times
+
+Payoff: `= Operator-Investor`
+
+---
+
+## The Bridge Section
+
+**Format:** 2 CEOs vs 2 Gen Zs — Vidit built the IP, managed the show, appeared in all 3 episodes
+**Episodes** (`lib/data/barbershop.ts`):
+| Episode | URL |
+|---------|-----|
+| S1E1 — Is Hustle Culture Killing India's Next Generation? | youtube.com/watch?v=jVax4DCqKT4 |
+| S1E4 — Is Entrepreneurship in India Still Worth It? | youtube.com/watch?v=ejaUoA4ZnW0 |
+| S1E9 — Is Corporate India Addressing Gen Z's Mental Health? | youtube.com/watch?v=RbCmw5k4dho |
+
+---
+
+## Fund Section — What I Look For
+
+**Source framing:** "Three years at Bombay Shaving Company gave me a front-row seat..."
+
+**In Founders:** Deep domain expertise · Irrational conviction · Singular focus · Would build without funding
+
+**In Companies:** Brand as a moat · Content-led growth
+
+---
+
+## Portfolio Logo Grid — Sector Buckets
+
+| Sector | Companies |
+|--------|-----------|
+| Food & Beverage | Go Zero, Anveshan, Kilrr, Fishmongers, Better Nutrition, Basil |
+| Fashion & Lifestyle | Wanderlooms, Woodsmen, Fiona Diamonds, Absolut Pet, ReplyAll |
+| Fintech | SBNRI, RocketPay, Crest Wealth, Done Deal |
+| Health & Wellness | Epithera, BetterPlace Health, Yuomo |
+| Climate & Mobility | EVeez, Kritsnam, Mekr |
+| Consumer Durables | OctoLife |
+| Home & Furniture | Relso |
+| AI & Tech | Kookar.AI |
+| Education | Anandi School |
+
+5 companies have investment detail popouts: Go Zero (12x), Kilrr (5x), Fishmongers (5x), Anveshan (2.5x), Mekr (2x)
+
+---
+
+## Writing — 10 Posts
+
+All in `lib/data/media.ts`. Photos mapped from LinkedIn export (`public/*.jpg`).
 
 ---
 
 ## Media Section — Current State
 
 **Slider** (`components/media/MediaAnimations.tsx`):
-- Horizontal snap carousel, `overflow-x-auto snap-x snap-mandatory`
+- Horizontal snap carousel, right-edge fade gradient
 - ← → arrow buttons, drag/swipe on mobile
-- 7 cards at `w-72` each
-
-**Cards** (`components/media/LinkedInCard.tsx`):
-- `imageSrc` at top (4:3 aspect ratio) when present, text + date + link below
-- `line-clamp-5` on excerpt
-
-**Photo mapping** (`lib/data/media.ts`):
-
-| Post ID | Photo file | Source |
-|---------|-----------|--------|
-| orly-times | `/1773132723912.jpg` | Likely Orly Times post (Mar 2026) |
-| community-retail-tarot | `/1765796182897.jpg` | Exact match — Tarot event |
-| culture-community-gully-labs | `/1759404720052.jpg` | Thematic — Zero In podcast |
-| standing-on-shoulders | `/1748432293369.jpg` | Thematic — Tale of Three Cities |
-| body-of-work | `/1750088418964.jpg` | Exact match — last day at BSC |
-| wanderlooms-twice | `/1748348328010.jpg` | Exact match — Wanderlooms post |
-| bridge-launch | `/1749125527528.jpg` | Exact match — The Bridge launch |
-
-**Unused photos** in `public/` (not wired to any post):
-- `1745479670359.jpg` — BSC × First Coffee
-- `1748432293406.jpg` — Tale of Three Cities (duplicate angle)
-- `1748946735535.jpg` — BSC razors in Postcard Hotel
-- `1751273222681.jpg` — "Superpower / looking into future" post
-
----
-
-## Portfolio Logos — Current State
-
-All 25 logos extracted from `Barbershop Fund - Investment summary_Q3 FY26 (1).pdf` using PyMuPDF. Served locally from `public/logos/`. No CDN dependency.
-
-**Files:** `public/logos/{slug}.png` or `.jpeg` for all 25 companies in `lib/data/fund.ts`.
-
-`LogoGrid.tsx` uses plain `<img>` (not `next/image`) — `onError` hides broken images silently.
 
 ---
 
 ## Pending / Open Items
 
-- [ ] **Page length rework** — Career Timeline replaced with interactive world map (done). Continue condensing other sections.
-- [ ] **World map tooltip positioning** — On mobile, tooltip may clip at edges; can fine-tune `left` clamping logic in `WorldMap.tsx` if needed.
-- [ ] **Domain** — `vidit.vc` vs `viditdugar.com`. When confirmed, update `metadataBase` in `app/layout.tsx`.
+- [ ] **Post URLs** — all LinkedIn posts link to profile. Update to direct post URLs when available.
+- [ ] **Domain** — `vidit.vc` vs `viditdugar.com`. Update `metadataBase` in `app/layout.tsx`.
 - [ ] **Logo IP** — confirm stealth portfolio companies before sharing URL publicly.
-- [ ] **Post URLs** — all 7 LinkedIn posts currently link to `https://www.linkedin.com/in/viditdugar/` (profile). Update to direct post URLs when available.
-- [ ] **Photo swaps** — 3 of 7 photos are thematic matches, not exact. Vidit can swap by updating `imageSrc` in `lib/data/media.ts`.
+- [ ] **Photo swaps** — some writing card photos are thematic matches. Vidit can swap in `lib/data/media.ts`.
 
 ---
 
@@ -133,17 +148,21 @@ All 25 logos extracted from `Barbershop Fund - Investment summary_Q3 FY26 (1).pd
 | File | Purpose |
 |------|---------|
 | `lib/data/hero.ts` | Name, descriptor, subline, career pills, cities |
-| `lib/data/philosophy.ts` | 3 investment pillars |
-| `lib/data/fund.ts` | Fund stats, 5 standout investments, 25 portfolio companies + logos |
-| `lib/data/timeline.ts` | 5 career entries (no longer rendered — kept for reference/CV) |
-| `lib/data/journey.ts` | 4 city pins for world map (period, role, one-liner) |
-| `components/journey/WorldMap.tsx` | Interactive map component (react-simple-maps, client-only) |
-| `public/world-110m.json` | World atlas topojson, served locally |
-| `lib/data/media.ts` | 7 LinkedIn posts with imageSrc paths |
+| `lib/data/journey.ts` | 4 city pins for world map |
+| `lib/data/barbershop.ts` | 3 Bridge episode cards |
+| `lib/data/fund.ts` | Fund stats, 25 portfolio companies + sectors + investment details |
+| `lib/data/media.ts` | 10 LinkedIn posts with imageSrc paths |
+| `components/journey/WorldMap.tsx` | Interactive map + animated flight paths |
+| `components/intersection/IntersectionAnimations.tsx` | Venn diagram section |
+| `components/barbershop/BridgeAnimations.tsx` | The Bridge episode cards |
+| `components/fund/FundAnimations.tsx` | Stats + What I Look For |
+| `components/fund/LogoGrid.tsx` | Sectored logo grid + click popout |
+| `components/ui/BarberPole.tsx` | Diagonal stripe accent graphic |
+| `components/ui/MarqueeStrip.tsx` | Perpetual scrolling ticker |
+| `app/globals.css` | Palette CSS vars + marquee-scroll keyframe |
 | `app/layout.tsx` | SEO metadata, fonts, metadataBase |
-| `app/globals.css` | Palette CSS vars, background set before JS hydration |
-| `public/logos/` | 25 local logo files (png/jpeg) |
-| `public/*.jpg` | 11 photos from LinkedIn export |
+| `public/logos/` | 25 local logo files |
+| `public/*.jpg` | Photos from LinkedIn export |
 
 ---
 
@@ -153,24 +172,9 @@ All 25 logos extracted from `Barbershop Fund - Investment summary_Q3 FY26 (1).pd
 - Tailwind CSS v4
 - Framer Motion via `LazyMotion + domAnimation` — always `m.*` not `motion.*`
 - `next/font/google`: Playfair Display, DM Sans, DM Mono
+- `react-simple-maps` v3 + world-atlas topojson
 - Vercel (auto-deploy on push to master)
 
 ---
 
-## How to Resume
-
-```bash
-# Check what's live
-open https://vidit-portfolio-vert.vercel.app
-
-# Discuss page rework
-# "The page is too long — let's talk about format options"
-
-# Make a content edit
-# Edit the relevant lib/data/*.ts file, build confirms, push to deploy
-npm run build
-git add . && git commit -m "content: ..."
-git push
-```
-
-*Last updated: 2026-03-20 — Career Timeline replaced with interactive world map (react-simple-maps), 4 city pins with click tooltips.*
+*Last updated: 2026-03-20 — Major narrative rework, Barbershop theme, animated flight paths, Intersection + Bridge sections, 10 writing posts.*
