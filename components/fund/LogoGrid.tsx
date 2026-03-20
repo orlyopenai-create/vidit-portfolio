@@ -25,10 +25,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               className="h-8 w-auto max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
               loading="lazy"
               onError={(e) => {
-                const target = e.currentTarget
-                if (!target.src.includes('/logos/')) {
-                  target.src = `/logos/${company.slug}.svg`
-                }
+                e.currentTarget.style.display = 'none'
               }}
             />
           </div>
