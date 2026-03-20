@@ -15,9 +15,9 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 4 — Media Section (2/2 plans complete — PHASE COMPLETE)
-**Last action:** Phase 4 Plan 02 complete. GalleryGrid built (hover overlays, placeholder fallback, URL construction via NEXT_PUBLIC_CLOUDFLARE_URL). Lightbox built (createPortal on document.body, AnimatePresence, keyboard nav Escape/ArrowLeft/ArrowRight, body scroll lock). Auto-fixed SSR crash: `mounted` useState guard added to prevent `createPortal` from calling `document.body` during server pre-render. MediaSection now renders both MediaAnimations and GalleryGrid. Build passes. MEDIA-03, MEDIA-04, MEDIA-05 requirements marked complete.
-**Next step:** `/gsd:execute-phase 5` (Phase 5 — Performance & Deploy: Lighthouse 90+, responsive, TypeScript strict, production)
+**Phase:** Phase 5 — Performance & Deploy (not yet planned)
+**Last action:** Phase 4 fully shipped + media populated from LinkedIn export. 7 real LinkedIn post cards and 9 gallery photos live (LinkedIn CDN URLs). Fixed GalleryGrid to handle absolute URLs. Added media.licdn.com + dms.licdn.com to next/image remotePatterns. All changes pushed to master — Vercel auto-deployed.
+**Next step:** `/gsd:plan-phase 5`
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -120,8 +120,8 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 ## Pending Content Assets (Vidit to Supply)
 
 - [x] Headshot — `public/vidit-headshot.jpg`
-- [ ] LinkedIn posts — 6–8 best (text + URL)
-- [ ] Photos: Barbershop podcast, Orly/exhibitions, Nomura London, Story of My Life
+- [x] LinkedIn posts — 7 posts populated from Rich_Media.csv export
+- [x] Photos — 9 gallery photos populated from Rich_Media.csv (LinkedIn CDN, expire ~May 2026 — move to Cloudflare R2 for permanence)
 - [ ] Fund deck PDF — for logo extraction
 - [ ] Logo IP confirmation for stealth portfolio companies
 - [ ] Domain preference: `vidit.vc` vs `viditdugar.com`
@@ -135,9 +135,11 @@ All in `.planning/`:
 - `config.json` — YOLO mode, standard granularity, parallel execution, balanced models
 - `REQUIREMENTS.md` — 56 v1 requirements with REQ-IDs
 - `ROADMAP.md` — 5-phase roadmap with success criteria
-- `STATE.md` — GSD state (phase 2 complete, phase 3 next)
+- `STATE.md` — GSD state (phase 4 complete, phase 5 next)
 - `phases/01-foundation/` — 3 plans + 3 summaries + VERIFICATION.md
-- `phases/02-hero-section/` — CONTEXT, RESEARCH, 02-01-PLAN, 02-01-SUMMARY, VALIDATION, VERIFICATION
+- `phases/02-hero-section/` — CONTEXT, RESEARCH, PLAN, SUMMARY, VALIDATION, VERIFICATION
+- `phases/03-core-sections/` — RESEARCH, VALIDATION, 4 plans + 4 summaries, VERIFICATION
+- `phases/04-media-section/` — RESEARCH, VALIDATION, 2 plans + 2 summaries, VERIFICATION
 - `research/` — STACK.md, FEATURES.md, ARCHITECTURE.md, PITFALLS.md, SUMMARY.md
 
 ---
@@ -145,8 +147,8 @@ All in `.planning/`:
 ## How to Resume
 
 ```
-# Phase 3 — Core Sections (plan next):
-/gsd:plan-phase 3
+# Phase 5 — Performance & Deploy (plan next):
+/gsd:plan-phase 5
 
 # Check overall status:
 /gsd:progress
@@ -207,4 +209,4 @@ All in `.planning/`:
 - `components/media/Lightbox.tsx` — `'use client'`, createPortal on document.body, AnimatePresence fade, m.div nav arrows, keyboard nav (Escape/ArrowLeft/ArrowRight), body scroll lock, mounted guard for SSR safety
 - `components/sections/MediaSection.tsx` — updated to render both MediaAnimations and GalleryGrid
 
-*Last updated: 2026-03-20 — Phase 4 COMPLETE. Gallery + lightbox + LinkedIn cards all built. Build passes. 10/10 plans complete (100%). Next: Phase 5 — Performance & Deploy.*
+*Last updated: 2026-03-20 — Phase 4 COMPLETE + media populated from LinkedIn Rich_Media export. 7 post cards + 9 gallery photos live. LinkedIn CDN URLs expire ~May 2026 — move to Cloudflare R2 for permanence. Next: `/gsd:plan-phase 5` — Performance & Deploy.*
