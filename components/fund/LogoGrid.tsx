@@ -16,6 +16,13 @@ const SECTOR_ORDER = [
   'Education',
 ]
 
+function getBarWidth(multiple: string): number {
+  const match = multiple.match(/[\d.]+/)
+  if (!match) return 0
+  // Normalize: 5x = 100%, anything above 5x also caps at 100%
+  return Math.min(parseFloat(match[0]) / 5, 1) * 100
+}
+
 export function LogoGrid({ companies }: { companies: Company[] }) {
   const [selected, setSelected] = useState<Company | null>(null)
 
@@ -138,6 +145,22 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                     <span className="font-body text-sm text-foreground text-right">{selected.coInvestors}</span>
                   </div>
                 )}
+
+                {/* Valuation growth bar */}
+                <div className="pt-1">
+                  <div className="h-1 rounded-full overflow-hidden bg-surface">
+                    <m.div
+                      className="h-full rounded-full"
+                      style={{ backgroundColor: 'var(--color-accent)' }}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${getBarWidth(selected.multiple)}%` }}
+                      transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1], delay: 0.15 }}
+                    />
+                  </div>
+                  <p className="font-mono text-[9px] text-foreground/30 mt-1 text-right">
+                    {selected.multiple} return
+                  </p>
+                </div>
               </div>
             )}
           </m.div>

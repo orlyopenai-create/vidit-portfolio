@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, DM_Sans, DM_Mono } from 'next/font/google'
 import { MotionProvider } from '@/components/providers/MotionProvider'
+import { ScrollProgress } from '@/components/ui/ScrollProgress'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -49,7 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <body className="font-body antialiased">
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          <ScrollProgress />
+          {children}
+        </MotionProvider>
       </body>
     </html>
   )
