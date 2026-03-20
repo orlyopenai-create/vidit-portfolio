@@ -38,7 +38,7 @@ export function WorldMap() {
     >
       <ComposableMap
         projection="geoMercator"
-        projectionConfig={{ scale: 140, center: [40, 25] }}
+        projectionConfig={{ scale: 400, center: [42, 30] }}
         style={{ width: '100%', height: 'auto' }}
       >
         <ZoomableGroup zoom={1} minZoom={1} maxZoom={1}>

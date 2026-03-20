@@ -22,7 +22,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
             <img
               src={company.logoPath}
               alt={company.name}
-              className="h-8 w-auto max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
+              className="h-8 w-auto max-w-full object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
               loading="lazy"
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
