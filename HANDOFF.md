@@ -15,8 +15,8 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 ## Current Status
 
 **Phase:** Post-launch — v1 live, iterating on presentation
-**Last action:** Media section redesigned as horizontal snap slider with photos wired to posts. All 25 portfolio logos extracted from investment summary PDF and served locally. Photos matched from LinkedIn export.
-**Next discussion:** Page is too long — format/presentation rework pending.
+**Last action:** Career Timeline replaced with interactive world map (`components/journey/WorldMap.tsx`). Four gold pins — Mumbai, Kolkata, Delhi, London — with click-to-reveal tooltip cards. Uses `react-simple-maps` + world-atlas topojson served locally from `public/world-110m.json`.
+**Next discussion:** Continue page-length/presentation rework — more sections may benefit from condensing.
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -45,7 +45,7 @@ Lighthouse 90+ verified on production (mobile). TypeScript strict. robots.txt + 
 4. **The Barbershop Fund** — Fund stats, standout investments table (5 co's), 25-company logo grid
 5. **Featured Investment: Kilrr** — ~300-word case study, "we/the fund" framing
 6. **Writing** — Horizontal snap slider, 7 post cards with photos, ← → nav
-7. **Career Timeline** — 5 entries reverse chronological
+7. **The Journey** — Interactive world map, 4 city pins (Mumbai/Kolkata/Delhi/London), click to reveal tooltip
 8. **Beyond Work** — Story of My Life + interests
 9. **Contact / Footer** — Email, LinkedIn, closing line, no contact form
 
@@ -119,7 +119,8 @@ All 25 logos extracted from `Barbershop Fund - Investment summary_Q3 FY26 (1).pd
 
 ## Pending / Open Items
 
-- [ ] **Page length rework** — Vidit flagged the page as too long. Format/presentation discussion pending. Possible approaches: tabbed sections, collapsed accordions, reordering, cutting sections.
+- [ ] **Page length rework** — Career Timeline replaced with interactive world map (done). Continue condensing other sections.
+- [ ] **World map tooltip positioning** — On mobile, tooltip may clip at edges; can fine-tune `left` clamping logic in `WorldMap.tsx` if needed.
 - [ ] **Domain** — `vidit.vc` vs `viditdugar.com`. When confirmed, update `metadataBase` in `app/layout.tsx`.
 - [ ] **Logo IP** — confirm stealth portfolio companies before sharing URL publicly.
 - [ ] **Post URLs** — all 7 LinkedIn posts currently link to `https://www.linkedin.com/in/viditdugar/` (profile). Update to direct post URLs when available.
@@ -134,7 +135,10 @@ All 25 logos extracted from `Barbershop Fund - Investment summary_Q3 FY26 (1).pd
 | `lib/data/hero.ts` | Name, descriptor, subline, career pills, cities |
 | `lib/data/philosophy.ts` | 3 investment pillars |
 | `lib/data/fund.ts` | Fund stats, 5 standout investments, 25 portfolio companies + logos |
-| `lib/data/timeline.ts` | 5 career entries |
+| `lib/data/timeline.ts` | 5 career entries (no longer rendered — kept for reference/CV) |
+| `lib/data/journey.ts` | 4 city pins for world map (period, role, one-liner) |
+| `components/journey/WorldMap.tsx` | Interactive map component (react-simple-maps, client-only) |
+| `public/world-110m.json` | World atlas topojson, served locally |
 | `lib/data/media.ts` | 7 LinkedIn posts with imageSrc paths |
 | `app/layout.tsx` | SEO metadata, fonts, metadataBase |
 | `app/globals.css` | Palette CSS vars, background set before JS hydration |
@@ -169,4 +173,4 @@ git add . && git commit -m "content: ..."
 git push
 ```
 
-*Last updated: 2026-03-20 — logos fixed from PDF, media section converted to slider with photos, all 7 post cards live with images.*
+*Last updated: 2026-03-20 — Career Timeline replaced with interactive world map (react-simple-maps), 4 city pins with click tooltips.*
