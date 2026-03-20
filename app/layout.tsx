@@ -24,8 +24,21 @@ const dmMono = DM_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vidit-portfolio-vert.vercel.app'),
   title: 'Vidit Dugar — Investor. Operator. Builder.',
   description: 'Early-stage consumer investor in India. Formerly Nomura London, Bombay Shaving Company, The Barbershop Fund.',
+  openGraph: {
+    type: 'website',
+    title: 'Vidit Dugar — Investor. Operator. Builder.',
+    description: 'Early-stage consumer investor in India. Formerly Nomura London, Bombay Shaving Company, The Barbershop Fund.',
+    url: 'https://vidit-portfolio-vert.vercel.app',
+    siteName: 'Vidit Dugar',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Vidit Dugar — Investor. Operator. Builder.',
+    description: 'Early-stage consumer investor in India. Formerly Nomura London, Bombay Shaving Company, The Barbershop Fund.',
+  },
 }
 
 export default function RootLayout({
