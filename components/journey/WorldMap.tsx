@@ -1,16 +1,76 @@
 'use client'
-import { useState } from 'react'
-import { m, AnimatePresence } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { m, AnimatePresence, animate } from 'framer-motion'
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
   ZoomableGroup,
+  Line,
 } from 'react-simple-maps'
 import { journeyCities, type JourneyCity } from '@/lib/data/journey'
 
 const GEO_URL = '/world-110m.json'
+
+// Chronological journey order
+const JOURNEY_PAIRS: Array<[string, string]> = [
+  ['mumbai', 'london'],
+  ['london', 'delhi'],
+  ['delhi', 'kolkata'],
+]
+
+function AnimatedJourneyLine({
+  from,
+  to,
+  delay,
+}: {
+  from: [number, number]
+  to: [number, number]
+  delay: number
+}) {
+  const gRef = useRef<SVGGElement>(null)
+
+  useEffect(() => {
+    const g = gRef.current
+    if (!g) return
+
+    const path = g.querySelector('path')
+    if (!path) return
+
+    const length = path.getTotalLength()
+    path.style.strokeDasharray = `${length}`
+    path.style.strokeDashoffset = `${length}`
+    g.setAttribute('opacity', '0')
+
+    const t = setTimeout(() => {
+      g.setAttribute('opacity', '1')
+      const controls = animate(length, 0, {
+        duration: 1.3,
+        ease: [0.4, 0, 0.2, 1],
+        onUpdate(v) {
+          path.style.strokeDashoffset = `${v}`
+        },
+      })
+      return () => controls.stop()
+    }, delay * 1000)
+
+    return () => clearTimeout(t)
+  }, [delay])
+
+  return (
+    <g ref={gRef}>
+      <Line
+        from={from}
+        to={to}
+        stroke="#A6701A"
+        strokeWidth={0.9}
+        strokeOpacity={0.45}
+        fill="none"
+      />
+    </g>
+  )
+}
 
 export function WorldMap() {
   const [activeCity, setActiveCity] = useState<JourneyCity | null>(null)
@@ -57,6 +117,20 @@ export function WorldMap() {
               ))
             }
           </Geographies>
+
+          {/* Animated flight paths — drawn in chronological order */}
+          {JOURNEY_PAIRS.map(([fromId, toId], i) => {
+            const fromCity = journeyCities.find((c) => c.id === fromId)!
+            const toCity = journeyCities.find((c) => c.id === toId)!
+            return (
+              <AnimatedJourneyLine
+                key={`${fromId}-${toId}`}
+                from={fromCity.coordinates}
+                to={toCity.coordinates}
+                delay={0.8 + i * 1.4}
+              />
+            )
+          })}
 
           {journeyCities.map((city, i) => (
             <Marker
@@ -144,7 +218,6 @@ export function WorldMap() {
                 {activeCity.description}
               </p>
             </div>
-            {/* Arrow */}
             <div className="mx-auto w-0 h-0" style={{
               borderLeft: '6px solid transparent',
               borderRight: '6px solid transparent',
@@ -157,7 +230,6 @@ export function WorldMap() {
         )}
       </AnimatePresence>
 
-      {/* Mobile: tap hint */}
       <p className="text-center font-body text-xs text-foreground/40 mt-2 md:hidden">
         Tap a city to explore
       </p>

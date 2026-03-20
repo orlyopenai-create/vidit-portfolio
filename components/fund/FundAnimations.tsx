@@ -33,6 +33,14 @@ export function FundAnimations({ name, subtitle, stats }: FundAnimationsProps) {
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{name}</h2>
+        <m.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
+          style={{ originX: 0 }}
+          className="h-px bg-accent/40 w-10 mb-3"
+        />
         <p className="font-body text-sm text-foreground/70 mb-12">{subtitle}</p>
       </m.div>
 

@@ -18,6 +18,14 @@ export function BridgeAnimations({ episodes }: { episodes: BridgeEpisode[] }) {
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
           The Bridge
         </h2>
+        <m.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
+          style={{ originX: 0 }}
+          className="h-px bg-accent/40 w-10 mb-3"
+        />
         <p className="font-body text-sm text-foreground/60 max-w-xl mb-12 leading-relaxed">
           An IP I launched on India's leading entrepreneurship podcast — 2 CEOs vs 2 Gen Zs,
           debating the questions Indian professionals are actually asking. I managed the show,

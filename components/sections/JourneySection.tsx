@@ -20,6 +20,14 @@ export function JourneySection() {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
             The Journey
           </h2>
+          <m.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
+            style={{ originX: 0 }}
+            className="h-px bg-accent/40 w-10 mb-4"
+          />
           <p className="font-body text-sm text-foreground/60 mb-10">
             Four cities. Nine years. One through-line.
           </p>
