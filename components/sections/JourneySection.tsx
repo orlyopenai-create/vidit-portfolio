@@ -24,7 +24,7 @@ export function JourneySection() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
+            transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1], delay: 0.25 }}
             style={{ originX: 0 }}
             className="h-px bg-accent/40 w-10 mb-4"
           />

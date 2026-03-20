@@ -3,6 +3,7 @@ import { AboutSection } from '@/components/sections/AboutSection'
 import { JourneySection } from '@/components/sections/JourneySection'
 import { IntersectionSection } from '@/components/sections/IntersectionSection'
 import { BarbershopSection } from '@/components/sections/BarbershopSection'
+import { MarqueeStrip } from '@/components/ui/MarqueeStrip'
 import { FundSection } from '@/components/sections/FundSection'
 import { MediaSection } from '@/components/sections/MediaSection'
 import { FooterSection } from '@/components/sections/FooterSection'
@@ -15,6 +16,7 @@ export default function Home() {
       <JourneySection />
       <IntersectionSection />
       <BarbershopSection />
+      <MarqueeStrip />
       <FundSection />
       <MediaSection />
       <FooterSection />

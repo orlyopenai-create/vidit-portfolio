@@ -2,6 +2,7 @@
 
 import { m } from 'framer-motion'
 import { StatCountUp } from '@/components/hero/StatCountUp'
+import { BarberPole } from '@/components/ui/BarberPole'
 import type { Stat } from '@/lib/types'
 
 const founderTraits = [
@@ -32,12 +33,15 @@ export function FundAnimations({ name, subtitle, stats }: FundAnimationsProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{name}</h2>
+        <div className="flex items-center gap-4 mb-2">
+          <BarberPole className="w-3 h-10" />
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">{name}</h2>
+        </div>
         <m.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
+          transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1], delay: 0.25 }}
           style={{ originX: 0 }}
           className="h-px bg-accent/40 w-10 mb-3"
         />
