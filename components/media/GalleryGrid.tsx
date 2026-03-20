@@ -8,6 +8,7 @@ import { Lightbox } from '@/components/media/Lightbox'
 export function GalleryGrid({ photos }: { photos: Photo[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const baseUrl = process.env.NEXT_PUBLIC_CLOUDFLARE_URL?.replace(/\/$/, '') ?? ''
+  const resolveUrl = (src: string) => src.startsWith('http') ? src : `${baseUrl}/${src}`
 
   return (
     <div>
@@ -44,7 +45,7 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
               onClick={() => setActiveIndex(i)}
             >
               <Image
-                src={`${baseUrl}/${photo.src}`}
+                src={resolveUrl(photo.src)}
                 alt={photo.alt}
                 width={photo.width}
                 height={photo.height}
@@ -59,7 +60,7 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
       )}
 
       <Lightbox
-        photos={photos.map(p => ({ ...p, src: `${baseUrl}/${p.src}` }))}
+        photos={photos.map(p => ({ ...p, src: resolveUrl(p.src) }))}
         activeIndex={activeIndex}
         onClose={() => setActiveIndex(null)}
         onNavigate={setActiveIndex}
