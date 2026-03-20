@@ -15,9 +15,9 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 
 ## Current Status
 
-**Phase:** Phase 5 — Performance & Deploy (planned, ready to execute)
-**Last action:** Phase 5 planned. 2 plans in 2 waves. Wave 1 (auto): contrast fixes + SEO metadata. Wave 2 (human checkpoint): Lighthouse + responsive verification on production.
-**Next step:** `/gsd:execute-phase 5`
+**Phase:** All 5 phases COMPLETE — v1 milestone achieved
+**Last action:** Phase 5 Plan 02 complete. All six PERF requirements verified on production. Lighthouse 90+ (mobile), responsive at 375px, no white flash, robots.txt and sitemap.xml live. 12/12 plans complete.
+**Next step:** Supply real assets (LinkedIn posts, gallery photos, domain), confirm portfolio company stealth status, update metadataBase when custom domain confirmed.
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -32,7 +32,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — targeting VC par
 | 2 | Hero Section | ✓ Complete (2026-03-19) | HERO-01–07: Full-viewport hero, circular photo, career pills, palette |
 | 3 | Core Sections | ✓ Complete (2026-03-20) | NARR/PHIL/TRACK/CASE/TIME/PERS/FOOT (29 reqs): All narrative + credibility sections |
 | 4 | Media Section | ✓ Complete (2026-03-20) | MEDIA-01–06: LinkedIn post cards, photo gallery, lightbox |
-| 5 | Performance & Deploy | ⬜ Not started | PERF-01–06: Lighthouse 90+, responsive, TypeScript strict, production |
+| 5 | Performance & Deploy | ✓ Complete (2026-03-20) | PERF-01–06: Lighthouse 90+, responsive, TypeScript strict, production |
 
 ---
 
@@ -146,13 +146,13 @@ All in `.planning/`:
 
 ## How to Resume
 
-```
-# Phase 5 — Performance & Deploy (plan next):
-/gsd:plan-phase 5
+All 5 phases complete. v1 is live at https://vidit-portfolio-vert.vercel.app.
 
-# Check overall status:
-/gsd:progress
-```
+Remaining post-launch tasks (not in GSD plans):
+- Supply real LinkedIn posts and gallery photos (replace placeholders)
+- Confirm stealth status of 25 portfolio companies before publicising URL
+- Register domain (vidit.vc or viditdugar.com) and update `metadataBase` in `app/layout.tsx`
+- Move LinkedIn CDN photos to Cloudflare R2 before ~May 2026 expiry
 
 ---
 
@@ -209,4 +209,4 @@ All in `.planning/`:
 - `components/media/Lightbox.tsx` — `'use client'`, createPortal on document.body, AnimatePresence fade, m.div nav arrows, keyboard nav (Escape/ArrowLeft/ArrowRight), body scroll lock, mounted guard for SSR safety
 - `components/sections/MediaSection.tsx` — updated to render both MediaAnimations and GalleryGrid
 
-*Last updated: 2026-03-20 — Phase 5 PLANNED. 2 plans: (1) contrast fixes + SEO metadata, (2) Lighthouse + responsive verification. Next: `/gsd:execute-phase 5`.*
+*Last updated: 2026-03-20 — Phase 5 COMPLETE. All 12 plans done. All 6 PERF requirements verified on production. v1 milestone achieved.*
