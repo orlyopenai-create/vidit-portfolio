@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, m } from 'framer-motion'
 import Image from 'next/image'
@@ -13,8 +13,13 @@ interface LightboxProps {
 }
 
 export function Lightbox({ photos, activeIndex, onClose, onNavigate }: LightboxProps) {
+  const [mounted, setMounted] = useState(false)
   const isOpen = activeIndex !== null
   const photo = isOpen ? photos[activeIndex] : null
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     if (!isOpen) return
@@ -39,6 +44,8 @@ export function Lightbox({ photos, activeIndex, onClose, onNavigate }: LightboxP
     }
     return () => { document.body.style.overflow = '' }
   }, [isOpen])
+
+  if (!mounted) return null
 
   return createPortal(
     <AnimatePresence mode="wait">
