@@ -4,7 +4,7 @@ import { PhilosophySection } from '@/components/sections/PhilosophySection'
 import { FundSection } from '@/components/sections/FundSection'
 import { KilrrSection } from '@/components/sections/KilrrSection'
 import { MediaSection } from '@/components/sections/MediaSection'
-import { TimelineSection } from '@/components/sections/TimelineSection'
+import { JourneySection } from '@/components/sections/JourneySection'
 import { BeyondWorkSection } from '@/components/sections/BeyondWorkSection'
 import { FooterSection } from '@/components/sections/FooterSection'
 
@@ -17,7 +17,7 @@ export default function Home() {
       <FundSection />
       <KilrrSection />
       <MediaSection />
-      <TimelineSection />
+      <JourneySection />
       <BeyondWorkSection />
       <FooterSection />
     </main>
