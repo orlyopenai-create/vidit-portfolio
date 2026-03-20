@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Hero Section** - Build the full-viewport hero with animated stat count-ups and scroll-triggered fade-ins (completed 2026-03-19)
 - [x] **Phase 3: Core Sections** - Build all narrative and credibility sections (About, Philosophy, Fund, Kilrr, Timeline, Beyond Work, Footer) (completed 2026-03-19)
 - [x] **Phase 4: Media Section** - Build the Writing & Media section with LinkedIn post cards, photo gallery, and lightbox (completed 2026-03-20)
-- [ ] **Phase 5: Performance and Deployment** - Validate Lighthouse 90+, confirm responsive layout, and cut over to production
+- [x] **Phase 5: Performance and Deployment** - Validate Lighthouse 90+, confirm responsive layout, and cut over to production (completed 2026-03-20)
 
 ## Phase Details
 
@@ -97,7 +97,7 @@ Plans:
   3. No white flash is visible on hard reload in any browser (background set before JS hydration)
   4. Font loading causes no visible layout shift — characters do not reflow after initial paint
   5. `next build` completes with `"strict": true` in tsconfig and zero TypeScript errors
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 05-01-PLAN.md — Fix WCAG AA contrast violations and add SEO metadata (metadataBase, openGraph, robots.ts, sitemap.ts)
@@ -114,4 +114,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
 | 3. Core Sections | 4/4 | Complete    | 2026-03-19 |
 | 4. Media Section | 2/2 | Complete   | 2026-03-20 |
-| 5. Performance and Deployment | 1/2 | In Progress|  |
+| 5. Performance and Deployment | 2/2 | Complete   | 2026-03-20 |
