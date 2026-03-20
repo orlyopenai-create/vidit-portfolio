@@ -33,28 +33,40 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        <h3 className="font-display text-xl font-bold text-foreground mb-10 mt-16">
-          Portfolio Companies
-        </h3>
+        <p className="font-mono text-[10px] uppercase tracking-widest text-foreground/35 mb-8 mt-2">
+          Portfolio — 25 Companies
+        </p>
 
-        <div className="space-y-10">
-          {Object.entries(grouped).map(([sector, items]) => (
-            <div key={sector}>
-              <p className="font-mono text-xs text-foreground/40 uppercase tracking-widest mb-4">
-                {sector}
-              </p>
-              <div className="flex flex-wrap gap-4">
+        <div className="space-y-4">
+          {Object.entries(grouped).map(([sector, items], gi) => (
+            <m.div
+              key={sector}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: gi * 0.04 }}
+              className="flex items-start gap-4 md:gap-8"
+            >
+              {/* Sector label — fixed width, right-aligned */}
+              <div className="w-24 md:w-32 shrink-0 pt-3 text-right">
+                <p className="font-mono text-[9px] text-foreground/35 uppercase tracking-widest leading-tight">
+                  {sector}
+                </p>
+              </div>
+
+              {/* Logo tiles */}
+              <div className="flex flex-wrap gap-2 flex-1">
                 {items.map((company) => (
                   <button
                     key={company.slug}
                     onClick={() => setSelected(company)}
-                    className="flex items-center justify-center p-3 h-14 w-28 rounded-lg bg-surface/60 hover:bg-surface transition-colors duration-200 cursor-pointer"
+                    className="flex items-center justify-center w-20 h-11 rounded-md bg-surface hover:bg-foreground/5 transition-colors duration-200 cursor-pointer"
                     title={company.name}
                   >
                     <img
                       src={company.logoPath}
                       alt={company.name}
-                      className="h-7 w-auto max-w-full object-contain"
+                      className="h-6 w-auto max-w-[64px] object-contain"
                       style={{ mixBlendMode: 'multiply' }}
                       loading="lazy"
                       onError={(e) => {
@@ -64,7 +76,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                   </button>
                 ))}
               </div>
-            </div>
+            </m.div>
           ))}
         </div>
       </m.div>
@@ -80,10 +92,9 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
             initial={{ opacity: 0, scale: 0.95, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="bg-background rounded-2xl p-8 max-w-sm w-full shadow-xl"
+            className="relative bg-background rounded-2xl p-8 max-w-sm w-full shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close */}
             <button
               onClick={() => setSelected(null)}
               className="absolute top-4 right-5 font-mono text-lg text-foreground/40 hover:text-foreground transition-colors"
@@ -91,42 +102,39 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               ×
             </button>
 
-            {/* Logo */}
-            <div className="flex items-center justify-center h-16 mb-6">
+            <div className="flex items-center justify-center h-14 mb-5">
               <img
                 src={selected.logoPath}
                 alt={selected.name}
-                className="h-10 w-auto max-w-[160px] object-contain"
+                className="h-9 w-auto max-w-[160px] object-contain"
                 style={{ mixBlendMode: 'multiply' }}
               />
             </div>
 
-            {/* Name + sector */}
             <h3 className="font-display text-xl font-bold text-foreground mb-1 text-center">
               {selected.name}
             </h3>
-            <p className="font-mono text-xs text-foreground/40 uppercase tracking-widest text-center mb-6">
+            <p className="font-mono text-[10px] text-foreground/40 uppercase tracking-widest text-center mb-5">
               {selected.sector}
             </p>
 
-            {/* Investment details — only if available */}
             {selected.multiple && (
-              <div className="border-t border-muted/20 pt-5 space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="font-body text-sm text-foreground/60">Entry</span>
+              <div className="border-t border-muted/20 pt-4 space-y-3">
+                <div className="flex justify-between">
+                  <span className="font-body text-sm text-foreground/55">Entry</span>
                   <span className="font-mono text-sm text-foreground">{selected.entryValuation}</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-body text-sm text-foreground/60">Latest</span>
+                <div className="flex justify-between">
+                  <span className="font-body text-sm text-foreground/55">Latest</span>
                   <span className="font-mono text-sm text-foreground">{selected.latestValuation}</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-body text-sm text-foreground/60">Multiple</span>
+                <div className="flex justify-between">
+                  <span className="font-body text-sm text-foreground/55">Multiple</span>
                   <span className="font-mono text-sm font-semibold text-accent">{selected.multiple}</span>
                 </div>
                 {selected.coInvestors && selected.coInvestors !== '—' && (
                   <div className="flex justify-between items-start gap-4">
-                    <span className="font-body text-sm text-foreground/60 shrink-0">Co-investors</span>
+                    <span className="font-body text-sm text-foreground/55 shrink-0">Co-investors</span>
                     <span className="font-body text-sm text-foreground text-right">{selected.coInvestors}</span>
                   </div>
                 )}

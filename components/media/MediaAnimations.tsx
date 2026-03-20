@@ -53,6 +53,7 @@ export function MediaAnimations({ posts }: { posts: LinkedInPost[] }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
+        className="relative"
       >
         <div
           ref={scrollRef}
@@ -68,6 +69,13 @@ export function MediaAnimations({ posts }: { posts: LinkedInPost[] }) {
             </div>
           ))}
         </div>
+        {/* Right-edge fade — hints at more content */}
+        <div
+          className="absolute top-0 right-0 h-full w-20 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, transparent, var(--color-background))',
+          }}
+        />
       </m.div>
     </div>
   )
