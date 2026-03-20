@@ -81,7 +81,7 @@ Plans:
   3. Clicking a photo opens a full-screen lightbox; pressing Escape closes it and arrow keys navigate between photos
   4. Hovering a photo shows a dark overlay with a caption
   5. Off-screen gallery images are lazy-loaded — only images in or near the viewport trigger network requests
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 04-01-PLAN.md — Config, LinkedInCard, MediaAnimations, MediaSection shell, wire into page.tsx
@@ -109,5 +109,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation | 3/3 | Complete   | 2026-03-19 |
 | 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
 | 3. Core Sections | 4/4 | Complete    | 2026-03-19 |
-| 4. Media Section | 0/2 | Planning complete | - |
+| 4. Media Section | 1/2 | In Progress|  |
 | 5. Performance and Deployment | 0/TBD | Not started | - |

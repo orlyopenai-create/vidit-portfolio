@@ -59,12 +59,12 @@
 
 ### Writing & Media
 
-- [ ] **MEDIA-01**: Writing & Media section with two-column masonry-style editorial grid (not Instagram-like)
-- [ ] **MEDIA-02**: LinkedIn post cards displaying: first 2–3 lines truncated, date, "read more →" link to original post — built with placeholder content, real posts swapped in by Vidit
+- [x] **MEDIA-01**: Writing & Media section with two-column masonry-style editorial grid (not Instagram-like)
+- [x] **MEDIA-02**: LinkedIn post cards displaying: first 2–3 lines truncated, date, "read more →" link to original post — built with placeholder content, real posts swapped in by Vidit
 - [ ] **MEDIA-03**: Photo gallery with lightbox (click to expand) — images loaded from Cloudflare; placeholder state shown until photos supplied
 - [ ] **MEDIA-04**: Hover on photos shows subtle dark overlay with caption
 - [ ] **MEDIA-05**: Lightbox supports keyboard navigation (Escape to close, arrow keys between photos)
-- [ ] **MEDIA-06**: Images lazy-loaded — no eager loading for off-screen gallery images
+- [x] **MEDIA-06**: Images lazy-loaded — no eager loading for off-screen gallery images
 
 ### Career Timeline
 
