@@ -32,7 +32,7 @@ export function PhilosophyAnimations({ pillars }: { pillars: PhilosophyPillar[] 
             <h3 className="font-display text-xl font-bold text-foreground mb-4">
               {pillar.title}
             </h3>
-            <p className="font-body text-base text-muted leading-relaxed whitespace-pre-line">
+            <p className="font-body text-base text-foreground/75 leading-relaxed whitespace-pre-line">
               {pillar.body}
             </p>
           </m.div>

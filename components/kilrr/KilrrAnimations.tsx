@@ -15,7 +15,7 @@ export function KilrrAnimations({ title, paragraphs }: KilrrAnimationsProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <p className="font-body text-xs uppercase tracking-[0.15em] text-accent mb-4">Investment Story</p>
+        <p className="font-body text-xs uppercase tracking-[0.15em] text-foreground/60 mb-4">Investment Story</p>
         <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">{title}</h2>
       </m.div>
 
@@ -26,7 +26,7 @@ export function KilrrAnimations({ title, paragraphs }: KilrrAnimationsProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.06 }}
-          className="font-body text-base text-muted leading-relaxed mb-6"
+          className="font-body text-base text-foreground/75 leading-relaxed mb-6"
         >
           {p}
         </m.p>

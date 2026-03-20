@@ -7,12 +7,12 @@ export function LinkedInCard({ post }: { post: LinkedInPost }) {
         {post.excerpt}
       </p>
       <div className="flex items-center justify-between mt-auto">
-        <time className="font-mono text-xs text-muted">{post.date}</time>
+        <time className="font-mono text-xs text-foreground/60">{post.date}</time>
         <a
           href={post.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-body text-xs text-accent hover:text-accent/80 transition-colors"
+          className="font-body text-xs text-foreground/70 hover:text-foreground transition-colors"
         >
           read more →
         </a>

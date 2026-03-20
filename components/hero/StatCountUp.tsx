@@ -34,7 +34,7 @@ export function StatCountUp({ stat }: { stat: Stat }) {
       <span className="font-mono text-3xl md:text-4xl text-accent">
         {stat.prefix}{count.toFixed(stat.decimals ?? 0)}{stat.suffix}
       </span>
-      <span className="font-body text-xs text-muted text-center">
+      <span className="font-body text-xs text-foreground/70 text-center">
         {stat.label}
       </span>
     </div>

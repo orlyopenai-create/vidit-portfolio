@@ -22,7 +22,7 @@ export function FundAnimations({ name, subtitle, stats, investments }: FundAnima
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{name}</h2>
-        <p className="font-body text-sm text-muted mb-12">{subtitle}</p>
+        <p className="font-body text-sm text-foreground/70 mb-12">{subtitle}</p>
       </m.div>
 
       {/* Fund stats strip — reusing StatCountUp */}
@@ -55,7 +55,7 @@ export function FundAnimations({ name, subtitle, stats, investments }: FundAnima
                 <th className="text-left py-3 pr-6 font-semibold text-foreground">Sector</th>
                 <th className="text-left py-3 pr-6 font-semibold text-foreground">Entry Val.</th>
                 <th className="text-left py-3 pr-6 font-semibold text-foreground">Latest Val.</th>
-                <th className="text-left py-3 pr-6 font-semibold text-accent">Multiple</th>
+                <th className="text-left py-3 pr-6 font-semibold text-foreground">Multiple</th>
                 <th className="text-left py-3 font-semibold text-foreground">Co-investors</th>
               </tr>
             </thead>
@@ -63,11 +63,11 @@ export function FundAnimations({ name, subtitle, stats, investments }: FundAnima
               {investments.map((inv) => (
                 <tr key={inv.company} className="border-b border-muted/10 hover:bg-surface/50 transition-colors">
                   <td className="py-3 pr-6 font-semibold text-foreground">{inv.company}</td>
-                  <td className="py-3 pr-6 text-muted">{inv.sector}</td>
-                  <td className="py-3 pr-6 font-mono text-muted">{inv.entryValuation}</td>
-                  <td className="py-3 pr-6 font-mono text-muted">{inv.latestValuation}</td>
+                  <td className="py-3 pr-6 text-foreground/70">{inv.sector}</td>
+                  <td className="py-3 pr-6 font-mono text-foreground/70">{inv.entryValuation}</td>
+                  <td className="py-3 pr-6 font-mono text-foreground/70">{inv.latestValuation}</td>
                   <td className="py-3 pr-6 font-mono text-accent font-semibold">{inv.multiple}</td>
-                  <td className="py-3 text-muted text-xs">{inv.coInvestors}</td>
+                  <td className="py-3 text-foreground/70 text-xs">{inv.coInvestors}</td>
                 </tr>
               ))}
             </tbody>

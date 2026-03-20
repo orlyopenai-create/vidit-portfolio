@@ -12,7 +12,7 @@ export function MediaAnimations({ posts }: { posts: LinkedInPost[] }) {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <h3 className="font-body text-xs uppercase tracking-[0.15em] text-accent mb-8">
+        <h3 className="font-body text-xs uppercase tracking-[0.15em] text-foreground/60 mb-8">
           Thoughts &amp; Writing
         </h3>
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -34,12 +34,12 @@ export function MediaAnimations({ posts }: { posts: LinkedInPost[] }) {
                   key={i}
                   className="break-inside-avoid mb-6 bg-surface border border-foreground/10 border-dashed p-6 flex flex-col gap-4"
                 >
-                  <p className="font-body text-sm text-muted italic">
+                  <p className="font-body text-sm text-foreground/60 italic">
                     LinkedIn post -- Vidit to supply
                   </p>
                   <div className="flex items-center justify-between mt-auto">
-                    <span className="font-mono text-xs text-muted">--</span>
-                    <span className="font-body text-xs text-muted">read more →</span>
+                    <span className="font-mono text-xs text-foreground/60">--</span>
+                    <span className="font-body text-xs text-foreground/60">read more →</span>
                   </div>
                 </div>
               ))}

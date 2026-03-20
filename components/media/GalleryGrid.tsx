@@ -18,7 +18,7 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <h3 className="font-body text-xs uppercase tracking-[0.15em] text-accent mb-8 mt-16">Gallery</h3>
+        <h3 className="font-body text-xs uppercase tracking-[0.15em] text-foreground/60 mb-8 mt-16">Gallery</h3>
       </m.div>
 
       {photos.length === 0 ? (
@@ -28,7 +28,7 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
               key={i}
               className="break-inside-avoid mb-6 bg-surface border border-foreground/10 border-dashed aspect-[4/3] flex items-center justify-center"
             >
-              <p className="font-body text-sm text-muted italic">Photo -- Vidit to supply</p>
+              <p className="font-body text-sm text-foreground/60 italic">Photo -- Vidit to supply</p>
             </div>
           ))}
         </div>

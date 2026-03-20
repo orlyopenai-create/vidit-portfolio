@@ -59,7 +59,7 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.55, ease: 'easeOut', delay: 0.32 }}
-        className="font-body text-sm text-muted mb-10 max-w-md leading-relaxed"
+        className="font-body text-sm text-foreground/70 mb-10 max-w-md leading-relaxed"
       >
         {identity.subline}
       </m.p>
@@ -81,7 +81,7 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.5 + i * 0.07 }}
-            className="font-body text-[11px] uppercase tracking-[0.15em] text-muted/70 border border-muted/20 px-3 py-1.5 rounded-sm"
+            className="font-body text-[11px] uppercase tracking-[0.15em] text-foreground/50 border border-foreground/20 px-3 py-1.5 rounded-sm"
           >
             {chapter.label}
           </m.span>
@@ -93,7 +93,7 @@ export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAni
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut', delay: 0.9 }}
-        className="font-body text-[11px] text-muted/45 tracking-[0.25em] uppercase"
+        className="font-body text-[11px] text-foreground/40 tracking-[0.25em] uppercase"
       >
         {cities.join(' · ')}
       </m.p>

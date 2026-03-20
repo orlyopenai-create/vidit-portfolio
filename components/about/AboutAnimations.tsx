@@ -30,7 +30,7 @@ export function AboutAnimations({ prose, pullQuote }: AboutAnimationsProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.08 }}
-          className="font-body text-base text-muted leading-relaxed mb-6"
+          className="font-body text-base text-foreground/75 leading-relaxed mb-6"
         >
           {p}
         </m.p>

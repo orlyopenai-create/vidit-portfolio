@@ -7,7 +7,7 @@ export function FooterSection() {
         <div className="flex items-center justify-center gap-6 mb-6">
           <a
             href="mailto:dugarvidit@gmail.com"
-            className="font-body text-sm text-accent hover:text-accent-hover transition-colors"
+            className="font-body text-sm text-foreground/80 hover:text-foreground transition-colors"
           >
             dugarvidit@gmail.com
           </a>
@@ -15,17 +15,17 @@ export function FooterSection() {
             href="https://www.linkedin.com/in/viditdugar"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body text-sm text-accent hover:text-accent-hover transition-colors"
+            className="font-body text-sm text-foreground/80 hover:text-foreground transition-colors"
           >
             LinkedIn
           </a>
         </div>
 
-        <p className="font-body text-sm text-muted mb-8">
+        <p className="font-body text-sm text-foreground/70 mb-8">
           Open to conversations about early-stage consumer investing in India.
         </p>
 
-        <p className="font-body text-xs text-muted/60">
+        <p className="font-body text-xs text-foreground/50">
           &copy; 2026 Vidit Dugar
         </p>
       </div>

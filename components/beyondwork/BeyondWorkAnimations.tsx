@@ -28,7 +28,7 @@ export function BeyondWorkAnimations({ storyOfMyLife, interests }: BeyondWorkAni
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
         >
           <h3 className="font-display text-xl font-bold text-foreground mb-4">Story of My Life</h3>
-          <p className="font-body text-sm text-muted leading-relaxed">{storyOfMyLife}</p>
+          <p className="font-body text-sm text-foreground/70 leading-relaxed">{storyOfMyLife}</p>
         </m.div>
 
         {/* Interests */}
@@ -39,7 +39,7 @@ export function BeyondWorkAnimations({ storyOfMyLife, interests }: BeyondWorkAni
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
         >
           <h3 className="font-display text-xl font-bold text-foreground mb-4">Interests</h3>
-          <p className="font-body text-sm text-muted leading-relaxed">{interests}</p>
+          <p className="font-body text-sm text-foreground/70 leading-relaxed">{interests}</p>
         </m.div>
       </div>
     </div>

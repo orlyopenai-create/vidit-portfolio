@@ -24,13 +24,13 @@ export function TimelineAnimations({ entries }: { entries: TimelineEntry[] }) {
             transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.08 }}
             className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-8 py-6 border-b border-muted/15"
           >
-            <div className="font-mono text-xs text-muted md:text-right pt-1">
+            <div className="font-mono text-xs text-foreground/60 md:text-right pt-1">
               {entry.period}
             </div>
             <div>
               <p className="font-display text-lg font-bold text-foreground">{entry.role}</p>
-              <p className="font-body text-sm text-accent mb-2">{entry.organization}</p>
-              <p className="font-body text-sm text-muted leading-relaxed whitespace-pre-line">{entry.description}</p>
+              <p className="font-body text-sm text-foreground font-medium mb-2">{entry.organization}</p>
+              <p className="font-body text-sm text-foreground/70 leading-relaxed whitespace-pre-line">{entry.description}</p>
             </div>
           </m.div>
         ))}
