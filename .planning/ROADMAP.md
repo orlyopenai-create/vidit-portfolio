@@ -97,7 +97,11 @@ Plans:
   3. No white flash is visible on hard reload in any browser (background set before JS hydration)
   4. Font loading causes no visible layout shift — characters do not reflow after initial paint
   5. `next build` completes with `"strict": true` in tsconfig and zero TypeScript errors
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Fix WCAG AA contrast violations and add SEO metadata (metadataBase, openGraph, robots.ts, sitemap.ts)
+- [ ] 05-02-PLAN.md — Verify all PERF requirements via static analysis and Lighthouse audit on production
 
 ## Progress
 
@@ -110,4 +114,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Hero Section | 1/1 | Complete   | 2026-03-19 |
 | 3. Core Sections | 4/4 | Complete    | 2026-03-19 |
 | 4. Media Section | 2/2 | Complete   | 2026-03-20 |
-| 5. Performance and Deployment | 0/TBD | Not started | - |
+| 5. Performance and Deployment | 0/2 | Planning complete | - |
