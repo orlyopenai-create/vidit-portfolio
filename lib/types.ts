@@ -49,6 +49,7 @@ export interface LinkedInPost {
   excerpt: string
   date: string
   url: string
+  imageSrc?: string
 }
 
 export interface Photo {
