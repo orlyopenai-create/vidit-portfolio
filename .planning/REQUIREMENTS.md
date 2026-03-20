@@ -89,10 +89,10 @@
 
 ### Performance & Quality
 
-- [ ] **PERF-01**: Lighthouse score 90+ on Performance, Accessibility, Best Practices, SEO
+- [x] **PERF-01**: Lighthouse score 90+ on Performance, Accessibility, Best Practices, SEO
 - [ ] **PERF-02**: All Framer Motion `whileInView` animations use `viewport={{ once: true }}` — no ongoing scroll observation
 - [ ] **PERF-03**: All section components are Server Components; Framer Motion isolated to narrow `'use client'` leaf wrappers only
-- [ ] **PERF-04**: Site fully responsive — hero, timeline, and grid all collapse gracefully on mobile
+- [x] **PERF-04**: Site fully responsive — hero, timeline, and grid all collapse gracefully on mobile
 - [ ] **PERF-05**: No dark theme flash on load — background set in CSS before JS hydrates
 - [ ] **PERF-06**: No CLS from font loading — `next/font/google` self-hosts at build time
 
