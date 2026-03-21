@@ -171,7 +171,7 @@ export function WorldMap() {
       >
         <ComposableMap
           projection="geoMercator"
-          projectionConfig={{ scale: 520, center: [48, 30] }}
+          projectionConfig={{ scale: 380, center: [38, 38] }}
           style={{ width: '100%', height: '100%' }}
         >
           <Geographies geography={GEO_URL}>
@@ -239,7 +239,7 @@ export function WorldMap() {
                 y={-11}
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: '10px',
+                  fontSize: '14px',
                   fill: isKolkata(city) ? '#C4832A' : '#F2EAE0',
                   fontWeight: isKolkata(city) ? 600 : 400,
                   pointerEvents: 'none',
