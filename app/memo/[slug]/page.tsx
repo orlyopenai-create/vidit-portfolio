@@ -28,7 +28,7 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
         {/* Back link */}
         <Link
           href="/#fund"
-          className="inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#F2EAE0]/35 hover:text-[#C4832A] transition-colors duration-200 mb-12"
+          className="inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#F2EAE0]/35 hover:text-[#C4832A] transition-colors duration-200 mb-12 py-3 -my-3 focus:outline-none focus:ring-2 focus:ring-[#C4832A]/50 rounded"
         >
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -78,10 +78,10 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
           <div className="space-y-6">
             {memo.whyExcited.map((item) => (
               <div key={item.heading}>
-                <p className="font-body text-[0.9rem] font-semibold text-[#F2EAE0]/90 mb-1.5">
+                <p className="font-body text-[1rem] font-semibold text-[#F2EAE0]/90 mb-1.5">
                   {item.heading}
                 </p>
-                <p className="font-body text-[0.9rem] text-[#F2EAE0]/55 leading-[1.75]">
+                <p className="font-body text-[1rem] text-[#F2EAE0]/55 leading-[1.75]">
                   {item.body}
                 </p>
               </div>
@@ -100,8 +100,8 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
             <ul className="space-y-3">
               {memo.preParade.map((item, i) => (
                 <li key={i} className="flex gap-3">
-                  <span className="mt-[0.45rem] w-1 h-1 rounded-full bg-[#C4832A]/50 shrink-0" />
-                  <p className="font-body text-[0.87rem] text-[#F2EAE0]/55 leading-[1.7]">{item}</p>
+                  <span className="mt-[0.5rem] w-1 h-1 rounded-full bg-[#C4832A]/50 shrink-0" />
+                  <p className="font-body text-[1rem] text-[#F2EAE0]/55 leading-[1.7]">{item}</p>
                 </li>
               ))}
             </ul>
@@ -114,8 +114,8 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
             <ul className="space-y-3">
               {memo.preMortem.map((item, i) => (
                 <li key={i} className="flex gap-3">
-                  <span className="mt-[0.45rem] w-1 h-1 rounded-full bg-[#F2EAE0]/20 shrink-0" />
-                  <p className="font-body text-[0.87rem] text-[#F2EAE0]/55 leading-[1.7]">{item}</p>
+                  <span className="mt-[0.5rem] w-1 h-1 rounded-full bg-[#F2EAE0]/20 shrink-0" />
+                  <p className="font-body text-[1rem] text-[#F2EAE0]/55 leading-[1.7]">{item}</p>
                 </li>
               ))}
             </ul>
@@ -153,7 +153,7 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
           </p>
           <Link
             href="/#fund"
-            className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#F2EAE0]/35 hover:text-[#C4832A] transition-colors duration-200"
+            className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#F2EAE0]/35 hover:text-[#C4832A] transition-colors duration-200 py-3 -my-3 focus:outline-none focus:ring-2 focus:ring-[#C4832A]/50 rounded"
           >
             ← Back
           </Link>

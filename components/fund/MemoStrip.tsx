@@ -30,7 +30,7 @@ export function MemoStrip({ memos }: { memos: Memo[] }) {
           >
             <Link
               href={`/memo/${memo.slug}`}
-              className="group block rounded-xl bg-[#161210] border border-transparent hover:border-[#C4832A]/25 p-5 transition-colors duration-300 cursor-pointer h-full"
+              className="group block rounded-xl bg-[#161210] border border-transparent hover:border-[#C4832A]/25 p-5 transition-colors duration-300 cursor-pointer h-full focus:outline-none focus:ring-2 focus:ring-[#C4832A]/50 focus:ring-offset-2 focus:ring-offset-[#080604]"
             >
               <div className="flex items-start justify-between gap-3 mb-2">
                 <span className="font-display text-[1.05rem] text-[#F2EAE0] group-hover:text-[#C4832A] transition-colors duration-200">
