@@ -19,7 +19,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 **Phase:** Session 3 complete (2026-03-21)
 **Last action:** All sections reviewed and polished. Writing + Footer enhanced with motion and editorial details.
 
-**Live URL:** `https://vidit-portfolio-vert.vercel.app`
+**Live URL:** `https://viditdugar.orlyfashion.com` (custom domain — Vercel auto-deploys on push to master)
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
 
 **Build status:** Passing (`npm run build` — 0 TypeScript errors, 0 warnings)
@@ -197,10 +197,17 @@ Three editorial pillar cards (replaced SVG Venn — text was overlapping):
 
 ## Pending / Open Items
 
-- [ ] **Bridge** — section review still pending (last section)
-- [ ] **Domain** — `viditdugar.orlyfashion.com`. Update `metadataBase` in `app/layout.tsx` when ready.
-- [ ] **Logo IP** — confirm stealth portfolio companies before sharing URL publicly.
 - [ ] **Other logos** — check remaining logos for visibility issues. Use `tileBg` or `logoFilter` fields, or fetch from company websites.
+
+## Completed This Session (2026-03-21)
+
+- Bridge section rebuilt — context intro, new editorial title "Two CEOs. Two Gen Zs. No script.", card UX fixes
+- Footer — email updated (dugarvidit@gmail.com), phone added, LinkedIn logo, Kolkata line removed
+- Investment notes — 4 cleaned public memos (Fishmongers, Anandi Schools, Better Nutrition, ReplyAll) with detail pages at /memo/[slug]. CTA: "Why we invested"
+- Performance audit — RAF leak fixed, next/image for Bridge thumbnails, d3-geo explicit dep
+- OG image — dynamic edge route at /opengraph-image (dark, name + Portfolio + pillars + companies)
+- Metadata — title/description updated, metadataBase set to custom domain
+- Domain — viditdugar.orlyfashion.com live via Shopify DNS + Vercel
 
 ---
 
