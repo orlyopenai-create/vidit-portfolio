@@ -39,14 +39,14 @@ function ProseBlock({ text, delay }: { text: string; delay: number }) {
 
 export function StorySection() {
   return (
-    <section id="story" className="py-24 md:py-36 lg:py-48 px-6 bg-surface">
+    <section id="story" className="py-16 md:py-24 px-6 bg-surface">
       <div className="max-w-6xl mx-auto md:px-6">
         <SectionLabel text="THE STORY" />
 
         {/* Pull quote */}
         <div className="mb-12 md:mb-16 max-w-3xl">
           <ClipReveal delay={0.1}>
-            <blockquote className="font-display font-normal italic text-[clamp(1.5rem,2.5vw,2.2rem)] leading-[1.4] text-foreground">
+            <blockquote className="font-subheading font-normal italic text-[clamp(1.7rem,2.8vw,2.6rem)] leading-[1.35] text-foreground">
               &ldquo;I went from modelling transactions in London to backing ice cream brands from inside a startup. The lens didn&rsquo;t change — only the table.&rdquo;
             </blockquote>
           </ClipReveal>

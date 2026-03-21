@@ -25,7 +25,7 @@ export function BridgeAnimations({ episodes }: { episodes: BridgeEpisode[] }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: LANDO_EASE, delay: 0.15 }}
-        className="font-body italic text-[1.05rem] text-foreground/60 mb-14 max-w-xl leading-relaxed"
+        className="font-subheading italic text-[1.3rem] text-foreground/55 mb-10 max-w-xl leading-relaxed"
       >
         2 CEOs vs 2 Gen Zs. An IP Vidit built, produced, and appeared in.
       </m.p>

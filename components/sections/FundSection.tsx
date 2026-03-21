@@ -6,7 +6,7 @@ export function FundSection() {
   return (
     <section
       id="fund"
-      className="py-24 md:py-36 lg:py-48 px-6"
+      className="py-16 md:py-24 px-6"
       style={{ backgroundColor: '#1C1410', color: '#F0E8DC' }}
     >
       <div className="max-w-6xl mx-auto md:px-6">

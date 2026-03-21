@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, DM_Sans, DM_Mono } from 'next/font/google'
+import { Playfair_Display, Cormorant_Garamond, Inter, DM_Mono } from 'next/font/google'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { LenisProvider } from '@/components/ui/LenisProvider'
 import './globals.css'
@@ -11,7 +11,15 @@ const playfair = Playfair_Display({
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-subheading',
+  display: 'swap',
+})
+
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
@@ -48,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${inter.variable} ${dmMono.variable}`}>
       <body className="font-body antialiased">
         <MotionProvider>
           <LenisProvider>

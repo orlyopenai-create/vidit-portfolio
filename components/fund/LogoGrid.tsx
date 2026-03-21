@@ -78,13 +78,13 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                     key={company.slug}
                     onClick={() => setSelected(company)}
                     aria-label={`View details for ${company.name}`}
-                    className="flex items-center justify-center w-20 h-11 rounded-md bg-[#2A1F14] hover:bg-[#3A2E20] transition-colors duration-200 cursor-pointer"
+                    className="flex items-center justify-center w-28 h-16 rounded-md bg-[#2A1F14] hover:bg-[#3A2E20] transition-colors duration-200 cursor-pointer"
                     title={company.name}
                   >
                     <img
                       src={company.logoPath}
                       alt={company.name}
-                      className="h-6 w-auto max-w-[64px] object-contain"
+                      className="h-8 w-auto max-w-[88px] object-contain"
                       style={{ mixBlendMode: 'luminosity', opacity: 0.85 }}
                       loading="lazy"
                       onError={(e) => {

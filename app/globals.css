@@ -11,7 +11,8 @@
   --color-dark-surface: #2A1F14;
   --color-dark-text:  #F0E8DC;
   --font-display: "Playfair Display", Georgia, serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-subheading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "DM Mono", monospace;
 }
 
