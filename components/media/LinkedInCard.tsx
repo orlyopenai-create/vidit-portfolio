@@ -2,9 +2,15 @@ import type { LinkedInPost } from '@/lib/types'
 
 export function LinkedInCard({ post }: { post: LinkedInPost }) {
   return (
-    <article className="flex flex-col bg-surface border border-foreground/8 h-full">
+    <a
+      href={post.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col bg-surface transition-all duration-200 hover:-translate-y-1.5 hover:shadow-md rounded-xl overflow-hidden h-full"
+    >
+      {/* Photo — 55% height ratio */}
       {post.imageSrc && (
-        <div className="aspect-[4/3] overflow-hidden bg-foreground/5 flex-none">
+        <div className="w-full overflow-hidden flex-none" style={{ aspectRatio: '4/3', maxHeight: '55%' }}>
           <img
             src={post.imageSrc}
             alt=""
@@ -13,22 +19,20 @@ export function LinkedInCard({ post }: { post: LinkedInPost }) {
           />
         </div>
       )}
-      <div className="flex flex-col flex-1 p-6 gap-4">
-        <p className="font-body text-sm text-foreground leading-relaxed line-clamp-5">
+
+      <div className="flex flex-col flex-1 p-5 gap-3">
+        {/* Date in DM Mono gold */}
+        <time className="font-mono text-[0.75rem] text-[#A6701A]">{post.date}</time>
+
+        {/* Excerpt — Playfair feel via leading */}
+        <p className="font-body text-sm text-foreground leading-relaxed line-clamp-4 flex-1">
           {post.excerpt}
         </p>
-        <div className="flex items-center justify-between mt-auto pt-2 border-t border-foreground/8">
-          <time className="font-mono text-xs text-foreground/50">{post.date}</time>
-          <a
-            href={post.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body text-xs text-foreground/60 hover:text-foreground transition-colors"
-          >
-            read on LinkedIn →
-          </a>
-        </div>
+
+        <span className="font-body text-xs text-foreground/40 group-hover:text-foreground/70 transition-colors mt-auto">
+          Read on LinkedIn →
+        </span>
       </div>
-    </article>
+    </a>
   )
 }

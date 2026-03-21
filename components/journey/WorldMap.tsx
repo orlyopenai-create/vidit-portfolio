@@ -6,14 +6,12 @@ import {
   Geographies,
   Geography,
   Marker,
-  ZoomableGroup,
   Line,
 } from 'react-simple-maps'
 import { journeyCities, type JourneyCity } from '@/lib/data/journey'
 
 const GEO_URL = '/world-110m.json'
 
-// Chronological journey order
 const JOURNEY_PAIRS: Array<[string, string]> = [
   ['mumbai', 'london'],
   ['london', 'delhi'],
@@ -34,10 +32,8 @@ function AnimatedJourneyLine({
   useEffect(() => {
     const g = gRef.current
     if (!g) return
-
     const path = g.querySelector('path')
     if (!path) return
-
     const length = path.getTotalLength()
     path.style.strokeDasharray = `${length}`
     path.style.strokeDashoffset = `${length}`
@@ -46,7 +42,7 @@ function AnimatedJourneyLine({
     const t = setTimeout(() => {
       g.setAttribute('opacity', '1')
       const controls = animate(length, 0, {
-        duration: 1.3,
+        duration: 1.0,
         ease: [0.4, 0, 0.2, 1],
         onUpdate(v) {
           path.style.strokeDashoffset = `${v}`
@@ -65,7 +61,7 @@ function AnimatedJourneyLine({
         to={to}
         stroke="#A6701A"
         strokeWidth={0.9}
-        strokeOpacity={0.45}
+        strokeOpacity={0.55}
         fill="none"
       />
     </g>
@@ -91,6 +87,8 @@ export function WorldMap() {
     setActiveCity(city)
   }
 
+  const isKolkata = (city: JourneyCity) => city.id === 'kolkata'
+
   return (
     <div
       className="map-container relative w-full"
@@ -98,143 +96,151 @@ export function WorldMap() {
     >
       <ComposableMap
         projection="geoMercator"
-        projectionConfig={{ scale: 400, center: [42, 30] }}
+        projectionConfig={{ scale: 420, center: [42, 28] }}
         style={{ width: '100%', height: 'auto' }}
       >
-        <ZoomableGroup zoom={1} minZoom={1} maxZoom={1}>
-          <Geographies geography={GEO_URL}>
-            {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  style={{
-                    default: { fill: '#DDD4C6', stroke: '#C8B89A', strokeWidth: 0.4, outline: 'none' },
-                    hover:   { fill: '#DDD4C6', stroke: '#C8B89A', strokeWidth: 0.4, outline: 'none' },
-                    pressed: { fill: '#DDD4C6', outline: 'none' },
-                  }}
-                />
-              ))
-            }
-          </Geographies>
-
-          {/* Animated flight paths — drawn in chronological order */}
-          {JOURNEY_PAIRS.map(([fromId, toId], i) => {
-            const fromCity = journeyCities.find((c) => c.id === fromId)!
-            const toCity = journeyCities.find((c) => c.id === toId)!
-            return (
-              <AnimatedJourneyLine
-                key={`${fromId}-${toId}`}
-                from={fromCity.coordinates}
-                to={toCity.coordinates}
-                delay={0.8 + i * 1.4}
-              />
-            )
-          })}
-
-          {journeyCities.map((city, i) => (
-            <Marker
-              key={city.id}
-              coordinates={city.coordinates}
-              onClick={(e) => handleMarkerClick(city, e as unknown as React.MouseEvent)}
-            >
-              {/* Pulse ring */}
-              <m.circle
-                r={10}
-                fill="#A6701A"
-                fillOpacity={0}
-                stroke="#A6701A"
-                strokeWidth={1.5}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{
-                  scale: [1, 2.2, 1],
-                  opacity: [0.5, 0, 0.5],
-                }}
-                transition={{
-                  duration: 2.4,
-                  repeat: Infinity,
-                  delay: i * 0.4,
-                  ease: 'easeOut',
-                }}
-              />
-              {/* Dot */}
-              <m.circle
-                r={5}
-                fill={activeCity?.id === city.id ? '#A6701A' : '#C4975A'}
-                stroke="#F5EFE6"
-                strokeWidth={1.5}
-                style={{ cursor: 'pointer' }}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.12 }}
-                whileHover={{ scale: 1.4 }}
-              />
-              {/* City label */}
-              <m.text
-                textAnchor="middle"
-                y={-11}
+        <Geographies geography={GEO_URL}>
+          {({ geographies }) =>
+            geographies.map((geo) => (
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
                 style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '7px',
-                  fill: '#241E18',
-                  pointerEvents: 'none',
-                  userSelect: 'none',
+                  default: { fill: '#DDD4C6', stroke: '#C8B89A', strokeWidth: 0.4, outline: 'none' },
+                  hover:   { fill: '#DDD4C6', stroke: '#C8B89A', strokeWidth: 0.4, outline: 'none' },
+                  pressed: { fill: '#DDD4C6', outline: 'none' },
                 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 + i * 0.12 }}
-              >
-                {city.name}
-              </m.text>
-            </Marker>
-          ))}
-        </ZoomableGroup>
+              />
+            ))
+          }
+        </Geographies>
+
+        {/* Animated flight paths — drawn sequentially */}
+        {JOURNEY_PAIRS.map(([fromId, toId], i) => {
+          const fromCity = journeyCities.find((c) => c.id === fromId)!
+          const toCity = journeyCities.find((c) => c.id === toId)!
+          return (
+            <AnimatedJourneyLine
+              key={`${fromId}-${toId}`}
+              from={fromCity.coordinates}
+              to={toCity.coordinates}
+              delay={0.6 + i * 1.2}
+            />
+          )
+        })}
+
+        {journeyCities.map((city, i) => (
+          <Marker
+            key={city.id}
+            coordinates={city.coordinates}
+            onClick={(e) => handleMarkerClick(city, e as unknown as React.MouseEvent)}
+          >
+            {/* Pulse ring — gold for Kolkata, muted for others */}
+            <m.circle
+              r={10}
+              fill={isKolkata(city) ? '#A6701A' : '#241E18'}
+              fillOpacity={0}
+              stroke={isKolkata(city) ? '#A6701A' : '#241E18'}
+              strokeWidth={1.5}
+              animate={{
+                scale: [1, 2.0, 1],
+                opacity: [0.4, 0, 0.4],
+              }}
+              transition={{
+                duration: 2.6,
+                repeat: Infinity,
+                delay: i * 0.5,
+                ease: 'easeOut',
+              }}
+            />
+            {/* Dot — gold for Kolkata, dark for others */}
+            <m.circle
+              r={isKolkata(city) ? 6 : 5}
+              fill={isKolkata(city) ? '#A6701A' : (activeCity?.id === city.id ? '#241E18' : '#5C4F41')}
+              stroke={isKolkata(city) ? '#F5EFE6' : '#F5EFE6'}
+              strokeWidth={1.5}
+              style={{ cursor: 'pointer' }}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 + i * 0.12 }}
+              whileHover={{ scale: 1.5 }}
+            />
+            {/* City label */}
+            <m.text
+              textAnchor="middle"
+              y={-11}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '7px',
+                fill: isKolkata(city) ? '#A6701A' : '#241E18',
+                fontWeight: isKolkata(city) ? 600 : 400,
+                pointerEvents: 'none',
+                userSelect: 'none',
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 + i * 0.12 }}
+            >
+              {city.name}
+            </m.text>
+          </Marker>
+        ))}
       </ComposableMap>
 
-      {/* Tooltip */}
+      {/* Tooltip / popout card */}
       <AnimatePresence>
         {activeCity && (
           <m.div
             key={activeCity.id}
-            initial={{ opacity: 0, y: 6, scale: 0.95 }}
+            initial={{ opacity: 0, y: 8, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 4, scale: 0.95 }}
-            transition={{ duration: 0.18 }}
+            transition={{ duration: 0.2 }}
             className="absolute z-10 pointer-events-none"
             style={{
-              left: Math.min(tooltipPos.x, window.innerWidth > 600 ? tooltipPos.x : tooltipPos.x - 20),
+              left: tooltipPos.x,
               top: tooltipPos.y - 12,
               transform: 'translate(-50%, -100%)',
-              maxWidth: '240px',
+              maxWidth: '220px',
             }}
           >
-            <div className="bg-surface border border-muted/20 rounded-lg px-4 py-3 shadow-md">
-              <p className="font-mono text-xs text-accent mb-0.5">{activeCity.period}</p>
-              <p className="font-display text-sm font-bold text-foreground leading-snug mb-1">
+            <div className="bg-background border border-foreground/10 rounded-xl px-4 py-4 shadow-lg">
+              <p className="font-body text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-foreground/40 mb-1">
                 {activeCity.name}
               </p>
-              <p className="font-body text-xs text-foreground/70 mb-1.5">{activeCity.role}</p>
-              <p className="font-body text-xs text-foreground/60 leading-relaxed">
-                {activeCity.description}
+              <div className="h-[1px] w-8 bg-accent mb-2" />
+              <p className="font-mono text-xs text-foreground/60 mb-2">{activeCity.period}</p>
+              <p className="font-body text-sm font-medium text-foreground leading-snug mb-1">
+                {activeCity.role.split(' · ')[0]}
               </p>
+              {activeCity.role.includes(' · ') && (
+                <p className="font-body text-xs text-foreground/50 mb-2">{activeCity.role.split(' · ').slice(1).join(' · ')}</p>
+              )}
+              {activeCity.id === 'kolkata' && (
+                <p className="font-display italic text-xs text-[#A6701A] leading-relaxed mt-2">
+                  &ldquo;Home. Third-generation. Returning with new eyes.&rdquo;
+                </p>
+              )}
             </div>
-            <div className="mx-auto w-0 h-0" style={{
-              borderLeft: '6px solid transparent',
-              borderRight: '6px solid transparent',
-              borderTop: '6px solid #EDE4D8',
-              width: 0,
-              marginLeft: '50%',
-              transform: 'translateX(-50%)',
-            }} />
+            {/* Arrow */}
+            <div
+              className="mx-auto"
+              style={{
+                borderLeft: '6px solid transparent',
+                borderRight: '6px solid transparent',
+                borderTop: '6px solid #F5EFE6',
+                width: 0,
+                marginLeft: '50%',
+                transform: 'translateX(-50%)',
+              }}
+            />
           </m.div>
         )}
       </AnimatePresence>
 
-      <p className="text-center font-body text-xs text-foreground/40 mt-2 md:hidden">
-        Tap a city to explore
-      </p>
-      <p className="text-center font-body text-xs text-foreground/40 mt-2 hidden md:block">
-        Click a city to explore
+      <p className="text-center font-body text-xs text-foreground/35 mt-3">
+        <span className="md:hidden">Tap a city to explore</span>
+        <span className="hidden md:inline">Click a city to explore</span>
       </p>
     </div>
   )

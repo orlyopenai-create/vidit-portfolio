@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, DM_Sans, DM_Mono } from 'next/font/google'
 import { MotionProvider } from '@/components/providers/MotionProvider'
-import { ScrollProgress } from '@/components/ui/ScrollProgress'
+import { LenisProvider } from '@/components/ui/LenisProvider'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -26,19 +26,19 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vidit-portfolio-vert.vercel.app'),
-  title: 'Vidit Dugar — Investor. Operator. Builder.',
-  description: 'Early-stage consumer investor in India. Formerly Nomura London, Bombay Shaving Company, The Barbershop Fund.',
+  title: 'Vidit Dugar — Builder. Investor. Storyteller.',
+  description: 'Third-generation entrepreneur. Formerly Nomura London, Bombay Shaving Company. Builder of The Bridge and The Orly Times.',
   openGraph: {
     type: 'website',
-    title: 'Vidit Dugar — Investor. Operator. Builder.',
-    description: 'Early-stage consumer investor in India. Formerly Nomura London, Bombay Shaving Company, The Barbershop Fund.',
+    title: 'Vidit Dugar — Builder. Investor. Storyteller.',
+    description: 'Third-generation entrepreneur. Formerly Nomura London, Bombay Shaving Company. Builder of The Bridge and The Orly Times.',
     url: 'https://vidit-portfolio-vert.vercel.app',
     siteName: 'Vidit Dugar',
   },
   twitter: {
     card: 'summary',
-    title: 'Vidit Dugar — Investor. Operator. Builder.',
-    description: 'Early-stage consumer investor in India. Formerly Nomura London, Bombay Shaving Company, The Barbershop Fund.',
+    title: 'Vidit Dugar — Builder. Investor. Storyteller.',
+    description: 'Third-generation entrepreneur. Formerly Nomura London, Bombay Shaving Company. Builder of The Bridge and The Orly Times.',
   },
 }
 
@@ -51,8 +51,9 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <body className="font-body antialiased">
         <MotionProvider>
-          <ScrollProgress />
-          {children}
+          <LenisProvider>
+            {children}
+          </LenisProvider>
         </MotionProvider>
       </body>
     </html>

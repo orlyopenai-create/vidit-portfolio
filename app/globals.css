@@ -7,22 +7,34 @@
   --color-muted:      #8A7E74;
   --color-accent:     #A6701A;
   --color-accent-hover: #B8841E;
+  --color-dark-bg:    #1C1410;
+  --color-dark-surface: #2A1F14;
+  --color-dark-text:  #F0E8DC;
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
   --font-mono: "DM Mono", monospace;
 }
 
-html,
-body {
+html, body {
   background-color: #F5EFE6;
   color: #241E18;
 }
 
-html {
-  color-scheme: light;
-}
+html { color-scheme: light; }
 
 @keyframes marquee-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

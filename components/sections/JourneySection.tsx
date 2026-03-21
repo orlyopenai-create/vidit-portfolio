@@ -1,46 +1,32 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { m } from 'framer-motion'
+import { SectionLabel } from '@/components/ui/SectionLabel'
+import { ClipReveal } from '@/components/ui/ClipReveal'
 
 const WorldMap = dynamic(
   () => import('@/components/journey/WorldMap').then((m) => m.WorldMap),
-  { ssr: false, loading: () => <div className="w-full aspect-[2/1] bg-surface rounded-xl animate-pulse" /> }
+  { ssr: false, loading: () => <div className="w-full" style={{ height: '60vh', backgroundColor: '#EDE4D8', borderRadius: '12px' }} /> }
 )
 
 export function JourneySection() {
   return (
-    <section id="journey" className="pt-8 pb-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        <m.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
-            The Journey
-          </h2>
-          <m.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1], delay: 0.25 }}
-            style={{ originX: 0 }}
-            className="h-px bg-accent/40 w-10 mb-4"
-          />
-          <p className="font-body text-sm text-foreground/60 mb-10">
-            Four cities. Nine years. One through-line.
-          </p>
-        </m.div>
+    <section id="journey" className="py-24 md:py-36 lg:py-48 px-6 bg-background">
+      <div className="max-w-6xl mx-auto md:px-6">
+        <SectionLabel text="THE JOURNEY" />
 
-        <m.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <WorldMap />
-        </m.div>
+        <div className="mb-8">
+          <ClipReveal>
+            <h2 className="font-display text-[clamp(2.5rem,5vw,5rem)] font-normal leading-[1.1] tracking-[-0.01em] text-foreground">
+              Four cities. One thread.
+            </h2>
+          </ClipReveal>
+        </div>
+
+        <p className="font-body italic text-[1.1rem] text-foreground/60 mb-12">
+          From Mumbai to London to Delhi — and back to where it started.
+        </p>
+
+        <WorldMap />
       </div>
     </section>
   )

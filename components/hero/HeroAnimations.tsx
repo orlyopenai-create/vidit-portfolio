@@ -2,174 +2,125 @@
 
 import { useRef } from 'react'
 import { m, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
 
-interface Chapter {
-  label: string
-}
+const LANDO_EASE = [0.65, 0.05, 0, 1] as const
 
-interface HeroAnimationsProps {
-  identity: { name: string; descriptor: string; subline: string }
-  headshot: string
-  chapters: Chapter[]
-  cities: string[]
-}
-
-export function HeroAnimations({ identity, headshot, chapters, cities }: HeroAnimationsProps) {
+export function HeroAnimations() {
   const heroRef = useRef<HTMLDivElement>(null)
 
-  // Track scroll progress within this section (0 = top of section at viewport top, 1 = bottom)
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ['start start', 'end start'],
   })
 
-  // Background drifts upward slowly — creates depth separation
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -40])
-
-  // Content holds still until 45% through, then rises + fades out by 85%
-  const contentY       = useTransform(scrollYProgress, [0, 0.85], [0, -80])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.45, 0.85], [1, 1, 0])
-
-  // Scroll hint disappears as soon as user starts scrolling
-  const hintOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0])
-
-  // Split "Investor · Operator · Builder" into individual words
-  const descriptorWords = identity.descriptor.split(' · ')
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -80])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 0.9], [1, 1, 0])
+  const hintOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0])
 
   return (
-    // Outer: 180vh on desktop creates scroll space for the cinematic exit
-    // Mobile stays min-h-screen (single viewport, no extra scroll space)
-    <div ref={heroRef} className="relative min-h-screen md:h-[180vh]">
+    <div ref={heroRef} className="relative min-h-screen md:h-[140vh]">
+      <div className="md:sticky top-0 h-screen flex flex-col overflow-hidden px-6 md:px-12">
 
-      {/* Inner: sticky on desktop — stays pinned at top while user scrolls through 180vh */}
-      <div className="md:sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden px-6 pb-16 pt-20 text-center">
-
-        {/* Parallax background layer — moves at 0.25x scroll speed */}
+        {/* VD Monogram — top left */}
         <m.div
-          style={{ y: bgY }}
-          className="absolute inset-0 pointer-events-none"
-          aria-hidden
-        />
-
-        {/* Content layer — fades and rises as user scrolls away from hero */}
-        <m.div
-          style={{ y: contentY, opacity: contentOpacity }}
-          className="relative z-10 flex flex-col items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          className="absolute top-8 left-8 md:top-10 md:left-12 z-20"
         >
-
-          {/* Headshot */}
-          <m.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="mb-8 relative w-40 h-40 rounded-full overflow-hidden border-2 border-surface flex-shrink-0 shadow-sm"
-          >
-            <Image
-              src={headshot}
-              alt="Vidit Dugar"
-              fill
-              className="object-cover object-[50%_12%]"
-              priority
-            />
-          </m.div>
-
-          {/* Name */}
-          <m.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: 'easeOut', delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tight mb-4"
-          >
-            {identity.name}
-          </m.h1>
-
-          {/* Descriptor — kinetic word-by-word staggered reveal */}
-          <p className="font-body text-lg md:text-xl text-accent mb-3">
-            {descriptorWords.map((word, i) => (
-              <span key={word} className="inline">
-                <m.span
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: 'easeOut', delay: 0.22 + i * 0.16 }}
-                  className="inline-block"
-                >
-                  {word}
-                </m.span>
-                {i < descriptorWords.length - 1 && (
-                  <m.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.4 }}
-                    transition={{ duration: 0.3, delay: 0.32 + i * 0.16 }}
-                    className="inline-block mx-2"
-                  >
-                    ·
-                  </m.span>
-                )}
-              </span>
-            ))}
-          </p>
-
-          {/* Subline */}
-          <m.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.55, ease: 'easeOut', delay: 0.72 }}
-            className="font-body text-sm text-foreground/70 mb-10 max-w-md leading-relaxed"
-          >
-            {identity.subline}
-          </m.p>
-
-          {/* Accent hairline */}
-          <m.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
-            style={{ originX: 0.5 }}
-            className="w-10 border-t border-accent/40 mb-10"
-          />
-
-          {/* Career chapter pills */}
-          <div className="flex flex-wrap justify-center gap-2 mb-6 max-w-lg">
-            {chapters.map((chapter, i) => (
-              <m.span
-                key={chapter.label}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: 'easeOut', delay: 0.85 + i * 0.07 }}
-                className="font-body text-[11px] uppercase tracking-[0.15em] text-foreground/50 border border-foreground/20 px-3 py-1.5 rounded-sm"
-              >
-                {chapter.label}
-              </m.span>
-            ))}
-          </div>
-
-          {/* Cities — letter-spacing expands from tight to wide on entrance */}
-          <m.p
-            initial={{ opacity: 0, letterSpacing: '0.08em' }}
-            animate={{ opacity: 1, letterSpacing: '0.25em' }}
-            transition={{ duration: 1.1, ease: 'easeOut', delay: 1.2 }}
-            className="font-body text-[11px] text-foreground/40 uppercase"
-          >
-            {cities.join(' · ')}
-          </m.p>
-
+          <span className="font-body text-sm font-semibold tracking-[0.12em] text-[#A6701A]">
+            VD
+          </span>
         </m.div>
 
-        {/* Scroll hint — fades immediately when user scrolls */}
+        {/* Main content */}
+        <m.div
+          style={{ y: contentY, opacity: contentOpacity }}
+          className="relative z-10 flex flex-col justify-center h-full pt-16 pb-20"
+        >
+          {/* Headline lines */}
+          <div className="mb-8">
+            {/* Line 1 */}
+            <div className="overflow-hidden">
+              <m.h1
+                className="font-display font-bold text-[clamp(3rem,7vw,8rem)] leading-[0.95] tracking-[-0.02em] text-foreground"
+                initial={{ y: '105%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                transition={{ duration: 0.75, ease: LANDO_EASE, delay: 0.3 }}
+              >
+                Third-generation builder.
+              </m.h1>
+            </div>
+
+            {/* Line 2 */}
+            <div className="overflow-hidden">
+              <m.h1
+                className="font-display font-bold text-[clamp(3rem,7vw,8rem)] leading-[0.95] tracking-[-0.02em] text-foreground"
+                initial={{ y: '105%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                transition={{ duration: 0.75, ease: LANDO_EASE, delay: 0.45 }}
+              >
+                First-generation investor.
+              </m.h1>
+            </div>
+
+            {/* Lines 3-4 italic, smaller */}
+            <div className="overflow-hidden mt-3">
+              <m.div
+                initial={{ y: '105%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                transition={{ duration: 0.75, ease: LANDO_EASE, delay: 0.65 }}
+              >
+                <p className="font-display font-normal italic text-[clamp(2rem,5vw,5.5rem)] leading-[1.1] text-foreground">
+                  The thread connecting them
+                </p>
+                <p className="font-display font-normal italic text-[clamp(2rem,5vw,5.5rem)] leading-[1.1] text-foreground">
+                  has always been story.
+                </p>
+              </m.div>
+            </div>
+          </div>
+
+          {/* Name + location — bottom left */}
+          <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 1.0 }}
+            className="absolute bottom-16 left-6 md:left-12"
+          >
+            <p className="font-body text-[0.9rem] font-medium text-[#A6701A] tracking-wide">
+              Vidit Dugar
+            </p>
+            <p className="font-body text-[0.8rem] text-foreground/50 mt-0.5">
+              Kolkata, India
+            </p>
+          </m.div>
+        </m.div>
+
+        {/* Scroll hint — bottom right */}
         <m.div
           style={{ opacity: hintOpacity }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 pointer-events-none"
+          className="absolute bottom-14 right-8 md:right-12 flex flex-col items-center gap-2 pointer-events-none"
         >
-          <span className="font-body text-[10px] text-foreground/30 uppercase tracking-widest">
-            Scroll
-          </span>
           <m.div
-            className="w-px h-8 bg-foreground/20"
-            animate={{ scaleY: [1, 1.3, 1], opacity: [0.3, 0.8, 0.3] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ originY: 'top' }}
-          />
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+            style={{
+              animationPlayState: 'var(--motion-play-state, running)',
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-foreground/30">
+              <path d="M10 4v12M5 11l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </m.div>
+          <m.span
+            className="font-body text-[0.65rem] text-foreground/30 uppercase tracking-[0.2em]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3 }}
+          >
+            scroll
+          </m.span>
         </m.div>
 
       </div>
