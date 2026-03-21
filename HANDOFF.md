@@ -16,15 +16,15 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 
 ## Current Status
 
-**Phase:** Session 3 in progress (2026-03-21)
-**Last action:** Section-by-section review. Fund section overhauled, map fixed, Intersection copy reworked from CV.
+**Phase:** Session 3 complete (2026-03-21)
+**Last action:** All sections reviewed and polished. Writing + Footer enhanced with motion and editorial details.
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
 
 **Build status:** Passing (`npm run build` — 0 TypeScript errors, 0 warnings)
 
-**Section progress:** Hero ✅ Journey ✅ Intersection ✅ Fund ✅ | Bridge, Writing, Footer — pending review
+**Section progress:** Hero ✅ Journey ✅ Intersection ✅ Fund ✅ Writing ✅ Footer ✅ | Bridge — pending review
 
 ---
 
@@ -35,8 +35,8 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 3. **The Intersection** — `bg-surface`. SectionLabel "THE INTERSECTION". Title "Three worlds. One lens." Three editorial pillar cards (Finance / Operations / Content) with decorative 01/02/03 numbers. "Operator-Investor" gold badge below with connecting lines.
 4. **The Bridge** — `bg-surface`. SectionLabel "THE BRIDGE". Title "The Bridge". 3 episode cards, 16:9 thumbnails, topic pill, play overlay on hover.
 5. **The Barbershop Fund** — `bg-[#080604]` (deepest dark). SectionLabel "THE BARBERSHOP FUND". Honest intro copy attributing fund to Shantanu. Stats: 25 companies / 1.8x MOIC (FUND) / 5 Shark Tank alumni. Portfolio highlights cards. "What I Look For" section. Logo constellation (burst + float on scroll). Click popout with valuation bar.
-6. **Writing** — `bg-background`. SectionLabel "WRITING". Title "Thinking out loud." italic. Horizontal snap carousel, arrow nav, right fade gradient.
-7. **Footer** — `bg-surface`. Large "Let's talk." Playfair. Email + LinkedIn links. Gold on hover. "Third-generation builder from Kolkata." emotional signature.
+6. **Writing** — `bg-background`. SectionLabel "WRITING". Title "Thinking out loud." italic. Horizontal snap carousel, arrow nav, right fade gradient. Auto-advances every 4s (pauses on hover/touch). Cards stagger in on scroll. Hover reveals gold Cormorant pull-quote overlay.
+7. **Footer** — `bg-surface`. Two-column: left = section jump nav (Journey/Intersection/Fund/Bridge/Writing) in Playfair. Right = "Let's talk." + pulsing green availability badge + email/LinkedIn. Cormorant italic pull quote above divider. "Third-generation builder from Kolkata." emotional signature.
 
 ---
 
@@ -197,13 +197,11 @@ Three editorial pillar cards (replaced SVG Venn — text was overlapping):
 
 ## Pending / Open Items
 
-- [ ] **Bridge** — section review still pending
-- [ ] **Writing enhancements** — A: auto-advance carousel (4s drift, pause on hover) · B: card hover pull-quote flip (Cormorant italic gold overlay) · C: staggered scroll entrance per card
-- [ ] **Footer enhancements** — D: section nav jump links (left col) · E: pulsing "Open to conversations" availability badge · F: Cormorant italic pull quote above divider
+- [ ] **Bridge** — section review still pending (last section)
 - [ ] **Domain** — `viditdugar.orlyfashion.com`. Update `metadataBase` in `app/layout.tsx` when ready.
 - [ ] **Logo IP** — confirm stealth portfolio companies before sharing URL publicly.
 - [ ] **Other logos** — check remaining logos for visibility issues. Use `tileBg` or `logoFilter` fields, or fetch from company websites.
 
 ---
 
-*Last updated: 2026-03-21 — Session 3: Ink Night dark palette, hero motion overhaul (word stagger + cursor spotlight + ambient orb + video controls), journey plane animation, map zoom fix, text edits.*
+*Last updated: 2026-03-21 — Session 3 complete: map fixed (projection, plane great-circle, Africa clip), Intersection copy reworked from CV, Fund section moved before Bridge, portfolio data populated from Q3 FY26 PDF, logo fixes, Writing carousel enhanced (auto-advance + pull-quote overlay + staggered entrance), Footer rebuilt (nav col + availability badge + pull quote).*
