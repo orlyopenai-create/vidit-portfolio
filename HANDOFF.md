@@ -197,10 +197,12 @@ Three editorial pillar cards (replaced SVG Venn — text was overlapping):
 
 ## Pending / Open Items
 
-- [ ] **Bridge, Writing, Footer** — section-by-section review still pending
+- [ ] **Bridge** — section review still pending
+- [ ] **Writing enhancements** — A: auto-advance carousel (4s drift, pause on hover) · B: card hover pull-quote flip (Cormorant italic gold overlay) · C: staggered scroll entrance per card
+- [ ] **Footer enhancements** — D: section nav jump links (left col) · E: pulsing "Open to conversations" availability badge · F: Cormorant italic pull quote above divider
 - [ ] **Domain** — `viditdugar.orlyfashion.com`. Update `metadataBase` in `app/layout.tsx` when ready.
 - [ ] **Logo IP** — confirm stealth portfolio companies before sharing URL publicly.
-- [ ] **Other logos** — check remaining logos for visibility issues (dark logo on dark tile). Use `tileBg` or `logoFilter` fields, or fetch from company websites.
+- [ ] **Other logos** — check remaining logos for visibility issues. Use `tileBg` or `logoFilter` fields, or fetch from company websites.
 
 ---
 
