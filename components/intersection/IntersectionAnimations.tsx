@@ -11,16 +11,16 @@ const pillars = [
     num: '01',
     label: 'Finance',
     points: [
-      'Nomura London — EMEA large-cap M&A',
-      'Renewable energy, consumer & financial services',
-      "India\u2019s first sovereign Green Samurai bond",
+      'Nomura London — EMEA M&A, front office, rated 5/5',
+      'Sell-side operating model for Vrumona; process management for Hornsea 2',
+      '1 of 3 analysts from Nomura India selected for London front office transfer',
     ],
   },
   {
     num: '02',
     label: 'Operations',
     points: [
-      'Chief of Staff at Bombay Shaving Company',
+      'Chief of Staff at BSC — spanned strategy, venture & content',
       'P&L ownership, cross-functional teams, 0→1 brands',
       'Head of Business at Orly — family brand since 1989',
     ],
@@ -29,9 +29,9 @@ const pillars = [
     num: '03',
     label: 'Content',
     points: [
-      'Built The Bridge — YouTube IP on work & ambition',
-      'Co-created The Orly Times neighbourhood paper',
-      'LinkedIn writer — brands, capital, building',
+      'Headed The Barbershop with Shantanu — grew to 1M+ followers across platforms',
+      'Created Talk Kurta to Me for Orly — Instagram series on the craft of kurtas',
+      'Co-founded Story of My Life — a live storytelling platform, 5 editions, 500+ attendees',
     ],
   },
 ]
