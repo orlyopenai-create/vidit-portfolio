@@ -8,7 +8,7 @@ import { ClipReveal } from '@/components/ui/ClipReveal'
 const LANDO_EASE = [0.65, 0.05, 0, 1] as const
 
 const fundStats = [
-  { value: 25, label: 'COMPANIES BACKED', suffix: '', decimals: 0 },
+  { value: 24, label: 'COMPANIES BACKED', suffix: '', decimals: 0 },
   { value: 1.8, label: 'MOIC (FUND)', suffix: 'x', decimals: 1 },
   { value: 5, label: 'SHARK TANK ALUMNI', suffix: '', decimals: 0 },
 ]

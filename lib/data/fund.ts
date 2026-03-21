@@ -62,8 +62,7 @@ export const portfolioCompanies: Company[] = [
   { name: 'Wanderlooms',      slug: 'wanderlooms',      sector: 'Fashion & Lifestyle',  logoPath: '/logos/wanderlooms.png' },
   { name: 'Woodsmen',         slug: 'woodsmen',         sector: 'Fashion & Lifestyle',  logoPath: '/logos/woodsmen.jpeg' },
   { name: 'Fiona Diamonds',   slug: 'fiona-diamonds',   sector: 'Fashion & Lifestyle',  logoPath: '/logos/fiona-diamonds.png' },
-  { name: 'Absolut Pet',      slug: 'absolut-pet',      sector: 'Pet & Lifestyle',      logoPath: '/logos/absolut-pet.png' },
-  { name: 'ReplyAll',         slug: 'replyall',         sector: 'Fashion & Lifestyle',  logoPath: '/logos/replyall.png' },
+{ name: 'ReplyAll',         slug: 'replyall',         sector: 'Fashion & Lifestyle',  logoPath: '/logos/replyall.png' },
   // Fintech
   { name: 'SBNRI',            slug: 'sbnri',            sector: 'Fintech',              logoPath: '/logos/sbnri.png' },
   { name: 'RocketPay',        slug: 'rocketpay',        sector: 'Fintech',              logoPath: '/logos/rocketpay.png' },
