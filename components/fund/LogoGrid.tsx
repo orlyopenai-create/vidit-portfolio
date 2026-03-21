@@ -118,7 +118,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               className="w-20 h-20 rounded-full border border-[#C4832A]/40 flex items-center justify-center overflow-hidden bg-[#161210]"
             >
               <img
-                src="/logos/barbershop-cover.png"
+                src="/the_barbershop_with_shantanu_logo.jpg"
                 alt="The Barbershop Fund"
                 className="w-full h-full object-cover rounded-full"
                 onError={(e) => {
@@ -176,6 +176,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                       src={company.logoPath}
                       alt={company.name}
                       className="h-7 w-auto max-w-[72px] object-contain"
+                      style={company.logoFilter ? { filter: company.logoFilter } : undefined}
                       loading="lazy"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none'
@@ -227,7 +228,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               className="w-16 h-16 rounded-full border border-[#C4832A]/40 flex items-center justify-center overflow-hidden bg-[#161210]"
             >
               <img
-                src="/logos/barbershop-cover.png"
+                src="/the_barbershop_with_shantanu_logo.jpg"
                 alt="The Barbershop Fund"
                 className="w-full h-full object-cover rounded-full"
                 onError={(e) => {
@@ -274,6 +275,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                     src={company.logoPath}
                     alt={company.name}
                     className="h-7 w-auto max-w-[68px] object-contain"
+                    style={company.logoFilter ? { filter: company.logoFilter } : undefined}
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none'

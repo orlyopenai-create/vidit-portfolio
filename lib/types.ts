@@ -17,6 +17,7 @@ export interface Company {
   slug: string
   sector: string
   logoPath: string
+  logoFilter?: string
   websiteUrl?: string
   entryValuation?: string
   latestValuation?: string
