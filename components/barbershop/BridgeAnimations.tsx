@@ -12,10 +12,22 @@ export function BridgeAnimations({ episodes }: { episodes: BridgeEpisode[] }) {
     <div>
       <SectionLabel text="THE BRIDGE" />
 
+      {/* Layer 1 — Barbershop context */}
+      <m.p
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: LANDO_EASE }}
+        className="font-body text-[1rem] text-foreground/50 max-w-2xl leading-[1.75] mb-10"
+      >
+        At Bombay Shaving Company, Shantanu Deshpande had built one of India&rsquo;s most-watched business channels on YouTube. I ran content strategy for it — and used that platform to create something new.
+      </m.p>
+
+      {/* Layer 2 — The Bridge editorial intro */}
       <div className="mb-4">
         <ClipReveal>
           <h2 className="font-display text-[clamp(3rem,6vw,5rem)] font-normal leading-[1.05] tracking-[-0.01em] text-foreground">
-            The Bridge
+            Two CEOs. Two Gen&nbsp;Zs. No script.
           </h2>
         </ClipReveal>
       </div>
@@ -27,9 +39,10 @@ export function BridgeAnimations({ episodes }: { episodes: BridgeEpisode[] }) {
         transition={{ duration: 0.5, ease: LANDO_EASE, delay: 0.15 }}
         className="font-subheading italic text-[1.3rem] text-foreground/55 mb-10 max-w-xl leading-relaxed"
       >
-        2 CEOs vs 2 Gen Zs. An IP Vidit built, produced, and appeared in.
+        An original IP I created and appeared in — pitting founders against the generation they&rsquo;re building for.
       </m.p>
 
+      {/* Layer 3 — Episode cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {episodes.map((ep, i) => (
           <m.a
@@ -41,7 +54,7 @@ export function BridgeAnimations({ episodes }: { episodes: BridgeEpisode[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: LANDO_EASE, delay: i * 0.1 }}
-            className="group block bg-background rounded-xl overflow-hidden"
+            className="group block bg-background rounded-xl overflow-hidden cursor-pointer border border-transparent hover:border-[#C4832A]/30 transition-colors duration-300"
           >
             {/* Thumbnail — 16:9 */}
             <div className="relative w-full aspect-video overflow-hidden">
@@ -50,10 +63,10 @@ export function BridgeAnimations({ episodes }: { episodes: BridgeEpisode[] }) {
                 alt={ep.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
-              {/* Play overlay on hover */}
+              {/* Play overlay — always faintly visible, full on hover */}
               <div className="absolute inset-0 flex items-center justify-center bg-foreground/0 group-hover:bg-foreground/15 transition-colors duration-300">
-                <div className="w-12 h-12 rounded-full bg-background/85 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-5 h-5 text-foreground ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 rounded-full bg-background/85 flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity duration-300">
+                  <svg className="w-5 h-5 text-foreground ml-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
