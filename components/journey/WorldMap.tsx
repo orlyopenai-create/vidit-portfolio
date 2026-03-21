@@ -166,7 +166,7 @@ export function WorldMap() {
     >
       {/* Map */}
       <div
-        className="overflow-hidden"
+        className="overflow-hidden relative"
         style={{ aspectRatio: '800/600' }}
       >
         <ComposableMap
@@ -174,6 +174,14 @@ export function WorldMap() {
           projectionConfig={{ scale: 380, center: [38, 38] }}
           style={{ width: '100%', height: '100%' }}
         >
+          {/* Clip everything below ~lat 5°N — removes sub-Saharan Africa */}
+          <defs>
+            <clipPath id="map-clip">
+              <rect x="0" y="0" width="800" height="490" />
+            </clipPath>
+          </defs>
+
+          <g clipPath="url(#map-clip)">
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies.map((geo) => (
@@ -253,8 +261,9 @@ export function WorldMap() {
               </m.text>
             </Marker>
           ))}
+          </g>{/* end map-clip */}
 
-          {/* Animated plane */}
+          {/* Animated plane — outside clip so it renders above the fade */}
           {planePos && (
             <Marker coordinates={planePos}>
               <g
@@ -288,6 +297,11 @@ export function WorldMap() {
             </Marker>
           )}
         </ComposableMap>
+        {/* Soft fade at bottom — dissolves the clip edge */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, transparent, #0D0B09)' }}
+        />
       </div>
 
       {/* Tooltip / popout card */}
