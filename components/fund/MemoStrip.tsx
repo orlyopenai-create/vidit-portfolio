@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { m } from 'framer-motion'
 import type { Memo } from '@/lib/data/memos'
 
@@ -28,7 +27,7 @@ export function MemoStrip({ memos }: { memos: Memo[] }) {
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: LANDO_EASE, delay: 0.05 + i * 0.07 }}
           >
-            <Link
+            <a
               href={`/memo/${memo.slug}`}
               className="group block rounded-xl bg-[#161210] border border-transparent hover:border-[#C4832A]/25 p-5 transition-colors duration-300 cursor-pointer h-full focus:outline-none focus:ring-2 focus:ring-[#C4832A]/50 focus:ring-offset-2 focus:ring-offset-[#080604]"
             >
@@ -49,7 +48,7 @@ export function MemoStrip({ memos }: { memos: Memo[] }) {
               <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#C4832A]/60 group-hover:text-[#C4832A] transition-colors duration-200">
                 Read memo ↗
               </span>
-            </Link>
+            </a>
           </m.div>
         ))}
       </div>
