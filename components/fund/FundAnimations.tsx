@@ -18,25 +18,25 @@ const highlights = [
     name: 'Go Zero',
     tag: 'Food & Beverage',
     multiple: '~12x',
-    line: '#1 guilt-free ice cream on quick commerce. ₹90Cr ARR run-rate.',
+    line: '#1 guilt-free ice cream on quick commerce.',
   },
   {
-    name: 'Kilrr',
+    name: 'Fishmongers',
     tag: 'Food & Beverage',
     multiple: '~5x',
-    line: 'Raised on Shark Tank from Anupam Mittal. 190+ cities on Blinkit & Instamart.',
+    line: '₹43Cr raised from Rainmatter, Wavemaker & EIC Japan. Category-defining online fish brand.',
   },
   {
-    name: 'Epithera',
+    name: 'Anveshan',
+    tag: 'Food & Beverage',
+    multiple: '~2.5x',
+    line: 'Series A led by Wipro Consumer Care Ventures & DSGCP. Largest pure-play natural foods brand.',
+  },
+  {
+    name: 'Better Nutrition',
     tag: 'Health & Wellness',
-    multiple: 'Clinical win',
-    line: '100% user improvement in Cohort 1 trials. 77% reported drastic acne reduction.',
-  },
-  {
-    name: 'Crest Wealth',
-    tag: 'Fintech',
-    multiple: '₹100Cr',
-    line: '₹100Cr in soft commitments. Active onboarding now underway under licensed structure.',
+    multiple: 'Brand ambassador',
+    line: 'PV Sindhu doubled her investment and is brand ambassador through 2027.',
   },
 ]
 
