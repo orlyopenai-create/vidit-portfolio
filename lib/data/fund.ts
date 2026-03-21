@@ -59,7 +59,7 @@ export const portfolioCompanies: Company[] = [
   { name: 'Better Nutrition', slug: 'better-nutrition', sector: 'Food & Beverage',     logoPath: '/logos/better-nutrition.png' },
   { name: 'Basil',            slug: 'basil',            sector: 'Food & Beverage',     logoPath: '/logos/basil.png',              entryValuation: '₹39Cr',    latestValuation: '₹44Cr',  multiple: '~1.1x' },
   // Fashion & Lifestyle
-  { name: 'Wanderlooms',      slug: 'wanderlooms',      sector: 'Fashion & Lifestyle', logoPath: '/logos/wanderlooms.png',        logoFilter: 'brightness(0) invert(1)', entryValuation: '₹7Cr',     latestValuation: '₹12Cr',  multiple: '~1.7x' },
+  { name: 'Wanderlooms',      slug: 'wanderlooms',      sector: 'Fashion & Lifestyle', logoPath: '/logos/wanderlooms.png',        entryValuation: '₹7Cr',     latestValuation: '₹12Cr',  multiple: '~1.7x' },
   { name: 'Woodsmen',         slug: 'woodsmen',         sector: 'Fashion & Lifestyle', logoPath: '/logos/woodsmen.jpeg' },
   { name: 'Fiona Diamonds',   slug: 'fiona-diamonds',   sector: 'Fashion & Lifestyle', logoPath: '/logos/fiona-diamonds.png',     entryValuation: '₹101Cr',   latestValuation: '₹150Cr', multiple: '~1.5x' },
   { name: 'ReplyAll',         slug: 'replyall',         sector: 'Fashion & Lifestyle', logoPath: '/logos/replyall.png' },
