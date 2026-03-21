@@ -12,8 +12,8 @@ export default function Home() {
       <HeroSection />
       <JourneySection />
       <IntersectionSection />
-      <BarbershopSection />
       <FundSection />
+      <BarbershopSection />
       <MediaSection />
       <FooterSection />
     </main>

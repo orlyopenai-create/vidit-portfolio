@@ -90,9 +90,16 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        <p className="font-mono text-[10px] uppercase tracking-widest text-[#F2EAE0]/30 mb-4 mt-2">
-          Portfolio — 25 Companies
-        </p>
+        <div className="flex items-center gap-4 mb-6 mt-2">
+          <img
+            src="/the_barbershop_with_shantanu_logo.jpg"
+            alt="The Barbershop Fund"
+            className="h-8 w-auto object-contain opacity-80"
+          />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#F2EAE0]/30">
+            Portfolio — 24 Companies
+          </span>
+        </div>
 
         {/* ── Desktop: constellation ── */}
         <div
