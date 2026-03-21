@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #F5EFE6;
-  --color-surface:    #EDE4D8;
-  --color-foreground: #241E18;
-  --color-muted:      #8A7E74;
-  --color-accent:     #A6701A;
-  --color-accent-hover: #B8841E;
-  --color-dark-bg:    #1C1410;
-  --color-dark-surface: #2A1F14;
-  --color-dark-text:  #F0E8DC;
+  --color-background: #0D0B09;
+  --color-surface:    #161210;
+  --color-foreground: #F2EAE0;
+  --color-muted:      #8A7D6F;
+  --color-accent:     #C4832A;
+  --color-accent-hover: #D4932E;
+  --color-dark-bg:    #080604;
+  --color-dark-surface: #161210;
+  --color-dark-text:  #F2EAE0;
   --font-display: "Playfair Display", Georgia, serif;
   --font-subheading: "Cormorant Garamond", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -17,11 +17,11 @@
 }
 
 html, body {
-  background-color: #F5EFE6;
-  color: #241E18;
+  background-color: #0D0B09;
+  color: #F2EAE0;
 }
 
-html { color-scheme: light; }
+html { color-scheme: dark; }
 
 @keyframes logo-float {
   0%, 100% { transform: translate(-50%, -50%) translateY(0px); }

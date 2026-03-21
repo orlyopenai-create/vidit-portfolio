@@ -60,7 +60,7 @@ function AnimatedJourneyLine({
       <Line
         from={from}
         to={to}
-        stroke="#A6701A"
+        stroke="#C4832A"
         strokeWidth={0.9}
         strokeOpacity={0.55}
         fill="none"
@@ -95,10 +95,15 @@ export function WorldMap() {
       className="map-container relative w-full"
       onClick={() => setActiveCity(null)}
     >
+      {/* Wrapper constrains height on mobile — SVG height:auto is unreliable on mobile browsers */}
+      <div
+        className="overflow-hidden max-h-[200px] md:max-h-none"
+        style={{ aspectRatio: '800/600' }}
+      >
       <ComposableMap
         projection="geoMercator"
         projectionConfig={{ scale: 320, center: [42, 28] }}
-        style={{ width: '100%', height: 'auto' }}
+        style={{ width: '100%', height: '100%' }}
       >
         <Geographies geography={GEO_URL}>
           {({ geographies }) =>
@@ -107,9 +112,9 @@ export function WorldMap() {
                 key={geo.rsmKey}
                 geography={geo}
                 style={{
-                  default: { fill: '#DDD4C6', stroke: '#C8B89A', strokeWidth: 0.4, outline: 'none' },
-                  hover:   { fill: '#DDD4C6', stroke: '#C8B89A', strokeWidth: 0.4, outline: 'none' },
-                  pressed: { fill: '#DDD4C6', outline: 'none' },
+                  default: { fill: '#2A2218', stroke: '#3D3026', strokeWidth: 0.4, outline: 'none' },
+                  hover:   { fill: '#2A2218', stroke: '#3D3026', strokeWidth: 0.4, outline: 'none' },
+                  pressed: { fill: '#2A2218', outline: 'none' },
                 }}
               />
             ))
@@ -139,9 +144,9 @@ export function WorldMap() {
             {/* Pulse ring — gold for Kolkata, muted for others */}
             <m.circle
               r={10}
-              fill={isKolkata(city) ? '#A6701A' : '#241E18'}
+              fill={isKolkata(city) ? '#C4832A' : '#8A7D6F'}
               fillOpacity={0}
-              stroke={isKolkata(city) ? '#A6701A' : '#241E18'}
+              stroke={isKolkata(city) ? '#C4832A' : '#8A7D6F'}
               strokeWidth={1.5}
               animate={{
                 scale: [1, 2.0, 1],
@@ -157,8 +162,8 @@ export function WorldMap() {
             {/* Dot — gold for Kolkata, dark for others */}
             <m.circle
               r={isKolkata(city) ? 6 : 5}
-              fill={isKolkata(city) ? '#A6701A' : (activeCity?.id === city.id ? '#241E18' : '#5C4F41')}
-              stroke={isKolkata(city) ? '#F5EFE6' : '#F5EFE6'}
+              fill={isKolkata(city) ? '#C4832A' : (activeCity?.id === city.id ? '#F2EAE0' : '#8A7D6F')}
+              stroke={isKolkata(city) ? '#0D0B09' : '#0D0B09'}
               strokeWidth={1.5}
               style={{ cursor: 'pointer' }}
               initial={{ scale: 0, opacity: 0 }}
@@ -173,7 +178,7 @@ export function WorldMap() {
               style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '7px',
-                fill: isKolkata(city) ? '#A6701A' : '#241E18',
+                fill: isKolkata(city) ? '#C4832A' : '#F2EAE0',
                 fontWeight: isKolkata(city) ? 600 : 400,
                 pointerEvents: 'none',
                 userSelect: 'none',
@@ -187,6 +192,7 @@ export function WorldMap() {
           </Marker>
         ))}
       </ComposableMap>
+      </div>
 
       {/* Tooltip / popout card */}
       <AnimatePresence>
@@ -205,7 +211,7 @@ export function WorldMap() {
               maxWidth: '220px',
             }}
           >
-            <div className="bg-background border border-foreground/10 rounded-xl px-4 py-4 shadow-lg">
+            <div className="bg-surface border border-foreground/15 rounded-xl px-4 py-4 shadow-lg">
               <p className="font-body text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-foreground/40 mb-1">
                 {activeCity.name}
               </p>
@@ -229,7 +235,7 @@ export function WorldMap() {
               style={{
                 borderLeft: '6px solid transparent',
                 borderRight: '6px solid transparent',
-                borderTop: '6px solid #F5EFE6',
+                borderTop: '6px solid #161210',
                 width: 0,
                 marginLeft: '50%',
                 transform: 'translateX(-50%)',

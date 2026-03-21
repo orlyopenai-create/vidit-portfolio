@@ -82,7 +82,7 @@ export function MediaAnimations({ posts }: { posts: LinkedInPost[] }) {
         <div
           className="absolute top-0 right-0 h-full w-24 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, transparent, #F5EFE6)',
+            background: 'linear-gradient(to right, transparent, #0D0B09)',
           }}
         />
       </m.div>

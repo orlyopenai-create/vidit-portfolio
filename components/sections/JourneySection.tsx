@@ -5,7 +5,7 @@ import { ClipReveal } from '@/components/ui/ClipReveal'
 
 const WorldMap = dynamic(
   () => import('@/components/journey/WorldMap').then((m) => m.WorldMap),
-  { ssr: false, loading: () => <div className="w-full" style={{ height: '60vh', backgroundColor: '#EDE4D8', borderRadius: '12px' }} /> }
+  { ssr: false, loading: () => <div className="w-full" style={{ aspectRatio: '800/600', maxHeight: '240px', backgroundColor: '#161210', borderRadius: '12px' }} /> }
 )
 
 export function JourneySection() {

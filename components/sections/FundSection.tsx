@@ -7,7 +7,7 @@ export function FundSection() {
     <section
       id="fund"
       className="py-16 md:py-24 px-6"
-      style={{ backgroundColor: '#1C1410', color: '#F0E8DC' }}
+      style={{ backgroundColor: '#080604', color: '#F2EAE0' }}
     >
       <div className="max-w-6xl mx-auto md:px-6">
         <FundAnimations />

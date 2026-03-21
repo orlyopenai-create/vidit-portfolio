@@ -45,7 +45,7 @@ export function HeroAnimations() {
       ref={heroRef}
       className="relative h-auto md:h-[140vh]"
       style={{
-        background: 'radial-gradient(ellipse 85% 90% at 28% 55%, #E8DCC8 0%, #F5EFE6 65%)',
+        background: 'radial-gradient(ellipse 85% 90% at 28% 55%, #1A1410 0%, #0D0B09 65%)',
       }}
     >
       {/* Grain texture overlay */}
@@ -96,7 +96,7 @@ export function HeroAnimations() {
                 animate={{ y: '0%', opacity: 1 }}
                 transition={{ duration: 0.75, ease: LANDO_EASE, delay: 0.3 }}
               >
-                Third-generation builder.
+                Kolkata. London. Delhi.
               </m.h1>
             </div>
 
@@ -108,7 +108,7 @@ export function HeroAnimations() {
                 animate={{ y: '0%', opacity: 1 }}
                 transition={{ duration: 0.75, ease: LANDO_EASE, delay: 0.45 }}
               >
-                First-generation investor.
+                Operating, Finance, Investing.
               </m.h1>
             </div>
 
@@ -120,10 +120,10 @@ export function HeroAnimations() {
                 transition={{ duration: 0.75, ease: LANDO_EASE, delay: 0.65 }}
               >
                 <p className="font-display font-normal italic text-[clamp(1.6rem,3.5vw,4rem)] leading-[1.1] text-foreground">
-                  The thread connecting them
+                  All roads
                 </p>
                 <p className="font-display font-normal italic text-[clamp(1.6rem,3.5vw,4rem)] leading-[1.1] text-foreground">
-                  has always been story.
+                  led back to founders.
                 </p>
               </m.div>
             </div>
@@ -165,7 +165,7 @@ export function HeroAnimations() {
               muted
               playsInline
               loop
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover"
               poster="/intro-poster.jpg"
             />

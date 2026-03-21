@@ -5,10 +5,10 @@ export function BarberPole({ className = '' }: { className?: string }) {
       style={{
         background: `repeating-linear-gradient(
           -45deg,
-          #A6701A 0px,
-          #A6701A 3px,
-          #F5EFE6 3px,
-          #F5EFE6 7px
+          #C4832A 0px,
+          #C4832A 3px,
+          #F2EAE0 3px,
+          #F2EAE0 7px
         )`,
       }}
     />

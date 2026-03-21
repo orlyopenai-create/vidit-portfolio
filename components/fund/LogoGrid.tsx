@@ -90,7 +90,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        <p className="font-mono text-[10px] uppercase tracking-widest text-[#F0E8DC]/30 mb-4 mt-2">
+        <p className="font-mono text-[10px] uppercase tracking-widest text-[#F2EAE0]/30 mb-4 mt-2">
           Portfolio — 25 Companies
         </p>
 
@@ -108,7 +108,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               initial={{ scale: 0, opacity: 0 }}
               animate={inView ? { scale: 1, opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 180, damping: 16 }}
-              className="w-20 h-20 rounded-full border border-[#A6701A]/40 flex items-center justify-center overflow-hidden bg-[#2A1F14]"
+              className="w-20 h-20 rounded-full border border-[#C4832A]/40 flex items-center justify-center overflow-hidden bg-[#161210]"
             >
               <img
                 src="/logos/barbershop-cover.png"
@@ -118,7 +118,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                   e.currentTarget.style.display = 'none'
                   const parent = e.currentTarget.parentElement
                   if (parent) {
-                    parent.innerHTML = '<span style="font-family:var(--font-display);font-size:9px;color:#A6701A;text-align:center;line-height:1.4;padding:8px;display:block">The<br/>Barbershop<br/>Fund</span>'
+                    parent.innerHTML = '<span style="font-family:var(--font-display);font-size:9px;color:#C4832A;text-align:center;line-height:1.4;padding:8px;display:block">The<br/>Barbershop<br/>Fund</span>'
                   }
                 }}
               />
@@ -158,7 +158,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                       stiffness: 220,
                       damping: 16,
                     }}
-                    className="relative flex items-center justify-center rounded-xl bg-[#2A1F14] hover:bg-[#3D2E1A] transition-colors duration-200 cursor-pointer"
+                    className="relative flex items-center justify-center rounded-xl bg-[#161210] hover:bg-[#3D2E1A] transition-colors duration-200 cursor-pointer"
                     style={{ width: '90px', height: '54px' }}
                     onClick={() => setSelected(company)}
                     onMouseEnter={() => setHovered(company.slug)}
@@ -174,7 +174,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                         e.currentTarget.style.display = 'none'
                         const span = document.createElement('span')
                         span.textContent = company.name
-                        span.style.cssText = 'font-size:8px;color:#F0E8DC;opacity:0.7;text-align:center;padding:0 6px;line-height:1.2;font-family:var(--font-body)'
+                        span.style.cssText = 'font-size:8px;color:#F2EAE0;opacity:0.7;text-align:center;padding:0 6px;line-height:1.2;font-family:var(--font-body)'
                         e.currentTarget.parentElement?.appendChild(span)
                       }}
                     />
@@ -185,9 +185,9 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                         className="absolute pointer-events-none z-30 whitespace-nowrap"
                         style={{ bottom: 'calc(100% + 8px)', left: '50%', transform: 'translateX(-50%)' }}
                       >
-                        <div className="bg-[#1C1410] border border-[#A6701A]/25 rounded-lg px-3 py-2 shadow-xl">
-                          <p className="font-body text-[11px] font-medium text-[#F0E8DC] leading-none mb-0.5">{company.name}</p>
-                          <p className="font-mono text-[9px] text-[#A6701A]/70 uppercase tracking-widest">{company.sector}</p>
+                        <div className="bg-[#080604] border border-[#C4832A]/25 rounded-lg px-3 py-2 shadow-xl">
+                          <p className="font-body text-[11px] font-medium text-[#F2EAE0] leading-none mb-0.5">{company.name}</p>
+                          <p className="font-mono text-[9px] text-[#C4832A]/70 uppercase tracking-widest">{company.sector}</p>
                         </div>
                         <div
                           style={{
@@ -217,7 +217,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, type: 'spring', stiffness: 180, damping: 16 }}
-              className="w-16 h-16 rounded-full border border-[#A6701A]/40 flex items-center justify-center overflow-hidden bg-[#2A1F14]"
+              className="w-16 h-16 rounded-full border border-[#C4832A]/40 flex items-center justify-center overflow-hidden bg-[#161210]"
             >
               <img
                 src="/logos/barbershop-cover.png"
@@ -227,7 +227,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                   e.currentTarget.style.display = 'none'
                   const parent = e.currentTarget.parentElement
                   if (parent) {
-                    parent.innerHTML = '<span style="font-family:var(--font-display);font-size:7px;color:#A6701A;text-align:center;line-height:1.4;padding:6px;display:block">BSF</span>'
+                    parent.innerHTML = '<span style="font-family:var(--font-display);font-size:7px;color:#C4832A;text-align:center;line-height:1.4;padding:6px;display:block">BSF</span>'
                   }
                 }}
               />
@@ -240,7 +240,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               return (
                 <m.button
                   key={company.slug}
-                  className="flex items-center justify-center rounded-xl bg-[#2A1F14]"
+                  className="flex items-center justify-center rounded-xl bg-[#161210]"
                   style={{
                     width: '86px',
                     height: '50px',
@@ -272,7 +272,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                       e.currentTarget.style.display = 'none'
                       const span = document.createElement('span')
                       span.textContent = company.name
-                      span.style.cssText = 'font-size:8px;color:#F0E8DC;opacity:0.7;text-align:center;padding:0 6px;line-height:1.2;font-family:var(--font-body)'
+                      span.style.cssText = 'font-size:8px;color:#F2EAE0;opacity:0.7;text-align:center;padding:0 6px;line-height:1.2;font-family:var(--font-body)'
                       e.currentTarget.parentElement?.appendChild(span)
                     }}
                   />
@@ -297,13 +297,13 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               exit={{ opacity: 0, scale: 0.95, y: 8 }}
               transition={{ duration: 0.25, ease: LANDO_EASE }}
               className="relative rounded-2xl p-8 max-w-sm w-full shadow-2xl"
-              style={{ backgroundColor: '#2A1F14' }}
+              style={{ backgroundColor: '#161210' }}
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelected(null)}
                 aria-label="Close company details"
-                className="absolute top-4 right-5 font-mono text-lg text-[#F0E8DC]/30 hover:text-[#F0E8DC]/70 transition-colors"
+                className="absolute top-4 right-5 font-mono text-lg text-[#F2EAE0]/30 hover:text-[#F2EAE0]/70 transition-colors"
               >
                 ×
               </button>
@@ -317,39 +317,39 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                 />
               </div>
 
-              <h3 className="font-display text-xl font-normal text-[#F0E8DC] mb-1 text-center">{selected.name}</h3>
-              <p className="font-mono text-[10px] text-[#A6701A]/60 uppercase tracking-widest text-center mb-5">{selected.sector}</p>
+              <h3 className="font-display text-xl font-normal text-[#F2EAE0] mb-1 text-center">{selected.name}</h3>
+              <p className="font-mono text-[10px] text-[#C4832A]/60 uppercase tracking-widest text-center mb-5">{selected.sector}</p>
 
               {selected.multiple && (
-                <div className="border-t border-[#F0E8DC]/10 pt-4 space-y-3">
+                <div className="border-t border-[#F2EAE0]/10 pt-4 space-y-3">
                   <div className="flex justify-between">
-                    <span className="font-body text-sm text-[#F0E8DC]/50">Entry</span>
-                    <span className="font-mono text-sm text-[#F0E8DC]">{selected.entryValuation}</span>
+                    <span className="font-body text-sm text-[#F2EAE0]/50">Entry</span>
+                    <span className="font-mono text-sm text-[#F2EAE0]">{selected.entryValuation}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-body text-sm text-[#F0E8DC]/50">Latest</span>
-                    <span className="font-mono text-sm text-[#F0E8DC]">{selected.latestValuation}</span>
+                    <span className="font-body text-sm text-[#F2EAE0]/50">Latest</span>
+                    <span className="font-mono text-sm text-[#F2EAE0]">{selected.latestValuation}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-body text-sm text-[#F0E8DC]/50">Multiple</span>
-                    <span className="font-mono text-sm font-semibold text-[#A6701A]">{selected.multiple}</span>
+                    <span className="font-body text-sm text-[#F2EAE0]/50">Multiple</span>
+                    <span className="font-mono text-sm font-semibold text-[#C4832A]">{selected.multiple}</span>
                   </div>
                   {selected.coInvestors && selected.coInvestors !== '—' && (
                     <div className="flex justify-between items-start gap-4">
-                      <span className="font-body text-sm text-[#F0E8DC]/50 shrink-0">Co-investors</span>
-                      <span className="font-body text-sm text-[#F0E8DC]/80 text-right">{selected.coInvestors}</span>
+                      <span className="font-body text-sm text-[#F2EAE0]/50 shrink-0">Co-investors</span>
+                      <span className="font-body text-sm text-[#F2EAE0]/80 text-right">{selected.coInvestors}</span>
                     </div>
                   )}
                   <div className="pt-1">
-                    <div className="h-1 rounded-full overflow-hidden bg-[#1C1410]">
+                    <div className="h-1 rounded-full overflow-hidden bg-[#080604]">
                       <m.div
-                        className="h-full rounded-full bg-[#A6701A]"
+                        className="h-full rounded-full bg-[#C4832A]"
                         initial={{ width: 0 }}
                         animate={{ width: `${getBarWidth(selected.multiple)}%` }}
                         transition={{ duration: 1.2, type: 'spring', stiffness: 60, damping: 20 }}
                       />
                     </div>
-                    <p className="font-mono text-[9px] text-[#F0E8DC]/25 mt-1 text-right">{selected.multiple} return</p>
+                    <p className="font-mono text-[9px] text-[#F2EAE0]/25 mt-1 text-right">{selected.multiple} return</p>
                   </div>
                 </div>
               )}
