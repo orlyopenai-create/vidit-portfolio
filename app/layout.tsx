@@ -33,14 +33,14 @@ const dmMono = DM_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vidit-portfolio-vert.vercel.app'),
+  metadataBase: new URL('https://viditdugar.orlyfashion.com'),
   title: 'Vidit Dugar — Investments. Operations. Content.',
   description: 'Portfolio of Vidit Dugar. Formerly Nomura London, Bombay Shaving Company, Orly.',
   openGraph: {
     type: 'website',
     title: 'Vidit Dugar — Investments. Operations. Content.',
     description: 'Portfolio of Vidit Dugar. Formerly Nomura London, Bombay Shaving Company, Orly.',
-    url: 'https://vidit-portfolio-vert.vercel.app',
+    url: 'https://viditdugar.orlyfashion.com',
     siteName: 'Vidit Dugar',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Vidit Dugar' }],
   },
