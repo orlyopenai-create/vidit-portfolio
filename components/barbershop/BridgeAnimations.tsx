@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { m } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { ClipReveal } from '@/components/ui/ClipReveal'
@@ -58,10 +59,12 @@ export function BridgeAnimations({ episodes }: { episodes: BridgeEpisode[] }) {
           >
             {/* Thumbnail — 16:9 */}
             <div className="relative w-full aspect-video overflow-hidden">
-              <img
+              <Image
                 src={ep.thumbnail}
                 alt={ep.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               {/* Play overlay — always faintly visible, full on hover */}
               <div className="absolute inset-0 flex items-center justify-center bg-foreground/0 group-hover:bg-foreground/15 transition-colors duration-300">
