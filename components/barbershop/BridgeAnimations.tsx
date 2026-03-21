@@ -20,7 +20,7 @@ export function BridgeAnimations({ episodes }: { episodes: BridgeEpisode[] }) {
         transition={{ duration: 0.5, ease: LANDO_EASE }}
         className="font-body text-[1rem] text-foreground/50 max-w-2xl leading-[1.75] mb-10"
       >
-        At Bombay Shaving Company, Shantanu Deshpande had built one of India&rsquo;s most-watched business channels on YouTube. I ran content strategy for it — and used that platform to create something new.
+        At The Barbershop with Shantanu, I ran content strategy for one of India&rsquo;s most-watched business channels on YouTube — and used that platform to create something new.
       </m.p>
 
       {/* Layer 2 — The Bridge editorial intro */}
