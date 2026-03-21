@@ -33,7 +33,7 @@ export const journeyCities: JourneyCity[] = [
     period: '2023 – 2025',
     role: 'Chief of Staff & Head of Investments · BSC',
     description:
-      'Joined BSC to learn at the intersection of investing, operating, and content. Learnt what I\'m made of.',
+      'Joined BSC to learn at the intersection of investing, operating, and content.',
   },
   {
     id: 'kolkata',
@@ -42,6 +42,6 @@ export const journeyCities: JourneyCity[] = [
     period: '2025 – Present',
     role: 'Head of Business · Orly',
     description:
-      'Moved home for family. Using every tool I\'d built to modernise Orly — our men\'s ethnicwear brand, est. 1989.',
+      'Moved home for family. Using every tool I\'d built to modernise Orly.',
   },
 ]
