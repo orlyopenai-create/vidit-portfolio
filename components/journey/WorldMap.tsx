@@ -8,6 +8,7 @@ import {
   Marker,
   Line,
 } from 'react-simple-maps'
+import { geoInterpolate } from 'd3-geo'
 import { journeyCities, type JourneyCity } from '@/lib/data/journey'
 
 const GEO_URL = '/world-110m.json'
@@ -100,11 +101,8 @@ export function WorldMap() {
       to: [number, number],
       duration: number,
     ) {
-      // Face direction of travel (flip latitude for screen-space y)
-      const dx = to[0] - from[0]
-      const dy = -(to[1] - from[1])
-      const angle = Math.atan2(dy, dx) * (180 / Math.PI)
-      setPlaneAngle(angle)
+      // Great-circle interpolator — matches the path react-simple-maps <Line> draws
+      const interp = geoInterpolate(from, to)
 
       return new Promise<void>(resolve => {
         const start = performance.now()
@@ -113,10 +111,15 @@ export function WorldMap() {
           const raw = Math.min((performance.now() - start) / duration, 1)
           // Ease in-out cubic
           const t = raw < 0.5 ? 4 * raw ** 3 : 1 - (-2 * raw + 2) ** 3 / 2
-          setPlanePos([
-            from[0] + (to[0] - from[0]) * t,
-            from[1] + (to[1] - from[1]) * t,
-          ])
+          const pos = interp(t) as [number, number]
+          setPlanePos(pos)
+
+          // Keep angle pointing ahead along the great circle
+          const ahead = interp(Math.min(t + 0.02, 1)) as [number, number]
+          const dx = ahead[0] - pos[0]
+          const dy = -(ahead[1] - pos[1]) // flip lat→screen-y
+          setPlaneAngle(Math.atan2(dy, dx) * (180 / Math.PI))
+
           if (raw < 1) requestAnimationFrame(step)
           else resolve()
         }
@@ -161,9 +164,9 @@ export function WorldMap() {
       className="map-container relative w-full"
       onClick={() => setActiveCity(null)}
     >
-      {/* Map — constrained height on mobile */}
+      {/* Map */}
       <div
-        className="overflow-hidden max-h-[200px] md:max-h-none"
+        className="overflow-hidden"
         style={{ aspectRatio: '800/600' }}
       >
         <ComposableMap
@@ -236,7 +239,7 @@ export function WorldMap() {
                 y={-11}
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: '7px',
+                  fontSize: '10px',
                   fill: isKolkata(city) ? '#C4832A' : '#F2EAE0',
                   fontWeight: isKolkata(city) ? 600 : 400,
                   pointerEvents: 'none',
@@ -342,9 +345,9 @@ export function WorldMap() {
         )}
       </AnimatePresence>
 
-      <p className="text-center font-body text-xs text-foreground/35 mt-3">
-        <span className="md:hidden">Tap a city to explore</span>
-        <span className="hidden md:inline">Click a city to explore</span>
+      <p className="text-center font-body text-xs text-foreground/55 mt-3 tracking-wide">
+        <span className="md:hidden">↑ Tap a city to explore</span>
+        <span className="hidden md:inline">Click a city pin to explore</span>
       </p>
     </div>
   )
