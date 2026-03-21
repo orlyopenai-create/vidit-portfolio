@@ -13,6 +13,7 @@ import { journeyCities, type JourneyCity } from '@/lib/data/journey'
 const GEO_URL = '/world-110m.json'
 
 const JOURNEY_PAIRS: Array<[string, string]> = [
+  ['kolkata', 'mumbai'],
   ['mumbai', 'london'],
   ['london', 'delhi'],
   ['delhi', 'kolkata'],
@@ -96,7 +97,7 @@ export function WorldMap() {
     >
       <ComposableMap
         projection="geoMercator"
-        projectionConfig={{ scale: 420, center: [42, 28] }}
+        projectionConfig={{ scale: 320, center: [42, 28] }}
         style={{ width: '100%', height: 'auto' }}
       >
         <Geographies geography={GEO_URL}>
@@ -124,7 +125,7 @@ export function WorldMap() {
               key={`${fromId}-${toId}`}
               from={fromCity.coordinates}
               to={toCity.coordinates}
-              delay={0.6 + i * 1.2}
+              delay={0.5 + i * 1.0}
             />
           )
         })}

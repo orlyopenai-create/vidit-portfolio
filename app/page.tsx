@@ -1,5 +1,5 @@
 import { HeroSection } from '@/components/sections/HeroSection'
-import { StorySection } from '@/components/sections/StorySection'
+import { VideoIntroSection } from '@/components/sections/VideoIntroSection'
 import { JourneySection } from '@/components/sections/JourneySection'
 import { IntersectionSection } from '@/components/sections/IntersectionSection'
 import { BarbershopSection } from '@/components/sections/BarbershopSection'
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <StorySection />
+      <VideoIntroSection />
       <JourneySection />
       <IntersectionSection />
       <BarbershopSection />

@@ -23,6 +23,16 @@ html, body {
 
 html { color-scheme: light; }
 
+@keyframes logo-float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50%       { transform: translate(-50%, -50%) translateY(-7px); }
+}
+
+@keyframes logo-float-grid {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
 @keyframes marquee-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }

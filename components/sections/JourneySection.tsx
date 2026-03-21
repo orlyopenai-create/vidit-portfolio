@@ -22,8 +22,8 @@ export function JourneySection() {
           </ClipReveal>
         </div>
 
-        <p className="font-body italic text-[1.1rem] text-foreground/60 mb-12">
-          From Mumbai to London to Delhi — and back to where it started.
+        <p className="font-subheading italic text-[1.3rem] text-foreground/55 mb-10 leading-relaxed">
+          From Kolkata to Mumbai to London to Delhi — and back to where it started.
         </p>
 
         <WorldMap />

@@ -36,7 +36,7 @@ export function MediaAnimations({ posts }: { posts: LinkedInPost[] }) {
             transition={{ duration: 0.5, ease: LANDO_EASE, delay: 0.2 }}
             className="font-body text-[1.05rem] text-foreground/55 mt-3"
           >
-            18,000 readers. Opinions on brands, capital, and building.
+            Opinions on brands, capital, and building.
           </m.p>
         </div>
 

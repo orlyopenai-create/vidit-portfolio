@@ -62,7 +62,7 @@ export const portfolioCompanies: Company[] = [
   { name: 'Wanderlooms',      slug: 'wanderlooms',      sector: 'Fashion & Lifestyle',  logoPath: '/logos/wanderlooms.png' },
   { name: 'Woodsmen',         slug: 'woodsmen',         sector: 'Fashion & Lifestyle',  logoPath: '/logos/woodsmen.jpeg' },
   { name: 'Fiona Diamonds',   slug: 'fiona-diamonds',   sector: 'Fashion & Lifestyle',  logoPath: '/logos/fiona-diamonds.png' },
-  { name: 'Absolut Pet',      slug: 'absolut-pet',      sector: 'Fashion & Lifestyle',  logoPath: '/logos/absolut-pet.png' },
+  { name: 'Absolut Pet',      slug: 'absolut-pet',      sector: 'Pet & Lifestyle',      logoPath: '/logos/absolut-pet.png' },
   { name: 'ReplyAll',         slug: 'replyall',         sector: 'Fashion & Lifestyle',  logoPath: '/logos/replyall.png' },
   // Fintech
   { name: 'SBNRI',            slug: 'sbnri',            sector: 'Fintech',              logoPath: '/logos/sbnri.png' },
@@ -78,7 +78,7 @@ export const portfolioCompanies: Company[] = [
   { name: 'Kritsnam',         slug: 'kritsnam',         sector: 'Climate & Mobility',   logoPath: '/logos/kritsnam.png' },
   { name: 'Mekr',             slug: 'mekr',             sector: 'Climate & Mobility',   logoPath: '/logos/mekr.png',              entryValuation: '₹100Cr', latestValuation: '₹210Cr', multiple: '~2x', coInvestors: 'Titan Capital' },
   // Consumer Durables
-  { name: 'OctoLife',         slug: 'octolife',         sector: 'Consumer Durables',    logoPath: '/logos/octolife.jpeg' },
+  { name: 'OctoLife',         slug: 'octolife',         sector: 'InsurTech',            logoPath: '/logos/octolife.jpeg' },
   // Home & Furniture
   { name: 'Relso',            slug: 'relso',            sector: 'Home & Furniture',     logoPath: '/logos/relso.png' },
   // AI & Tech

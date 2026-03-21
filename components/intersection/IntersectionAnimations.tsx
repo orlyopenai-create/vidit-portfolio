@@ -1,173 +1,47 @@
 'use client'
 
-import { m, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { m } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { ClipReveal } from '@/components/ui/ClipReveal'
 
 const LANDO_EASE = [0.65, 0.05, 0, 1] as const
 
-const domains = [
+const pillars = [
   {
+    num: '01',
     label: 'Finance',
-    direction: { x: -40, y: 0 },
-    points: ['Nomura London · Large-cap M&A', 'Sovereign Green Samurai bond'],
+    points: [
+      'Nomura London — EMEA large-cap M&A',
+      'Renewable energy, consumer & financial services',
+      "India\u2019s first sovereign Green Samurai bond",
+    ],
   },
   {
+    num: '02',
     label: 'Operations',
-    direction: { x: 40, y: 0 },
-    points: ['Chief of Staff, BSC · P&L, teams, brands', 'Head of Business · Orly est. 1989'],
+    points: [
+      'Chief of Staff at Bombay Shaving Company',
+      'P&L ownership, cross-functional teams, 0→1 brands',
+      'Head of Business at Orly — family brand since 1989',
+    ],
   },
   {
+    num: '03',
     label: 'Content',
-    direction: { x: 0, y: -40 },
-    points: ['The Bridge IP · The Orly Times', '18K LinkedIn · Brand storytelling'],
+    points: [
+      'Built The Bridge — YouTube IP on work & ambition',
+      'Co-created The Orly Times neighbourhood paper',
+      'LinkedIn writer — brands, capital, building',
+    ],
   },
 ]
-
-const proofCards = [
-  {
-    world: 'Finance',
-    detail: 'Large-cap M&A transactions across renewable energy, consumer, and financial services. First sovereign Green Samurai bond transaction.',
-  },
-  {
-    world: 'Operations',
-    detail: 'Chief of Staff at Bombay Shaving Company. P&L ownership, teams, 0→1 brand building. Now Head of Business at Orly — the family brand since 1989.',
-  },
-  {
-    world: 'Content',
-    detail: 'Built The Bridge IP. Co-created The Orly Times neighbourhood newspaper. 18,000 readers on LinkedIn writing about brands and capital.',
-  },
-]
-
-// SVG Venn — three circles, outline only, labels outside
-function VennDiagram() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-10% 0px' })
-
-  // Circle centres (normalized SVG space 0-400 x 0-340)
-  const cx = 200
-  const cy = 170
-  const r = 95
-  const offset = 55
-
-  const centres = [
-    { x: cx - offset, y: cy + 18, label: 'Finance', labelX: cx - offset - r - 12, labelY: cy + 18, anchor: 'end' },
-    { x: cx + offset, y: cy + 18, label: 'Operations', labelX: cx + offset + r + 12, labelY: cy + 18, anchor: 'start' },
-    { x: cx, y: cy - offset, label: 'Content', labelX: cx, labelY: cy - offset - r - 16, anchor: 'middle' },
-  ]
-
-  return (
-    <div ref={ref} className="relative w-full max-w-2xl mx-auto">
-      <svg viewBox="0 0 400 340" className="w-full h-auto overflow-visible">
-        {/* Three circles */}
-        {centres.map((c, i) => (
-          <m.circle
-            key={c.label}
-            cx={c.x}
-            cy={c.y}
-            r={r}
-            fill="#A6701A"
-            fillOpacity={0.05}
-            stroke="#241E18"
-            strokeOpacity={0.15}
-            strokeWidth={1.5}
-            initial={{ scale: 0 }}
-            animate={inView ? { scale: 1 } : {}}
-            transition={{ duration: 0.5, ease: LANDO_EASE, delay: i * 0.2 }}
-            style={{ transformOrigin: `${c.x}px ${c.y}px` }}
-          />
-        ))}
-
-        {/* Labels outside circles */}
-        {centres.map((c, i) => (
-          <m.g key={`label-${c.label}`}
-            initial={{ opacity: 0, x: i === 0 ? -20 : i === 1 ? 20 : 0, y: i === 2 ? -20 : 0 }}
-            animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
-            transition={{ duration: 0.5, ease: LANDO_EASE, delay: 0.6 + i * 0.08 }}
-          >
-            <text
-              x={c.labelX}
-              y={c.labelY}
-              textAnchor={c.anchor as 'start' | 'end' | 'middle'}
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: '13px',
-                fontWeight: 600,
-                fill: '#241E18',
-              }}
-            >
-              {c.label}
-            </text>
-          </m.g>
-        ))}
-
-        {/* Centre label */}
-        <m.text
-          x={cx}
-          y={cy + 6}
-          textAnchor="middle"
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '13px',
-            fontStyle: 'italic',
-            fill: '#A6701A',
-          }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.5, ease: LANDO_EASE, delay: 0.85 }}
-        >
-          Operator-Investor
-        </m.text>
-      </svg>
-
-      {/* Proof points per domain */}
-      <div className="absolute left-0 top-[30%] -translate-y-1/2 max-w-[130px]">
-        {domains[0].points.map((pt) => (
-          <p key={pt} className="font-body text-[0.7rem] text-foreground/50 leading-snug mb-1">{pt}</p>
-        ))}
-      </div>
-      <div className="absolute right-0 top-[30%] -translate-y-1/2 max-w-[130px] text-right">
-        {domains[1].points.map((pt) => (
-          <p key={pt} className="font-body text-[0.7rem] text-foreground/50 leading-snug mb-1">{pt}</p>
-        ))}
-      </div>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 max-w-[140px] text-center">
-        {domains[2].points.map((pt) => (
-          <p key={pt} className="font-body text-[0.7rem] text-foreground/50 leading-snug mb-1">{pt}</p>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-// Mobile: stacked cards
-function MobileCards() {
-  return (
-    <div className="flex flex-col gap-4 md:hidden mb-12">
-      {proofCards.map((card, i) => (
-        <m.div
-          key={card.world}
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: LANDO_EASE, delay: i * 0.1 }}
-          className="bg-surface rounded-xl p-5"
-        >
-          <p className="font-body text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-accent mb-2">{card.world}</p>
-          <p className="font-body text-sm text-foreground/70 leading-relaxed">{card.detail}</p>
-        </m.div>
-      ))}
-    </div>
-  )
-}
 
 export function IntersectionAnimations() {
   return (
     <div>
       <SectionLabel text="THE INTERSECTION" />
 
-      <div className="mb-12">
+      <div className="mb-10">
         <ClipReveal>
           <h2 className="font-display text-[clamp(2.5rem,5vw,5rem)] font-normal leading-[1.1] tracking-[-0.01em] text-foreground">
             Three worlds. One lens.
@@ -175,26 +49,76 @@ export function IntersectionAnimations() {
         </ClipReveal>
       </div>
 
-      {/* Desktop Venn */}
-      <div className="hidden md:block mb-16">
-        <VennDiagram />
+      {/* Three pillar cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        {pillars.map((pillar, i) => (
+          <m.div
+            key={pillar.label}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: LANDO_EASE, delay: i * 0.12 }}
+            className="relative overflow-hidden rounded-2xl bg-surface border border-foreground/8 p-7"
+          >
+            {/* Decorative number */}
+            <span
+              className="absolute top-3 right-4 font-display font-bold text-[5rem] leading-none select-none pointer-events-none"
+              style={{ color: 'rgba(166,112,26,0.06)' }}
+            >
+              {pillar.num}
+            </span>
+
+            {/* Label */}
+            <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-5">
+              {pillar.label}
+            </p>
+
+            {/* Points */}
+            <div className="space-y-3">
+              {pillar.points.map((pt) => (
+                <div key={pt} className="flex items-start gap-2.5">
+                  <span className="w-1 h-1 rounded-full bg-accent/40 mt-[0.45rem] shrink-0" />
+                  <p className="font-body text-[0.9rem] text-foreground/70 leading-snug">{pt}</p>
+                </div>
+              ))}
+            </div>
+          </m.div>
+        ))}
       </div>
 
-      {/* Mobile cards */}
-      <MobileCards />
+      {/* Convergence badge */}
+      <m.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: LANDO_EASE, delay: 0.4 }}
+        className="flex flex-col items-center gap-4 mb-10"
+      >
+        {/* Connecting lines on desktop */}
+        <div className="hidden md:flex w-full items-center justify-center gap-0 relative h-8">
+          <div className="absolute inset-x-[17%] top-0 h-px bg-foreground/10" />
+          <div className="absolute left-[17%] top-0 w-px h-full bg-foreground/10" />
+          <div className="absolute right-[17%] top-0 w-px h-full bg-foreground/10" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-foreground/10 -translate-x-px" />
+        </div>
+
+        <div className="inline-flex items-center gap-3 px-6 py-3 border border-accent/30 rounded-full bg-background">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+          <span className="font-subheading italic text-[1.15rem] text-accent tracking-wide">Operator-Investor</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+        </div>
+      </m.div>
 
       {/* Payoff */}
-      <m.div
+      <m.p
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: LANDO_EASE, delay: 0.3 }}
-        className="max-w-2xl"
+        transition={{ duration: 0.6, ease: LANDO_EASE, delay: 0.5 }}
+        className="font-body text-[1rem] text-foreground/60 leading-relaxed max-w-2xl"
       >
-        <p className="font-body text-[1.05rem] text-foreground/65 leading-relaxed">
-          Most people have one of these worlds. Having all three means walking into every conversation having been on both sides of the table — as the person who built, and as the person who backed.
-        </p>
-      </m.div>
+        Most people have one of these worlds. Having all three means walking into every room having been on both sides of the table — as the person who built, and as the person who backed.
+      </m.p>
     </div>
   )
 }

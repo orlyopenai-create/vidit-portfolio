@@ -1,21 +1,54 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { m, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { m, AnimatePresence, useInView } from 'framer-motion'
 import type { Company } from '@/lib/types'
 
 const LANDO_EASE = [0.65, 0.05, 0, 1] as const
 
-const SECTOR_ORDER = [
-  'Food & Beverage',
-  'Fashion & Lifestyle',
-  'Fintech',
-  'Health & Wellness',
-  'Climate & Mobility',
-  'Consumer Durables',
-  'Home & Furniture',
-  'AI & Tech',
-  'Education',
+// 25 scatter positions (left%, top%) — 3 rings around center (50%, 46%)
+const POSITIONS = [
+  // Ring 1 – 5
+  { left: 65, top: 49 },
+  { left: 50, top: 61 },
+  { left: 35, top: 49 },
+  { left: 41, top: 33 },
+  { left: 59, top: 33 },
+  // Ring 2 – 9
+  { left: 79, top: 46 },
+  { left: 72, top: 62 },
+  { left: 55, top: 71 },
+  { left: 37, top: 68 },
+  { left: 23, top: 55 },
+  { left: 23, top: 37 },
+  { left: 37, top: 23 },
+  { left: 55, top: 20 },
+  { left: 72, top: 28 },
+  // Ring 3 – 11
+  { left: 88, top: 46 },
+  { left: 81, top: 64 },
+  { left: 65, top: 76 },
+  { left: 46, top: 80 },
+  { left: 28, top: 72 },
+  { left: 15, top: 57 },
+  { left: 15, top: 35 },
+  { left: 28, top: 20 },
+  { left: 46, top: 13 },
+  { left: 65, top: 16 },
+  { left: 81, top: 27 },
+]
+
+// Per-logo float timing (delay s, duration s)
+const FLOAT = [
+  { d: 0.0, t: 3.2 }, { d: 0.6, t: 2.8 }, { d: 1.2, t: 3.5 },
+  { d: 0.3, t: 3.0 }, { d: 0.9, t: 2.6 }, { d: 1.5, t: 3.3 },
+  { d: 0.2, t: 2.9 }, { d: 0.8, t: 3.6 }, { d: 1.4, t: 2.7 },
+  { d: 0.4, t: 3.1 }, { d: 1.0, t: 3.4 }, { d: 0.1, t: 2.8 },
+  { d: 0.7, t: 3.0 }, { d: 1.3, t: 3.2 }, { d: 0.5, t: 2.9 },
+  { d: 0.8, t: 3.5 }, { d: 1.1, t: 3.1 }, { d: 0.3, t: 2.7 },
+  { d: 0.7, t: 3.3 }, { d: 1.4, t: 3.0 }, { d: 0.5, t: 2.8 },
+  { d: 1.0, t: 3.4 }, { d: 0.2, t: 3.1 }, { d: 0.6, t: 2.9 },
+  { d: 1.2, t: 3.2 },
 ]
 
 function getBarWidth(multiple: string): number {
@@ -26,8 +59,20 @@ function getBarWidth(multiple: string): number {
 
 export function LogoGrid({ companies }: { companies: Company[] }) {
   const [selected, setSelected] = useState<Company | null>(null)
+  const [hovered, setHovered] = useState<string | null>(null)
+  const [floatReady, setFloatReady] = useState(false)
 
-  // Escape key handler
+  // Gate everything on scroll-into-view
+  const containerRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(containerRef, { once: true, margin: '-5% 0px' })
+
+  // Start floating ~1.8s after burst begins (burst takes ~0.25 + 25*0.045 ≈ 1.4s)
+  useEffect(() => {
+    if (!inView) return
+    const t = setTimeout(() => setFloatReady(true), 1800)
+    return () => clearTimeout(t)
+  }, [inView])
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') setSelected(null)
@@ -36,72 +81,205 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  const grouped = SECTOR_ORDER.reduce<Record<string, Company[]>>((acc, sector) => {
-    const items = companies.filter((c) => c.sector === sector)
-    if (items.length) acc[sector] = items
-    return acc
-  }, {})
-
   return (
     <>
       <m.div
+        ref={containerRef}
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        <p className="font-mono text-[10px] uppercase tracking-widest text-[#F0E8DC]/30 mb-8 mt-2">
+        <p className="font-mono text-[10px] uppercase tracking-widest text-[#F0E8DC]/30 mb-4 mt-2">
           Portfolio — 25 Companies
         </p>
 
-        <div className="space-y-5">
-          {Object.entries(grouped).map(([sector, items], gi) => (
+        {/* ── Desktop: constellation ── */}
+        <div
+          className="relative w-full hidden md:block"
+          style={{ paddingBottom: '68%' }}
+        >
+          {/* Center badge */}
+          <div
+            className="absolute z-10"
+            style={{ left: '50%', top: '46%', transform: 'translate(-50%, -50%)' }}
+          >
             <m.div
-              key={sector}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: gi * 0.04 }}
-              className="flex items-start gap-4 md:gap-8"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={inView ? { scale: 1, opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 180, damping: 16 }}
+              className="w-20 h-20 rounded-full border border-[#A6701A]/40 flex items-center justify-center overflow-hidden bg-[#2A1F14]"
             >
-              {/* Sector label */}
-              <div className="w-24 md:w-32 shrink-0 pt-3 text-right">
-                <p className="font-mono text-[9px] text-[#A6701A]/70 uppercase tracking-widest leading-tight">
-                  {sector}
-                </p>
-              </div>
+              <img
+                src="/logos/barbershop-cover.png"
+                alt="The Barbershop Fund"
+                className="w-full h-full object-cover rounded-full"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none'
+                  const parent = e.currentTarget.parentElement
+                  if (parent) {
+                    parent.innerHTML = '<span style="font-family:var(--font-display);font-size:9px;color:#A6701A;text-align:center;line-height:1.4;padding:8px;display:block">The<br/>Barbershop<br/>Fund</span>'
+                  }
+                }}
+              />
+            </m.div>
+          </div>
 
-              {/* Logo tiles */}
-              <div className="flex flex-wrap gap-2 flex-1">
-                {items.map((company) => (
-                  <button
-                    key={company.slug}
+          {/* Logo nodes */}
+          {companies.map((company, i) => {
+            const pos = POSITIONS[i] || { left: 50, top: 46 }
+            const fp = FLOAT[i] || { d: 0, t: 3 }
+            const burstDelay = 0.2 + i * 0.05
+
+            return (
+              <div
+                key={company.slug}
+                className="absolute"
+                style={{ left: `${pos.left}%`, top: `${pos.top}%` }}
+              >
+                {/* Float wrapper */}
+                <div
+                  style={{
+                    transform: 'translate(-50%, -50%)',
+                    animationName: floatReady ? 'logo-float' : 'none',
+                    animationDuration: `${fp.t}s`,
+                    animationDelay: `${fp.d}s`,
+                    animationTimingFunction: 'ease-in-out',
+                    animationIterationCount: 'infinite',
+                  }}
+                >
+                  <m.button
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={inView ? { scale: 1, opacity: 1 } : {}}
+                    transition={{
+                      duration: 0.45,
+                      delay: burstDelay,
+                      type: 'spring',
+                      stiffness: 220,
+                      damping: 16,
+                    }}
+                    className="relative flex items-center justify-center rounded-xl bg-[#2A1F14] hover:bg-[#3D2E1A] transition-colors duration-200 cursor-pointer"
+                    style={{ width: '90px', height: '54px' }}
                     onClick={() => setSelected(company)}
-                    aria-label={`View details for ${company.name}`}
-                    className="flex items-center justify-center w-28 h-16 rounded-md bg-[#2A1F14] hover:bg-[#3A2E20] transition-colors duration-200 cursor-pointer"
-                    title={company.name}
+                    onMouseEnter={() => setHovered(company.slug)}
+                    onMouseLeave={() => setHovered(null)}
+                    aria-label={`View ${company.name}`}
                   >
                     <img
                       src={company.logoPath}
                       alt={company.name}
-                      className="h-8 w-auto max-w-[88px] object-contain"
-                      style={{ mixBlendMode: 'luminosity', opacity: 0.85 }}
+                      className="h-7 w-auto max-w-[72px] object-contain"
                       loading="lazy"
                       onError={(e) => {
-                        // Text fallback if logo 404s
-                        const el = e.currentTarget
-                        el.style.display = 'none'
+                        e.currentTarget.style.display = 'none'
                         const span = document.createElement('span')
                         span.textContent = company.name
-                        span.style.cssText = 'font-size:8px;color:#F0E8DC;opacity:0.6;text-align:center;padding:0 4px;line-height:1.2;font-family:var(--font-body)'
-                        el.parentElement?.appendChild(span)
+                        span.style.cssText = 'font-size:8px;color:#F0E8DC;opacity:0.7;text-align:center;padding:0 6px;line-height:1.2;font-family:var(--font-body)'
+                        e.currentTarget.parentElement?.appendChild(span)
                       }}
                     />
-                  </button>
-                ))}
+
+                    {/* Tooltip */}
+                    {hovered === company.slug && (
+                      <div
+                        className="absolute pointer-events-none z-30 whitespace-nowrap"
+                        style={{ bottom: 'calc(100% + 8px)', left: '50%', transform: 'translateX(-50%)' }}
+                      >
+                        <div className="bg-[#1C1410] border border-[#A6701A]/25 rounded-lg px-3 py-2 shadow-xl">
+                          <p className="font-body text-[11px] font-medium text-[#F0E8DC] leading-none mb-0.5">{company.name}</p>
+                          <p className="font-mono text-[9px] text-[#A6701A]/70 uppercase tracking-widest">{company.sector}</p>
+                        </div>
+                        <div
+                          style={{
+                            width: 0,
+                            marginLeft: '50%',
+                            transform: 'translateX(-50%)',
+                            borderLeft: '5px solid transparent',
+                            borderRight: '5px solid transparent',
+                            borderTop: '5px solid rgba(166,112,26,0.25)',
+                          }}
+                        />
+                      </div>
+                    )}
+                  </m.button>
+                </div>
               </div>
+            )
+          })}
+        </div>
+
+        {/* ── Mobile: animated grid burst + float ── */}
+        <div className="md:hidden">
+          {/* Center icon */}
+          <div className="flex justify-center mb-6">
+            <m.div
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, type: 'spring', stiffness: 180, damping: 16 }}
+              className="w-16 h-16 rounded-full border border-[#A6701A]/40 flex items-center justify-center overflow-hidden bg-[#2A1F14]"
+            >
+              <img
+                src="/logos/barbershop-cover.png"
+                alt="The Barbershop Fund"
+                className="w-full h-full object-cover rounded-full"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none'
+                  const parent = e.currentTarget.parentElement
+                  if (parent) {
+                    parent.innerHTML = '<span style="font-family:var(--font-display);font-size:7px;color:#A6701A;text-align:center;line-height:1.4;padding:6px;display:block">BSF</span>'
+                  }
+                }}
+              />
             </m.div>
-          ))}
+          </div>
+
+          <div className="flex flex-wrap gap-2 justify-center">
+            {companies.map((company, i) => {
+              const fp = FLOAT[i] || { d: 0, t: 3 }
+              return (
+                <m.button
+                  key={company.slug}
+                  className="flex items-center justify-center rounded-xl bg-[#2A1F14]"
+                  style={{
+                    width: '86px',
+                    height: '50px',
+                    animationName: 'logo-float-grid',
+                    animationDuration: `${fp.t}s`,
+                    animationDelay: `${fp.d + 1.5}s`,
+                    animationTimingFunction: 'ease-in-out',
+                    animationIterationCount: 'infinite',
+                  }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.4,
+                    delay: i * 0.035,
+                    type: 'spring',
+                    stiffness: 220,
+                    damping: 18,
+                  }}
+                  onClick={() => setSelected(company)}
+                  aria-label={`View ${company.name}`}
+                >
+                  <img
+                    src={company.logoPath}
+                    alt={company.name}
+                    className="h-7 w-auto max-w-[68px] object-contain"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none'
+                      const span = document.createElement('span')
+                      span.textContent = company.name
+                      span.style.cssText = 'font-size:8px;color:#F0E8DC;opacity:0.7;text-align:center;padding:0 6px;line-height:1.2;font-family:var(--font-body)'
+                      e.currentTarget.parentElement?.appendChild(span)
+                    }}
+                  />
+                </m.button>
+              )
+            })}
+          </div>
         </div>
       </m.div>
 
@@ -110,7 +288,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
         {selected && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center p-6"
-            style={{ backgroundColor: 'rgba(28,20,16,0.75)' }}
+            style={{ backgroundColor: 'rgba(28,20,16,0.8)' }}
             onClick={() => setSelected(null)}
           >
             <m.div
@@ -130,25 +308,17 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                 ×
               </button>
 
-              {/* Logo or name */}
               <div className="flex items-center justify-center h-14 mb-5">
                 <img
                   src={selected.logoPath}
                   alt={selected.name}
-                  className="h-9 w-auto max-w-[160px] object-contain"
-                  style={{ mixBlendMode: 'luminosity', opacity: 0.9 }}
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none'
-                  }}
+                  className="h-10 w-auto max-w-[160px] object-contain"
+                  onError={(e) => { e.currentTarget.style.display = 'none' }}
                 />
               </div>
 
-              <h3 className="font-display text-xl font-normal text-[#F0E8DC] mb-1 text-center">
-                {selected.name}
-              </h3>
-              <p className="font-mono text-[10px] text-[#A6701A]/60 uppercase tracking-widest text-center mb-5">
-                {selected.sector}
-              </p>
+              <h3 className="font-display text-xl font-normal text-[#F0E8DC] mb-1 text-center">{selected.name}</h3>
+              <p className="font-mono text-[10px] text-[#A6701A]/60 uppercase tracking-widest text-center mb-5">{selected.sector}</p>
 
               {selected.multiple && (
                 <div className="border-t border-[#F0E8DC]/10 pt-4 space-y-3">
@@ -170,8 +340,6 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                       <span className="font-body text-sm text-[#F0E8DC]/80 text-right">{selected.coInvestors}</span>
                     </div>
                   )}
-
-                  {/* Valuation bar */}
                   <div className="pt-1">
                     <div className="h-1 rounded-full overflow-hidden bg-[#1C1410]">
                       <m.div
@@ -181,9 +349,7 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                         transition={{ duration: 1.2, type: 'spring', stiffness: 60, damping: 20 }}
                       />
                     </div>
-                    <p className="font-mono text-[9px] text-[#F0E8DC]/25 mt-1 text-right">
-                      {selected.multiple} return
-                    </p>
+                    <p className="font-mono text-[9px] text-[#F0E8DC]/25 mt-1 text-right">{selected.multiple} return</p>
                   </div>
                 </div>
               )}
