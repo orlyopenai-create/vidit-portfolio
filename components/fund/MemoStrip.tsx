@@ -46,7 +46,7 @@ export function MemoStrip({ memos }: { memos: Memo[] }) {
                 {memo.oneLiner}
               </p>
               <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#C4832A]/60 group-hover:text-[#C4832A] transition-colors duration-200">
-                Read memo ↗
+                Why we invested ↗
               </span>
             </a>
           </m.div>

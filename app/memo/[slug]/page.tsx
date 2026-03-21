@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const memo = memos.find((m) => m.slug === slug)
   if (!memo) return {}
   return {
-    title: `${memo.company} — Investment Memo · Vidit Dugar`,
+    title: `${memo.company} — Why We Invested · Vidit Dugar`,
     description: memo.oneLiner,
   }
 }
@@ -55,10 +55,9 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
           </p>
         </div>
 
-        {/* Divider */}
         <div className="h-px bg-[#F2EAE0]/8 mb-10" />
 
-        {/* Summary */}
+        {/* The Opportunity */}
         <section className="mb-10">
           <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-4">
             The Opportunity
@@ -70,10 +69,64 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
 
         <div className="h-px bg-[#F2EAE0]/8 mb-10" />
 
-        {/* Why Excited */}
+        {/* Founders */}
         <section className="mb-10">
           <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-6">
-            Why We&rsquo;re Excited
+            The Founders
+          </h2>
+          <div className="space-y-6">
+            {memo.founders.map((f) => (
+              <div key={f.name}>
+                <div className="flex items-baseline gap-3 mb-1.5">
+                  <p className="font-body text-[1rem] font-semibold text-[#F2EAE0]/90">{f.name}</p>
+                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#C4832A]/60">{f.role}</span>
+                </div>
+                <p className="font-body text-[1rem] text-[#F2EAE0]/55 leading-[1.75]">{f.background}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div className="h-px bg-[#F2EAE0]/8 mb-10" />
+
+        {/* Company */}
+        <section className="mb-10">
+          <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-4">
+            The Company
+          </h2>
+          <p className="font-body text-[1rem] text-[#F2EAE0]/70 leading-[1.75]">
+            {memo.companyDetails}
+          </p>
+        </section>
+
+        <div className="h-px bg-[#F2EAE0]/8 mb-10" />
+
+        {/* Market + Competition */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+          <section>
+            <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-4">
+              The Market
+            </h2>
+            <p className="font-body text-[1rem] text-[#F2EAE0]/55 leading-[1.75]">
+              {memo.market}
+            </p>
+          </section>
+          <section>
+            <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-4">
+              Competition
+            </h2>
+            <p className="font-body text-[1rem] text-[#F2EAE0]/55 leading-[1.75]">
+              {memo.competition}
+            </p>
+          </section>
+        </div>
+
+        <div className="h-px bg-[#F2EAE0]/8 mb-10" />
+
+        {/* Why We Invested */}
+        <section className="mb-10">
+          <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-6">
+            Why We Invested
           </h2>
           <div className="space-y-6">
             {memo.whyExcited.map((item) => (
@@ -91,7 +144,7 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
 
         <div className="h-px bg-[#F2EAE0]/8 mb-10" />
 
-        {/* Pre-parade + Pre-mortem */}
+        {/* Best Case + Key Risks */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
           <section>
             <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-5">
@@ -106,7 +159,6 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
               ))}
             </ul>
           </section>
-
           <section>
             <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-5">
               Key Risks
@@ -141,7 +193,7 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
           <h2 className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#C4832A]/70 mb-3">
             Notable Co-investors
           </h2>
-          <p className="font-body text-[0.9rem] text-[#F2EAE0]/45">
+          <p className="font-body text-[1rem] text-[#F2EAE0]/45">
             {memo.notableInvestors}
           </p>
         </section>
@@ -149,7 +201,7 @@ export default async function MemoPage({ params }: { params: Promise<{ slug: str
         {/* Footer */}
         <div className="flex items-center justify-between border-t border-[#F2EAE0]/8 pt-8">
           <p className="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-[#F2EAE0]/20">
-            Vidit Dugar · Investment Memo
+            Vidit Dugar · Investment Note
           </p>
           <Link
             href="/#fund"
