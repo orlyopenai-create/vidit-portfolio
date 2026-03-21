@@ -18,6 +18,7 @@ export interface Company {
   sector: string
   logoPath: string
   logoFilter?: string
+  tileBg?: string
   websiteUrl?: string
   entryValuation?: string
   latestValuation?: string

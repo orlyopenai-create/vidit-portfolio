@@ -165,8 +165,8 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
                       stiffness: 220,
                       damping: 16,
                     }}
-                    className="relative flex items-center justify-center rounded-xl bg-[#161210] hover:bg-[#3D2E1A] transition-colors duration-200 cursor-pointer"
-                    style={{ width: '90px', height: '54px' }}
+                    className="relative flex items-center justify-center rounded-xl hover:bg-[#3D2E1A] transition-colors duration-200 cursor-pointer"
+                    style={{ width: '90px', height: '54px', backgroundColor: company.tileBg ?? '#161210' }}
                     onClick={() => setSelected(company)}
                     onMouseEnter={() => setHovered(company.slug)}
                     onMouseLeave={() => setHovered(null)}
@@ -248,10 +248,11 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               return (
                 <m.button
                   key={company.slug}
-                  className="flex items-center justify-center rounded-xl bg-[#161210]"
+                  className="flex items-center justify-center rounded-xl"
                   style={{
                     width: '86px',
                     height: '50px',
+                    backgroundColor: company.tileBg ?? '#161210',
                     animationName: 'logo-float-grid',
                     animationDuration: `${fp.t}s`,
                     animationDelay: `${fp.d + 1.5}s`,
