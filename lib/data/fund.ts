@@ -52,38 +52,38 @@ export const standoutInvestments: Investment[] = [
 
 export const portfolioCompanies: Company[] = [
   // Food & Beverage
-  { name: 'Go Zero',          slug: 'go-zero',          sector: 'Food & Beverage',      logoPath: '/logos/go-zero.jpeg',          entryValuation: '₹25Cr',  latestValuation: '₹324Cr', multiple: '~12x', coInvestors: '—' },
-  { name: 'Anveshan',         slug: 'anveshan',         sector: 'Food & Beverage',      logoPath: '/logos/anveshan.png',          entryValuation: '₹160Cr', latestValuation: '₹400Cr', multiple: '~2.5x', coInvestors: 'Wipro Consumer Care Ventures, DSGCP' },
-  { name: 'Kilrr',            slug: 'kilrr',            sector: 'Food & Beverage',      logoPath: '/logos/kilrr.jpeg',            entryValuation: '₹17Cr',  latestValuation: '₹85Cr',  multiple: '~5x',  coInvestors: 'Anupam Mittal' },
-  { name: 'Fishmongers',      slug: 'fishmongers',      sector: 'Food & Beverage',      logoPath: '/logos/fishmongers.jpeg',      entryValuation: '₹31Cr',  latestValuation: '₹150Cr', multiple: '~5x',  coInvestors: 'Rainmatter, Wavemaker, EIC Japan' },
-  { name: 'Better Nutrition', slug: 'better-nutrition', sector: 'Food & Beverage',      logoPath: '/logos/better-nutrition.png' },
-  { name: 'Basil',            slug: 'basil',            sector: 'Food & Beverage',      logoPath: '/logos/basil.png' },
+  { name: 'Go Zero',          slug: 'go-zero',          sector: 'Food & Beverage',     logoPath: '/logos/go-zero.jpeg',           entryValuation: '₹25Cr',    latestValuation: '₹324Cr', multiple: '~12x',  coInvestors: '—' },
+  { name: 'Anveshan',         slug: 'anveshan',         sector: 'Food & Beverage',     logoPath: '/logos/anveshan.png',           entryValuation: '₹160Cr',   latestValuation: '₹400Cr', multiple: '~2.5x', coInvestors: 'Wipro Consumer Care Ventures, DSGCP' },
+  { name: 'Kilrr',            slug: 'kilrr',            sector: 'Food & Beverage',     logoPath: '/logos/kilrr.jpeg',             entryValuation: '₹17Cr',    latestValuation: '₹85Cr',  multiple: '~5x',   coInvestors: 'Anupam Mittal, DSGCP' },
+  { name: 'Fishmongers',      slug: 'fishmongers',      sector: 'Food & Beverage',     logoPath: '/logos/fishmongers.jpeg',       entryValuation: '₹31Cr',    latestValuation: '₹150Cr', multiple: '~5x',   coInvestors: 'Rainmatter, Wavemaker, EIC Japan' },
+  { name: 'Better Nutrition', slug: 'better-nutrition', sector: 'Food & Beverage',     logoPath: '/logos/better-nutrition.png' },
+  { name: 'Basil',            slug: 'basil',            sector: 'Food & Beverage',     logoPath: '/logos/basil.png',              entryValuation: '₹39Cr',    latestValuation: '₹44Cr',  multiple: '~1.1x' },
   // Fashion & Lifestyle
-  { name: 'Wanderlooms',      slug: 'wanderlooms',      sector: 'Fashion & Lifestyle',  logoPath: '/logos/wanderlooms.png' },
-  { name: 'Woodsmen',         slug: 'woodsmen',         sector: 'Fashion & Lifestyle',  logoPath: '/logos/woodsmen.jpeg' },
-  { name: 'Fiona Diamonds',   slug: 'fiona-diamonds',   sector: 'Fashion & Lifestyle',  logoPath: '/logos/fiona-diamonds.png' },
-{ name: 'ReplyAll',         slug: 'replyall',         sector: 'Fashion & Lifestyle',  logoPath: '/logos/replyall.png' },
+  { name: 'Wanderlooms',      slug: 'wanderlooms',      sector: 'Fashion & Lifestyle', logoPath: '/logos/wanderlooms.png',        entryValuation: '₹7Cr',     latestValuation: '₹12Cr',  multiple: '~1.7x' },
+  { name: 'Woodsmen',         slug: 'woodsmen',         sector: 'Fashion & Lifestyle', logoPath: '/logos/woodsmen.jpeg' },
+  { name: 'Fiona Diamonds',   slug: 'fiona-diamonds',   sector: 'Fashion & Lifestyle', logoPath: '/logos/fiona-diamonds.png',     entryValuation: '₹101Cr',   latestValuation: '₹150Cr', multiple: '~1.5x' },
+  { name: 'ReplyAll',         slug: 'replyall',         sector: 'Fashion & Lifestyle', logoPath: '/logos/replyall.png' },
   // Fintech
-  { name: 'SBNRI',            slug: 'sbnri',            sector: 'Fintech',              logoPath: '/logos/sbnri.png' },
-  { name: 'RocketPay',        slug: 'rocketpay',        sector: 'Fintech',              logoPath: '/logos/rocketpay.png' },
-  { name: 'Crest Wealth',     slug: 'crest-wealth',     sector: 'Fintech',              logoPath: '/logos/crest-wealth.png' },
-  { name: 'Done Deal',        slug: 'done-deal',        sector: 'Fintech',              logoPath: '/logos/done-deal.png' },
+  { name: 'SBNRI',            slug: 'sbnri',            sector: 'Fintech',             logoPath: '/logos/sbnri.png' },
+  { name: 'RocketPay',        slug: 'rocketpay',        sector: 'Fintech',             logoPath: '/logos/rocketpay.png',          entryValuation: '₹50Cr',    latestValuation: '₹80Cr',  multiple: '~1.6x' },
+  { name: 'Crest Wealth',     slug: 'crest-wealth',     sector: 'Fintech',             logoPath: '/logos/crest-wealth.png',       entryValuation: '₹73Cr' },
+  { name: 'Done Deal',        slug: 'done-deal',        sector: 'Fintech',             logoPath: '/logos/done-deal.png',          entryValuation: '₹36Cr' },
   // Health & Wellness
-  { name: 'Epithera',         slug: 'epithera',         sector: 'Health & Wellness',    logoPath: '/logos/epithera.png' },
-  { name: 'BetterPlace Health', slug: 'betterplace-health', sector: 'Health & Wellness', logoPath: '/logos/betterplace-health.png' },
-  { name: 'Yuomo',            slug: 'yuomo',            sector: 'Health & Wellness',    logoPath: '/logos/yuomo.jpeg' },
+  { name: 'Epithera',         slug: 'epithera',         sector: 'Health & Wellness',   logoPath: '/logos/epithera.png',           entryValuation: '₹31Cr' },
+  { name: 'BetterPlace Health', slug: 'betterplace-health', sector: 'Health & Wellness', logoPath: '/logos/betterplace-health.png', entryValuation: '₹22Cr' },
+  { name: 'Yuomo',            slug: 'yuomo',            sector: 'Health & Wellness',   logoPath: '/logos/yuomo.jpeg' },
   // Climate & Mobility
-  { name: 'EVeez',            slug: 'eveez',            sector: 'Climate & Mobility',   logoPath: '/logos/eveez.png' },
-  { name: 'Kritsnam',         slug: 'kritsnam',         sector: 'Climate & Mobility',   logoPath: '/logos/kritsnam.png' },
-  { name: 'Mekr',             slug: 'mekr',             sector: 'Climate & Mobility',   logoPath: '/logos/mekr.png',              entryValuation: '₹100Cr', latestValuation: '₹210Cr', multiple: '~2x', coInvestors: 'Titan Capital' },
-  // Consumer Durables
-  { name: 'OctoLife',         slug: 'octolife',         sector: 'InsurTech',            logoPath: '/logos/octolife.jpeg' },
+  { name: 'EVeez',            slug: 'eveez',            sector: 'Climate & Mobility',  logoPath: '/logos/eveez.png' },
+  { name: 'Kritsnam',         slug: 'kritsnam',         sector: 'Climate & Mobility',  logoPath: '/logos/kritsnam.png',           entryValuation: '₹90Cr',    latestValuation: '₹144Cr', multiple: '~1.6x' },
+  { name: 'Mekr',             slug: 'mekr',             sector: 'Climate & Mobility',  logoPath: '/logos/mekr.png',               entryValuation: '₹100Cr',   latestValuation: '₹210Cr', multiple: '~2x',   coInvestors: 'Titan Capital' },
+  // InsurTech
+  { name: 'OctoLife',         slug: 'octolife',         sector: 'InsurTech',           logoPath: '/logos/octolife.jpeg' },
   // Home & Furniture
-  { name: 'Relso',            slug: 'relso',            sector: 'Home & Furniture',     logoPath: '/logos/relso.png' },
+  { name: 'Relso',            slug: 'relso',            sector: 'Home & Furniture',    logoPath: '/logos/relso.png',              entryValuation: '₹40Cr' },
   // AI & Tech
-  { name: 'Kookar.AI',        slug: 'kookar-ai',        sector: 'AI & Tech',            logoPath: '/logos/kookar-ai.png' },
+  { name: 'Kookar.AI',        slug: 'kookar-ai',        sector: 'AI & Tech',           logoPath: '/logos/kookar-ai.png' },
   // Education
-  { name: 'Anandi School',    slug: 'anandi-school',    sector: 'Education',            logoPath: '/logos/anandi-school.png' },
+  { name: 'Anandi School',    slug: 'anandi-school',    sector: 'Education',           logoPath: '/logos/anandi-school.png',      entryValuation: '₹128Cr' },
 ]
 
 export const fundData: FundData = {

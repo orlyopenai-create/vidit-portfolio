@@ -327,37 +327,43 @@ export function LogoGrid({ companies }: { companies: Company[] }) {
               <h3 className="font-display text-xl font-normal text-[#F2EAE0] mb-1 text-center">{selected.name}</h3>
               <p className="font-mono text-[10px] text-[#C4832A]/60 uppercase tracking-widest text-center mb-5">{selected.sector}</p>
 
-              {selected.multiple && (
+              {selected.entryValuation && (
                 <div className="border-t border-[#F2EAE0]/10 pt-4 space-y-3">
                   <div className="flex justify-between">
                     <span className="font-body text-sm text-[#F2EAE0]/50">Entry</span>
                     <span className="font-mono text-sm text-[#F2EAE0]">{selected.entryValuation}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="font-body text-sm text-[#F2EAE0]/50">Latest</span>
-                    <span className="font-mono text-sm text-[#F2EAE0]">{selected.latestValuation}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-body text-sm text-[#F2EAE0]/50">Multiple</span>
-                    <span className="font-mono text-sm font-semibold text-[#C4832A]">{selected.multiple}</span>
-                  </div>
+                  {selected.latestValuation && (
+                    <div className="flex justify-between">
+                      <span className="font-body text-sm text-[#F2EAE0]/50">Latest</span>
+                      <span className="font-mono text-sm text-[#F2EAE0]">{selected.latestValuation}</span>
+                    </div>
+                  )}
+                  {selected.multiple && (
+                    <div className="flex justify-between">
+                      <span className="font-body text-sm text-[#F2EAE0]/50">Multiple</span>
+                      <span className="font-mono text-sm font-semibold text-[#C4832A]">{selected.multiple}</span>
+                    </div>
+                  )}
                   {selected.coInvestors && selected.coInvestors !== '—' && (
                     <div className="flex justify-between items-start gap-4">
                       <span className="font-body text-sm text-[#F2EAE0]/50 shrink-0">Co-investors</span>
                       <span className="font-body text-sm text-[#F2EAE0]/80 text-right">{selected.coInvestors}</span>
                     </div>
                   )}
-                  <div className="pt-1">
-                    <div className="h-1 rounded-full overflow-hidden bg-[#080604]">
-                      <m.div
-                        className="h-full rounded-full bg-[#C4832A]"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${getBarWidth(selected.multiple)}%` }}
-                        transition={{ duration: 1.2, type: 'spring', stiffness: 60, damping: 20 }}
-                      />
+                  {selected.multiple && (
+                    <div className="pt-1">
+                      <div className="h-1 rounded-full overflow-hidden bg-[#080604]">
+                        <m.div
+                          className="h-full rounded-full bg-[#C4832A]"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${getBarWidth(selected.multiple)}%` }}
+                          transition={{ duration: 1.2, type: 'spring', stiffness: 60, damping: 20 }}
+                        />
+                      </div>
+                      <p className="font-mono text-[9px] text-[#F2EAE0]/25 mt-1 text-right">{selected.multiple} return</p>
                     </div>
-                    <p className="font-mono text-[9px] text-[#F2EAE0]/25 mt-1 text-right">{selected.multiple} return</p>
-                  </div>
+                  )}
                 </div>
               )}
             </m.div>
