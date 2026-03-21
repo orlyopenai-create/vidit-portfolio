@@ -34,20 +34,20 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vidit-portfolio-vert.vercel.app'),
-  title: 'Vidit Dugar — Builder. Investor. Storyteller.',
-  description: 'Third-generation entrepreneur. Formerly Nomura London, Bombay Shaving Company. Builder of The Bridge and The Orly Times.',
+  title: 'Vidit Dugar — Investments. Operations. Content.',
+  description: 'Portfolio of Vidit Dugar. Formerly Nomura London, Bombay Shaving Company, Orly.',
   openGraph: {
     type: 'website',
-    title: 'Vidit Dugar — Builder. Investor. Storyteller.',
-    description: 'Third-generation entrepreneur. Formerly Nomura London, Bombay Shaving Company. Builder of The Bridge and The Orly Times.',
+    title: 'Vidit Dugar — Investments. Operations. Content.',
+    description: 'Portfolio of Vidit Dugar. Formerly Nomura London, Bombay Shaving Company, Orly.',
     url: 'https://vidit-portfolio-vert.vercel.app',
     siteName: 'Vidit Dugar',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Vidit Dugar' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vidit Dugar — Builder. Investor. Storyteller.',
-    description: 'Third-generation entrepreneur. Formerly Nomura London, Bombay Shaving Company. Builder of The Bridge and The Orly Times.',
+    title: 'Vidit Dugar — Investments. Operations. Content.',
+    description: 'Portfolio of Vidit Dugar. Formerly Nomura London, Bombay Shaving Company, Orly.',
     images: ['/opengraph-image'],
   },
 }

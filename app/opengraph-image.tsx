@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Vidit Dugar — Builder. Investor. Storyteller.'
+export const alt = 'Vidit Dugar — Portfolio'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -15,84 +15,105 @@ export default function OGImage() {
           backgroundColor: '#0D0B09',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
-          padding: '80px 96px',
+          justifyContent: 'center',
+          padding: '0 96px',
           fontFamily: 'Georgia, serif',
           position: 'relative',
         }}
       >
-        {/* Gold top rule */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <div style={{ width: '40px', height: '1px', backgroundColor: '#C4832A' }} />
-          <span style={{ color: '#C4832A', fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: 'Georgia, serif' }}>
-            Portfolio
-          </span>
-        </div>
-
-        {/* Main content */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div
-            style={{
-              fontSize: '88px',
-              fontWeight: '700',
-              color: '#F2EAE0',
-              lineHeight: '1.0',
-              letterSpacing: '-0.02em',
-              fontFamily: 'Georgia, serif',
-            }}
-          >
-            Vidit Dugar
-          </div>
-          <div
-            style={{
-              fontSize: '28px',
-              color: '#F2EAE0',
-              opacity: 0.5,
-              fontStyle: 'italic',
-              fontFamily: 'Georgia, serif',
-              letterSpacing: '0.01em',
-            }}
-          >
-            Builder. Investor. Storyteller.
-          </div>
-        </div>
-
-        {/* Bottom row */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-          <div style={{ display: 'flex', gap: '24px' }}>
-            {['Nomura London', 'Bombay Shaving Company', 'The Bridge'].map((item) => (
-              <span
-                key={item}
-                style={{
-                  color: '#F2EAE0',
-                  opacity: 0.3,
-                  fontSize: '13px',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  fontFamily: 'Georgia, serif',
-                }}
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-          <span style={{ color: '#C4832A', fontSize: '13px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-            Kolkata · London · Delhi
-          </span>
-        </div>
-
-        {/* Subtle gold ambient glow */}
+        {/* Ambient glow */}
         <div
           style={{
             position: 'absolute',
-            top: '200px',
-            right: '0px',
-            width: '500px',
-            height: '400px',
+            top: '50px',
+            right: '80px',
+            width: '480px',
+            height: '480px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(196,131,42,0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse, rgba(196,131,42,0.07) 0%, transparent 70%)',
           }}
         />
+
+        {/* Gold rule */}
+        <div style={{ display: 'flex', marginBottom: '48px' }}>
+          <div style={{ width: '40px', height: '1px', backgroundColor: '#C4832A' }} />
+        </div>
+
+        {/* Name */}
+        <div
+          style={{
+            fontSize: '96px',
+            fontWeight: '700',
+            color: '#F2EAE0',
+            lineHeight: '1.0',
+            letterSpacing: '-0.02em',
+            marginBottom: '24px',
+          }}
+        >
+          Vidit Dugar
+        </div>
+
+        {/* Portfolio label */}
+        <div
+          style={{
+            fontSize: '22px',
+            color: '#C4832A',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            marginBottom: '56px',
+          }}
+        >
+          Portfolio
+        </div>
+
+        {/* Divider */}
+        <div style={{ display: 'flex', marginBottom: '40px' }}>
+          <div style={{ width: '40px', height: '1px', backgroundColor: '#F2EAE0', opacity: 0.1 }} />
+        </div>
+
+        {/* Three pillars */}
+        <div style={{ display: 'flex', gap: '48px' }}>
+          {['Investments', 'Operations', 'Content'].map((label) => (
+            <span
+              key={label}
+              style={{
+                color: '#F2EAE0',
+                opacity: 0.4,
+                fontSize: '14px',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+              }}
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+
+        {/* Companies — bottom right */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '72px',
+            right: '96px',
+            display: 'flex',
+            gap: '28px',
+          }}
+        >
+          {['Nomura', 'Bombay Shaving Company', 'Orly'].map((co) => (
+            <span
+              key={co}
+              style={{
+                color: '#F2EAE0',
+                opacity: 0.25,
+                fontSize: '12px',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+              }}
+            >
+              {co}
+            </span>
+          ))}
+        </div>
       </div>
     ),
     { ...size }
