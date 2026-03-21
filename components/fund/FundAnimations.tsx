@@ -4,6 +4,8 @@ import { useRef, useEffect, useState } from 'react'
 import { m, useInView } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { ClipReveal } from '@/components/ui/ClipReveal'
+import { MemoStrip } from '@/components/fund/MemoStrip'
+import { memos } from '@/lib/data/memos'
 
 const LANDO_EASE = [0.65, 0.05, 0, 1] as const
 
@@ -195,6 +197,9 @@ export function FundAnimations() {
           </div>
         </div>
       </m.div>
+
+      {/* Investment Memos */}
+      <MemoStrip memos={memos} />
     </div>
   )
 }
