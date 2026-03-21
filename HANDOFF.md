@@ -6,17 +6,18 @@
 
 ## What We're Building
 
-Single-page scrolling portfolio website for **Vidit Dugar** — personal brand site for VC partners who want to understand who Vidit is, and founders who want to know if he's someone worth knowing.
+Single-page scrolling portfolio website for **Vidit Dugar** — personal brand site for VC partners who want to understand who Vidit is, and founders who want to know if he's someone worth knowing. Subtext: Vidit is looking to move into investing full-time. The site signals this without being an overt job application.
 
 **PRD:** `vidit_dugar_portfolio_PRD.md`
 **Visual Spec:** `VISUAL-SPEC.md` (source of truth for all design decisions)
+**Video Script:** `VIDEO-SCRIPT.md`
 
 ---
 
 ## Current Status
 
-**Phase:** Full visual layer rewrite complete (2026-03-20)
-**Last action:** Complete rebuild of all components and styles per VISUAL-SPEC.md. New "The Storyteller" concept — Lenis smooth scroll, ClipReveal animations, dark Fund section, honest copy framing, no headshot in hero.
+**Phase:** Session 2 polish complete (2026-03-21)
+**Last action:** Video intro section live, logo constellation, Intersection redesign, font upgrade, map route fix, spacing overhaul.
 
 **Live URL:** `https://vidit-portfolio-vert.vercel.app`
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -27,14 +28,14 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 
 ## Site Sections (current scroll order)
 
-1. **Hero** — Full-viewport, text-only. "VD" monogram top-left. Four headline lines in Playfair Display (up to 8rem) clip-up on load. Lines 3–4 italic, smaller. Name + location bottom-left in DM Sans gold. Scroll hint bottom-right.
-2. **The Story** — `bg-surface`. SectionLabel "THE STORY". Pull quote in Playfair italic. 5-paragraph prose across 2 columns. Timeline pills: Mumbai/London/Delhi+Kolkata.
-3. **The Journey** — `bg-background`. SectionLabel "THE JOURNEY". Title "Four cities. One thread." World map with animated flight paths. Kolkata pin gold (special). Click popout card with honest city descriptions.
-4. **The Intersection** — `bg-surface`. SectionLabel "THE INTERSECTION". Title "Three worlds. One lens." SVG Venn: outline circles, labels outside. Finance/Operations/Content. "Operator-Investor" in gold at centre. Mobile: stacked cards.
-5. **The Bridge** — `bg-surface`. SectionLabel "THE BRIDGE". Title "The Bridge" 5rem Playfair. 3 episode cards, 16:9 thumbnails, topic pill, play overlay on hover. No diagonal stripe.
-6. **The Barbershop Fund** — `bg-[#1C1410]` (DARK). SectionLabel "THE BARBERSHOP FUND" (gold, dark=true). Honest intro copy attributing fund to Shantanu. Stats: 25 companies / 1.8x MOIC (FUND) / 5 Shark Tank alumni. "What I Look For" section. Logo grid (dark tiles). Click popout with valuation bar + spring animation.
-7. **Writing** — `bg-background`. SectionLabel "WRITING". Title "Thinking out loud." italic. 18K subtitle. Horizontal snap carousel with bigger cards (w-80), arrow nav, right fade gradient.
-8. **Footer** — `bg-surface`. Large "Let's talk." Playfair. Email + LinkedIn links. Gold on hover. Divider. "Third-generation builder from Kolkata." emotional signature.
+1. **Hero** — Full-viewport, text-only. "VD" monogram top-left. Four headline lines in Playfair Display (up to 8rem) clip-up on load. Lines 3–4 italic, smaller. Name + location bottom-left in Inter gold. Scroll hint bottom-right.
+2. **Video Intro** — `bg-[#1C1410]`. SectionLabel "IN MY OWN WORDS". Vidit's 45-sec personal intro video (compressed, 3.8MB). Contained `max-w-3xl`, lazy-loads on scroll, muted autoplay with "Tap to unmute" center overlay. `poster="/intro-poster.jpg"`. Cormorant italic bridge line below: "Scroll to see the work."
+3. **The Journey** — `bg-background`. SectionLabel "THE JOURNEY". Title "Four cities. One thread." World map with animated flight paths. Routes: Kolkata→Mumbai→London→Delhi→Kolkata (full circle). Kolkata pin gold (home/special). Click popout card with honest city descriptions. Scale 320.
+4. **The Intersection** — `bg-surface`. SectionLabel "THE INTERSECTION". Title "Three worlds. One lens." Three editorial pillar cards (Finance / Operations / Content) with decorative 01/02/03 numbers. "Operator-Investor" gold badge below with connecting lines. No SVG Venn.
+5. **The Bridge** — `bg-surface`. SectionLabel "THE BRIDGE". Title "The Bridge". 3 episode cards, 16:9 thumbnails, topic pill, play overlay on hover.
+6. **The Barbershop Fund** — `bg-[#1C1410]` (DARK). SectionLabel "THE BARBERSHOP FUND" (gold, dark=true). Honest intro copy attributing fund to Shantanu. Stats: 25 companies / 1.8x MOIC (FUND) / 5 Shark Tank alumni. Portfolio highlights cards (4 standouts from PDF). "What I Look For" section. Logo constellation (burst + float on scroll). Click popout with valuation bar.
+7. **Writing** — `bg-background`. SectionLabel "WRITING". Title "Thinking out loud." italic. No follower count. Horizontal snap carousel, arrow nav, right fade gradient.
+8. **Footer** — `bg-surface`. Large "Let's talk." Playfair. Email + LinkedIn links. Gold on hover. "Third-generation builder from Kolkata." emotional signature.
 
 ---
 
@@ -43,20 +44,26 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 | Token | Value | Usage |
 |-------|-------|-------|
 | Background | `#F5EFE6` | Page bg, hero, journey, writing sections |
-| Surface | `#EDE4D8` | Story, intersection, bridge, footer sections |
+| Surface | `#EDE4D8` | Intersection, bridge, footer sections |
 | Text | `#241E18` | All body text |
-| Accent gold | `#A6701A` | Labels, stat numbers, Kolkata pin, centre Venn text |
-| Dark bg | `#1C1410` | Fund section only |
-| Dark surface | `#2A1F14` | Fund logo tiles, fund modal |
-| Dark text | `#F0E8DC` | Text in Fund section |
+| Accent gold | `#A6701A` | Labels, stat numbers, Kolkata pin, badges |
+| Dark bg | `#1C1410` | Fund section + Video intro section |
+| Dark surface | `#2A1F14` | Fund logo tiles, fund modal, highlight cards |
+| Dark text | `#F0E8DC` | Text in dark sections |
 
-**Typography:**
+**Typography (updated 2026-03-21):**
 - Hero display: Playfair Display `clamp(3rem,7vw,8rem)` bold
 - Section title: Playfair Display `clamp(2.5rem,5vw,5rem)` normal
-- Section italic: Playfair Display `clamp(2rem,5vw,5.5rem)` normal italic
-- Section label: DM Sans 0.7rem 600 tracking-[0.2em] uppercase gold
+- Pull quotes / italic subheadings: **Cormorant Garamond** `font-subheading` — replaces Playfair italic in these contexts
+- Section label: Inter 0.7rem 600 tracking-[0.2em] uppercase gold
 - Stat numbers: DM Mono `clamp(2.5rem,5vw,5rem)` gold
-- Body: DM Sans 1.05rem leading-[1.75]
+- Body: **Inter** 1rem leading-[1.75] — replaced DM Sans
+
+**Font variables:**
+- `--font-display`: Playfair Display
+- `--font-subheading`: Cormorant Garamond (italic moments, pull quotes)
+- `--font-body`: Inter
+- `--font-mono`: DM Mono
 
 ---
 
@@ -68,9 +75,11 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 - **SectionLabel** — fade in + scaleX rule 0→40px
 - **Hero clip-up** — staggered: 0.3s / 0.45s / 0.65s / 1.0s / 1.3s
 - **Hero parallax** — 140vh sticky zone, content fades + rises on scroll
+- **Logo constellation burst** — `useInView` gated, scale 0→1 spring stagger (delay 0.05s per logo), fires on scroll into view
+- **Logo float** — CSS `logo-float` / `logo-float-grid` keyframes, starts 1.8s after burst, unique timing per logo
 - **Count-up stats** — `FundAnimations.tsx` local impl, ease-out cubic 1500ms
 - **Valuation bars** — spring physics (stiffness 60, damping 20) in LogoGrid modal
-- **Map flight paths** — strokeDashoffset animate 1.0s sequential
+- **Map flight paths** — strokeDashoffset animate 1.0s sequential, delay 0.5+i*1.0s
 - **prefers-reduced-motion** — CSS global disables all animations
 
 ---
@@ -78,21 +87,21 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 ## Critical Constraints
 
 - **NO headshot in hero** — text-only
-- **NO "seeking VC roles"** — not a job application, personal brand
+- **NOT an overt job application** — but the intent (move into investing) is signalled clearly in the video outro and footer CTA. Don't add "open to roles" copy anywhere on the page.
 - **Honest attribution** — £6Bn M&A = Nomura's deals. 1.8x = Fund MOIC not personal. 400K = Shantanu's channel.
 - **`m.*` not `motion.*`** — LazyMotion at root
-- **One dark section only** — Fund section (`#1C1410`)
-- **Data layer untouched** — `lib/data/*.ts` never modified
+- **Two dark sections** — Fund section + Video Intro section (both `#1C1410`)
+- **Data layer** — `lib/data/*.ts` should not be modified except `fund.ts` for sector corrections
 
 ---
 
 ## The Intersection Section
 
-SVG Venn diagram (desktop), mobile stacked cards:
-- **Finance** (left): Nomura London, Large-cap M&A, Sovereign Green Samurai bond
-- **Operations** (right): Chief of Staff BSC, Head of Business Orly, P&L/teams/brands
-- **Content** (top): The Bridge IP, The Orly Times, 18K LinkedIn
-- Centre: "Operator-Investor" in Playfair italic gold
+Three editorial pillar cards (replaced SVG Venn — text was overlapping):
+- **01 Finance**: Nomura London EMEA M&A, Renewable energy/consumer/financial services, India's first sovereign Green Samurai bond
+- **02 Operations**: Chief of Staff BSC, P&L/teams/0→1 brands, Head of Business Orly est. 1989
+- **03 Content**: The Bridge YouTube IP, The Orly Times newspaper, LinkedIn writing on brands/capital
+- Centre badge: "Operator-Investor" in Cormorant italic gold
 
 ---
 
@@ -113,32 +122,30 @@ SVG Venn diagram (desktop), mobile stacked cards:
 **CRITICAL:** Barbershop Fund is Shantanu Deshpande's fund. Vidit was sole investment professional.
 - Stats labeled "MOIC (FUND)" not personal track record
 - Intro copy explicit: "built by Shantanu Deshpande, founder of Bombay Shaving Company"
-- "What I Look For" framed as learnings, not GP mandate
-
-**What I Look For:**
-- In Founders: Deep domain expertise · Irrational conviction · Would build without funding
-- In Companies: Brand as a moat · Content-led growth · Category creation
+- Portfolio highlights from Q3 FY26 investment update PDF: Go Zero (12x), Kilrr (5x/Shark Tank), Epithera (100% clinical trial), Crest Wealth (₹100Cr commitments)
 
 ---
 
-## Portfolio Logo Grid — Sector Buckets
+## Portfolio Logo Constellation — Sector Buckets
 
 | Sector | Companies |
 |--------|-----------|
 | Food & Beverage | Go Zero, Anveshan, Kilrr, Fishmongers, Better Nutrition, Basil |
-| Fashion & Lifestyle | Wanderlooms, Woodsmen, Fiona Diamonds, Absolut Pet, ReplyAll |
+| Fashion & Lifestyle | Wanderlooms, Woodsmen, Fiona Diamonds, ReplyAll |
+| Pet & Lifestyle | Absolut Pet |
 | Fintech | SBNRI, RocketPay, Crest Wealth, Done Deal |
 | Health & Wellness | Epithera, BetterPlace Health, Yuomo |
 | Climate & Mobility | EVeez, Kritsnam, Mekr |
-| Consumer Durables | OctoLife |
+| InsurTech | OctoLife |
 | Home & Furniture | Relso |
 | AI & Tech | Kookar.AI |
 | Education | Anandi School |
 
 5 companies have investment detail popouts: Go Zero (12x), Kilrr (5x), Fishmongers (5x), Anveshan (2.5x), Mekr (2x)
 
-**Logo failures:** `onError` now shows company name as text fallback (not hidden tile)
-**Modal a11y:** Escape key handler added, `aria-label` on close button
+**Center icon:** `/public/logos/barbershop-cover.png` — YouTube channel icon for @thebarbershopwithshantanu6670
+**Logo rendering:** No mix-blend-mode (removed — was causing B&W). Text fallback on onError.
+**Positions:** 25 pre-defined scatter positions in 3 rings around center (POSITIONS array in LogoGrid.tsx)
 
 ---
 
@@ -146,29 +153,32 @@ SVG Venn diagram (desktop), mobile stacked cards:
 
 | File | Purpose |
 |------|---------|
-| `lib/data/hero.ts` | Name, descriptor, subline, career pills, cities, fund stats (untouched) |
-| `lib/data/journey.ts` | 4 city pins for world map (untouched) |
-| `lib/data/barbershop.ts` | 3 Bridge episode cards (untouched) |
-| `lib/data/fund.ts` | Fund stats, 25 portfolio companies (untouched) |
-| `lib/data/media.ts` | 10 LinkedIn posts (untouched) |
-| `components/ui/LenisProvider.tsx` | Lenis smooth scroll wrapper (NEW) |
-| `components/ui/SectionLabel.tsx` | Gold uppercase label + animated rule (NEW) |
-| `components/ui/ClipReveal.tsx` | Clip-up text reveal animation (NEW) |
+| `lib/data/hero.ts` | Name, descriptor, subline, career pills, cities, fund stats |
+| `lib/data/journey.ts` | 4 city pins for world map |
+| `lib/data/barbershop.ts` | 3 Bridge episode cards |
+| `lib/data/fund.ts` | Fund stats, 25 portfolio companies (sectors updated) |
+| `lib/data/media.ts` | 10 LinkedIn posts |
+| `components/ui/LenisProvider.tsx` | Lenis smooth scroll wrapper |
+| `components/ui/SectionLabel.tsx` | Gold uppercase label + animated rule |
+| `components/ui/ClipReveal.tsx` | Clip-up text reveal animation |
 | `components/hero/HeroAnimations.tsx` | Full-viewport text-only hero, clip-up lines |
-| `components/sections/StorySection.tsx` | Story section with pull quote + prose (NEW) |
-| `components/journey/WorldMap.tsx` | Map + gold Kolkata pin + redesigned popouts |
-| `components/intersection/IntersectionAnimations.tsx` | SVG Venn, labels outside circles |
-| `components/barbershop/BridgeAnimations.tsx` | Bridge episode cards (clean, no stripe) |
-| `components/fund/FundAnimations.tsx` | Dark section, honest stats, count-up |
-| `components/fund/LogoGrid.tsx` | Dark logo grid + text fallback + keyboard a11y |
-| `components/media/MediaAnimations.tsx` | Writing carousel with SectionLabel |
-| `components/media/LinkedInCard.tsx` | Bigger cards with gold date + hover lift |
+| `components/sections/VideoIntroSection.tsx` | Video intro — lazy load, muted autoplay, unmute overlay |
+| `components/sections/StorySection.tsx` | OLD story section — kept but removed from page.tsx |
+| `components/journey/WorldMap.tsx` | Map + 4 routes incl. Kolkata→Mumbai + popouts |
+| `components/intersection/IntersectionAnimations.tsx` | Three pillar cards + Operator-Investor badge |
+| `components/barbershop/BridgeAnimations.tsx` | Bridge episode cards |
+| `components/fund/FundAnimations.tsx` | Dark section, stats, portfolio highlights, What I Look For |
+| `components/fund/LogoGrid.tsx` | Logo constellation — burst, float, hover tooltip, modal |
+| `components/media/MediaAnimations.tsx` | Writing carousel |
+| `components/media/LinkedInCard.tsx` | LinkedIn post cards |
 | `components/sections/FooterSection.tsx` | "Let's talk." + emotional signature |
-| `app/globals.css` | Palette CSS vars + keyframes + reduced-motion guard |
-| `app/layout.tsx` | LenisProvider added, updated metadata |
-| `app/page.tsx` | New section order, no MarqueeStrip/PhilosophySection etc |
-| `public/logos/` | 25 local logo files |
-| `public/*.jpg` | Photos from LinkedIn export |
+| `app/globals.css` | Palette CSS vars + logo-float keyframes + reduced-motion |
+| `app/layout.tsx` | Fonts: Playfair + Cormorant Garamond + Inter + DM Mono |
+| `app/page.tsx` | Section order: Hero→Video→Journey→Intersection→Bridge→Fund→Writing→Footer |
+| `public/intro.mp4` | Compressed intro video (3.8MB) |
+| `public/intro-poster.jpg` | Video poster/thumbnail (105KB) |
+| `public/logos/` | 25 local logo files + barbershop-cover.png (center icon) |
+| `VIDEO-SCRIPT.md` | Shooting script for video (5 beats, ~110 words, ~45s) |
 
 ---
 
@@ -178,7 +188,7 @@ SVG Venn diagram (desktop), mobile stacked cards:
 - Tailwind CSS v4 (CSS vars via @theme block)
 - Framer Motion via `LazyMotion + domAnimation` — always `m.*` not `motion.*`
 - Lenis smooth scroll (`npm install lenis`)
-- `next/font/google`: Playfair Display, DM Sans, DM Mono
+- `next/font/google`: Playfair Display, Cormorant Garamond, Inter, DM Mono
 - `react-simple-maps` v3 + world-atlas topojson
 - Vercel (auto-deploy on push to master)
 
@@ -186,12 +196,12 @@ SVG Venn diagram (desktop), mobile stacked cards:
 
 ## Pending / Open Items
 
+- [ ] **Map city photos** — Vidit adding photos from each location (Mumbai/London/Delhi/Kolkata). Wire into city popout cards on WorldMap.tsx once dropped into `/public`.
 - [ ] **Domain** — `vidit.vc` vs `viditdugar.com`. Update `metadataBase` in `app/layout.tsx`.
 - [ ] **Logo IP** — confirm stealth portfolio companies before sharing URL publicly.
-- [ ] **Photo swaps** — some writing card photos are thematic matches. Swap in `lib/data/media.ts`.
-- [ ] **LinkedIn post direct URLs** — currently some are profile-level. Update when direct URLs confirmed.
-- [ ] **Kolkata location in hero** — currently shows "Kolkata, India" (overrides old "Delhi, India" from data). Confirm this is correct.
+- [ ] **LinkedIn post direct URLs** — currently some are profile-level. Update in `lib/data/media.ts` when direct URLs confirmed.
+- [ ] **Writing card photos** — swap thematic photos in `lib/data/media.ts`.
 
 ---
 
-*Last updated: 2026-03-20 — Full visual layer rebuild per VISUAL-SPEC.md "The Storyteller" concept. All components rewritten. Build passing (0 errors).*
+*Last updated: 2026-03-21 — Video intro live, logo constellation with burst+float, Intersection redesigned to 3 pillar cards, font upgrade (Inter body + Cormorant Garamond subheadings), Kolkata→Mumbai map route added, spacing tightened across all sections.*
