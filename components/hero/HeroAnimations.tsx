@@ -218,7 +218,7 @@ export function HeroAnimations() {
               muted
               playsInline
               loop
-              preload="auto"
+              preload="metadata"
               className="w-full h-full object-cover"
               poster="/intro-poster.jpg"
             />

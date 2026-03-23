@@ -1,6 +1,12 @@
+import dynamic from 'next/dynamic'
 import { fundData } from '@/lib/data/fund'
-import { FundAnimations } from '@/components/fund/FundAnimations'
-import { LogoGrid } from '@/components/fund/LogoGrid'
+
+const FundAnimations = dynamic(() =>
+  import('@/components/fund/FundAnimations').then((m) => m.FundAnimations)
+)
+const LogoGrid = dynamic(() =>
+  import('@/components/fund/LogoGrid').then((m) => m.LogoGrid)
+)
 
 export function FundSection() {
   return (

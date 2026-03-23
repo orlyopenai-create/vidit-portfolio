@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400'],
   style: ['normal', 'italic'],
   variable: '--font-subheading',
   display: 'swap',
@@ -27,7 +27,7 @@ const inter = Inter({
 
 const dmMono = DM_Mono({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
+  weight: ['400'],
   variable: '--font-mono',
   display: 'swap',
 })

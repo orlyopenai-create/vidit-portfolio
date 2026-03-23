@@ -16,8 +16,8 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 
 ## Current Status
 
-**Phase:** Session 3 complete (2026-03-21)
-**Last action:** All sections reviewed and polished. Writing + Footer enhanced with motion and editorial details.
+**Phase:** Session 4 complete (2026-03-23)
+**Last action:** Performance optimizations — dynamic imports for below-fold sections, font weight trim, video preload fix.
 
 **Live URL:** `https://viditdugar.orlyfashion.com` (custom domain — Vercel auto-deploys on push to master)
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -195,11 +195,28 @@ Three editorial pillar cards (replaced SVG Venn — text was overlapping):
 
 ---
 
+## Hosting
+
+**Platform: Vercel** (confirmed, stay here — it's the best platform for Next.js)
+- Auto-deploys on push to master
+- Global CDN, edge functions for OG image route
+- Free tier is solid for a portfolio
+
 ## Pending / Open Items
 
 - [ ] **Other logos** — check remaining logos for visibility issues. Use `tileBg` or `logoFilter` fields, or fetch from company websites.
+- [ ] **Video compression** — `intro.mp4` is 3.9MB. Compress to <1MB with HandBrake or ffmpeg (H.264, CRF 28, 720p) for faster mobile load.
 
-## Completed This Session (2026-03-21)
+## Completed This Session (2026-03-23)
+
+- Performance optimizations:
+  - `preload="auto"` → `preload="metadata"` on hero video (stops 3.9MB blocking initial load)
+  - Cormorant Garamond: reduced from 4 weights to 2 (300+400 only) — removes 4 font file requests
+  - DM Mono: reduced from 3 weights to 1 (400 only) — removes 2 font file requests
+  - `next/dynamic` lazy imports for FundSection, BarbershopSection, MediaSection, FooterSection — splits JS bundle so browser only loads above-fold code on initial paint
+  - FundAnimations + LogoGrid also dynamic inside FundSection (heaviest component)
+
+## Completed Session 3 (2026-03-21)
 
 - Bridge section rebuilt — context intro, new editorial title "Two CEOs. Two Gen Zs. No script.", card UX fixes
 - Footer — email updated (dugarvidit@gmail.com), phone added, LinkedIn logo, Kolkata line removed
@@ -211,4 +228,4 @@ Three editorial pillar cards (replaced SVG Venn — text was overlapping):
 
 ---
 
-*Last updated: 2026-03-21 — Session 3 complete: map fixed (projection, plane great-circle, Africa clip), Intersection copy reworked from CV, Fund section moved before Bridge, portfolio data populated from Q3 FY26 PDF, logo fixes, Writing carousel enhanced (auto-advance + pull-quote overlay + staggered entrance), Footer rebuilt (nav col + availability badge + pull quote).*
+*Last updated: 2026-03-23 — Session 4: performance optimizations (video preload, font weight trim, dynamic section imports). Vercel confirmed as hosting platform.*
