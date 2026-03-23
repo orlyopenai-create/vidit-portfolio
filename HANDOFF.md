@@ -19,7 +19,7 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 **Phase:** Session 4 complete (2026-03-23)
 **Last action:** Performance optimizations — dynamic imports for below-fold sections, font weight trim, video preload fix.
 
-**Live URL:** `https://viditdugar.orlyfashion.com` (custom domain — Vercel auto-deploys on push to master)
+**Live URL:** `https://vidit-portfolio-vidits-projects-2e1fabba.vercel.app` (Vercel auto-deploys on push to master)
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
 
 **Build status:** Passing (`npm run build` — 0 TypeScript errors, 0 warnings)
