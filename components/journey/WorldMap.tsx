@@ -10,8 +10,7 @@ import {
 } from 'react-simple-maps'
 import { geoInterpolate } from 'd3-geo'
 import { journeyCities, type JourneyCity } from '@/lib/data/journey'
-
-const GEO_URL = '/world-110m.json'
+import geoData from '../../public/world-110m.json'
 
 const JOURNEY_PAIRS: Array<[string, string]> = [
   ['kolkata', 'mumbai'],
@@ -182,7 +181,7 @@ export function WorldMap() {
           </defs>
 
           <g clipPath="url(#map-clip)">
-          <Geographies geography={GEO_URL}>
+          <Geographies geography={geoData as never}>
             {({ geographies }) =>
               geographies.map((geo) => (
                 <Geography
