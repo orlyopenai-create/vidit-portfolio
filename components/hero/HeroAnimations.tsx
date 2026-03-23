@@ -165,21 +165,10 @@ export function HeroAnimations() {
           />
 
           {/* Headline — word-by-word stagger */}
-          <div className="mb-8">
-            <h1 className="font-display font-bold text-[clamp(2.5rem,5vw,6.5rem)] leading-[1.0] tracking-[-0.02em] text-foreground">
-              <WordReveal text="Kolkata. London. Delhi." startDelay={0.25} className="" />
-              <WordReveal text="Operating, Finance, Investing." startDelay={0.45} className="mt-[-0.05em]" />
+          <div className="mb-14">
+            <h1 className="font-display font-normal text-[clamp(2.8rem,5.5vw,7rem)] leading-[1.05] tracking-[-0.01em] text-foreground">
+              <WordReveal text="I've sat on both sides of the table." startDelay={0.25} className="" />
             </h1>
-
-            {/* Italic sublines */}
-            <div className="mt-3">
-              <WordReveal
-                text="All roads led back to founders."
-                startDelay={0.7}
-                stagger={0.05}
-                className="font-display font-normal italic text-[clamp(1.6rem,3.5vw,4rem)] leading-[1.15] text-foreground/70"
-              />
-            </div>
           </div>
 
           {/* Name + location */}
