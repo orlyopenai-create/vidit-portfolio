@@ -16,8 +16,8 @@ Single-page scrolling portfolio website for **Vidit Dugar** — personal brand s
 
 ## Current Status
 
-**Phase:** Session 4 complete (2026-03-23)
-**Last action:** Performance optimizations — dynamic imports for below-fold sections, font weight trim, video preload fix.
+**Phase:** Session 5 complete (2026-03-25)
+**Last action:** Hero headline replaced, performance optimisations, map fix, Vercel URL cleaned up.
 
 **Live URL:** `https://vidit-dugar.vercel.app` (Vercel auto-deploys on push to master)
 **GitHub:** `https://github.com/orlyopenai-create/vidit-portfolio` (auto-deploys on push to master)
@@ -198,16 +198,24 @@ Three editorial pillar cards (replaced SVG Venn — text was overlapping):
 ## Hosting
 
 **Platform: Vercel** (confirmed, stay here — it's the best platform for Next.js)
+- Project name: `vidit-dugar` → URL: `https://vidit-dugar.vercel.app`
 - Auto-deploys on push to master
+- Deployment Protection: OFF (public access enabled)
 - Global CDN, edge functions for OG image route
-- Free tier is solid for a portfolio
 
 ## Pending / Open Items
 
 - [ ] **Other logos** — check remaining logos for visibility issues. Use `tileBg` or `logoFilter` fields, or fetch from company websites.
-- [ ] **Video compression** — `intro.mp4` is 3.9MB. Compress to <1MB with HandBrake or ffmpeg (H.264, CRF 28, 720p) for faster mobile load.
 
-## Completed This Session (2026-03-23)
+## Completed Session 5 (2026-03-25)
+
+- Hero headline replaced: three-line stack → single line "I've sat on both sides of the table." (Playfair normal weight, clamp(2.8rem,5.5vw,7rem), tracking-[-0.01em])
+- World map fix: switched from client-side fetch of `/world-110m.json` to direct bundled import — eliminates silent fetch failure on Vercel
+- Vercel URL: renamed project to `vidit-dugar` → `vidit-dugar.vercel.app`, set alias, disabled Deployment Protection
+- Video: replaced `public/intro.mp4` with HEVC H.265 encode (3.8MB → 2.8MB)
+- `public/intro.mp4` video: `preload="auto"` → `preload="metadata"`
+
+## Completed Session 4 (2026-03-23)
 
 - Performance optimizations:
   - `preload="auto"` → `preload="metadata"` on hero video (stops 3.9MB blocking initial load)
@@ -228,4 +236,4 @@ Three editorial pillar cards (replaced SVG Venn — text was overlapping):
 
 ---
 
-*Last updated: 2026-03-23 — Session 4: performance optimizations (video preload, font weight trim, dynamic section imports). Vercel confirmed as hosting platform.*
+*Last updated: 2026-03-25 — Session 5: hero headline rewritten, map fix, HEVC video, Vercel URL cleaned up to vidit-dugar.vercel.app, Deployment Protection disabled.*
